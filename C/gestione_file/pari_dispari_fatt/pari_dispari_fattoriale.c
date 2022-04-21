@@ -57,6 +57,10 @@ int main()
         fprintf (fattoriale, "%lld\n", fatt(n));
     }
     
+    fclose(numeri);
+    fclose(pari);
+    fclose(dispari);
+    fclose(fattoriale);
 
     return 0;
 }
