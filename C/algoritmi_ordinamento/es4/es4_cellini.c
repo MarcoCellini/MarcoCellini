@@ -1,73 +1,69 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-FILE *temp;
+FILE *numeri, *out;
 
 int cmpfunc (const void * a, const void * b)
 {
-   return ( *(float*)a - *(float*)b );
+   return ( *(int*)a - *(int*)b );
 }
 
 void control()
 {
-    if (fopen ("./temperatura.txt", "r") == NULL)
+    if (fopen ("./numeri.txt", "r") == NULL)
     {
         printf ("\n\nFile non esistente!!!\n\n");
         exit(1);
     }
 }
 
-void apri()
+void clean()
 {
-    temp = fopen ("./temperatura.txt", "r");
+    remove ("./output.txt");
 }
 
-int n_temp()
+int countline()
 {
     int tot=0;
     char c;
-    while (! feof(temp))
-    {
-        fscanf (temp, "%c ", &c);
-        if (c == '.')
+    for (c = getc(numeri); c != EOF; c =getc (numeri))
+        if (c == '\n')
             ++tot;
-    }
-    fclose(temp);
-    temp = fopen ("./temperatura.txt", "r");
-    return tot;
+    fclose(numeri);
+    numeri = fopen ("./numeri.txt", "rt");
+    return tot+1;
 }
 
-void print(float temp[], int l)
+void print(int arr[], int l)
 {
     for (int i = 0; i < l; i++)
-        printf ("%.1f\t", temp[i]);
+    {
+        fprintf (out, "%d\n", arr[i]);
+    }
 }
 
 int main()
 {
     control();
-    apri();
+    clean();
 
-    int i=0, l = n_temp();
-    float arr_temp[l];
-    while (! feof(temp))
+    numeri = fopen ("./numeri.txt", "rt");
+    out = fopen ("./output.txt", "at");
+    
+    int l = countline();
+
+    int arr[l], i=0;
+    while (! feof(numeri))
     {
-        fscanf (temp, "%f", &arr_temp[i++]);
+        fscanf (numeri, "%d\n", &arr[i++]);
     }
+    
+    qsort (arr, l, sizeof (int), cmpfunc);
+    
+    print(arr, l);
 
-    printf ("\n\nTemp iniziali:\n");
-    print(arr_temp, l);
-    printf ("\n\n");
-
-    qsort (arr_temp, l, sizeof (float), cmpfunc);
-
-    printf ("\n\nTemp ordinate:\n");
-    print(arr_temp, l);
-    printf ("\n\n");
-
-    printf ("La temperatura minima e':\t%.1f\nLa temperatura massima e':\t%.1f\n\n", arr_temp[0], arr_temp[l-1]);
-
-    fclose(temp);
+    fclose(numeri);
+    fclose(out);
 
     return 0;
 }

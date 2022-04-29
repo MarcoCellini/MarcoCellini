@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-FILE *numeri, *out;
+FILE *numeri;
 
 int cmpfunc (const void * a, const void * b)
 {
@@ -15,11 +15,6 @@ void control()
         printf ("\n\nFile non esistente!!!\n\n");
         exit(1);
     }
-}
-
-void clean()
-{
-    remove ("./output.txt");
 }
 
 int countline()
@@ -36,19 +31,18 @@ int countline()
 
 void print(int arr[], int l)
 {
+    printf ("\n\nNumeri ordinati:\n");
     for (int i = 0; i < l; i++)
     {
-        fprintf (out, "%d\n", arr[i]);
+        printf ("%i\n", arr[i]);
     }
 }
 
 int main()
 {
     control();
-    clean();
-
+    
     numeri = fopen ("./numeri.txt", "rt");
-    out = fopen ("./output.txt", "at");
     
     int l = countline();
 
@@ -63,7 +57,6 @@ int main()
     print(arr, l);
 
     fclose(numeri);
-    fclose(out);
 
     return 0;
 }
