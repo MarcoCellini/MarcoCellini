@@ -1,7 +1,3 @@
-from cgi import print_arguments
-from pickle import FALSE, TRUE
-from tkinter.tix import Tree
-
 
 print ("\nCiao stupido bambino\n\nWEEEEEEE")
 
