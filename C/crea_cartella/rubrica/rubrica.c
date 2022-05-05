@@ -23,10 +23,8 @@ int countline()
     rubrica = fopen ("./rubrica.txt", "r");
     return tot+1;
 }
-int n_righe = countline();
-struct dati d[n_righe];
 
-void print ()
+void print (struct dati *d)
 {
     int i;
     while (! feof(rubrica))
@@ -87,7 +85,7 @@ void choose()
     }
 }
 
-void copy()
+void copy(struct dati *d)
 {
     rubrica = fopen ("./rubrica.txt", "r");
     new_rubrica = fopen ("/home/marco/Documenti/marco/github_privato/MarcoCellini/C/crea_cartella/rubrica/New_rubrica/new_rubrica.txt", "a");
@@ -97,15 +95,19 @@ void copy()
     while (! feof(rubrica))
     {
         fscanf (rubrica, "%s\t%s\t%li", d[i].nome, d[i].cognome, &d[i++].numero);
-        print();
+        print(d);
     }
 }
 
 int main()
 {
+    int n_righe = countline();
+    struct dati d[n_righe];
+
     control();
     new_dir();
-    copy();
+    copy(d);
     choose();
+
     return 0;
 }
