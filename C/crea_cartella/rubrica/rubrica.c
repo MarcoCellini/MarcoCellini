@@ -14,17 +14,18 @@ struct dati
 
 int countline()
 {
+    rubrica = fopen ("./rubrica.txt", "r");
     int tot=0;
     char c;
     for (c = getc(rubrica); c != EOF; c = getc(rubrica))
         if (c == '\n')
             ++tot;
-    fclose(rubrica);
-    rubrica = fopen ("./rubrica.txt", "r");
+    fclose (rubrica);
+printf ("\nciao\n");
     return tot+1;
 }
 
-void print (struct dati *d)
+void print (struct dati d[], size_t l)
 {
     int i;
     while (! feof(rubrica))
@@ -50,7 +51,7 @@ void control()
 
 void clean()
 {
-    remove ("/home/marco/Documenti/marco/github_privato/MarcoCellini/C/crea_cartella/rubrica/New_rubrica/new_rubrica.txt");
+    remove ("New_rubrica/new_rubrica.txt");
 }
 
 void add()
@@ -66,10 +67,10 @@ void add()
     fprintf (new_rubrica, "%s\t%s\t%li", nome, cognome, n);
 }
 
-void mod()
+/*void mod()
 {
 
-}
+}*/
 
 void choose()
 {
@@ -78,36 +79,44 @@ void choose()
     scanf ("%c", &c);
     switch (c)
     {
-        case 'm': mod(); break;
+        //case 'm': mod(); break;
         case 'c': clean(); break;
         case 'a': add(); break;
         default: break;
     }
 }
 
-void copy(struct dati *d)
+void copy(struct dati d[], size_t l)
 {
-    rubrica = fopen ("./rubrica.txt", "r");
-    new_rubrica = fopen ("/home/marco/Documenti/marco/github_privato/MarcoCellini/C/crea_cartella/rubrica/New_rubrica/new_rubrica.txt", "a");
-    
+    new_rubrica = fopen ("New_rubrica/new_rubrica.txt", "a");
+    rubrica = fopen ("./rubrica.txt", "r+");
     int  i=0;
     char c;
     while (! feof(rubrica))
     {
         fscanf (rubrica, "%s\t%s\t%li", d[i].nome, d[i].cognome, &d[i++].numero);
-        print(d);
+        print(d, l);
     }
+    printf ("\n%s 1\n", d[0].nome);
+}
+
+void close()
+{
+    fclose (rubrica);
+    fclose (new_rubrica);
 }
 
 int main()
 {
     int n_righe = countline();
+    printf ("%d", n_righe);
     struct dati d[n_righe];
 
     control();
     new_dir();
-    copy(d);
+    copy(d, n_righe);
     choose();
+    close();
 
     return 0;
 }
