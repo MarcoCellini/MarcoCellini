@@ -19,7 +19,7 @@ int main()
     printf ("\nInserire la stringa:\t");
     scanf ("%s", parola);
 
-    while (! (parola[0] == '0' && parola[1] == '0'))
+    while (! (parola[0] == '0' && parola[1] == '0' && strlen (parola) == 2))
     {
         if (parola[0] == '0')
             fprintf (out, "\n");
