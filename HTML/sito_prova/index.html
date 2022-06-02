@@ -210,21 +210,66 @@
 
         <div>
             <label for="email">Email: </label>
-            <input type="email" name="email" id="email" placeholder="email@email.com">
+            <input type="email" name="email" id="email" placeholder="email@email.com" required>
         </div>
 
         <br>
 
         <div>
             <label for="tel">Telefono: </label>
-            <input type="tel" name="tel" id="tel" placeholder="123 456 23 54">
+            <input type="tel" name="tel" id="tel" placeholder="123 456 23 54" required>
         </div>
 
         <br>
 
         <div>
             <label for="compleanno">Compleanno: </label>
-            <input type="date" name="compleanno" id="compleanno">
+            <input type="date" name="compleanno" id="compleanno" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="quantita">Quantità: </label>
+            <input type="number" name="quantita" id="quantita" min="0" max="99"  value="1" required>    <!--'value' come numeri iniziale-->
+        </div>
+
+        <br>
+
+        <div>                            <!--se non sono dello stesso gruppo se ne possono selezionare più di uno-->
+
+            <label for="sesso"><b>Sesso:</b> </label>
+
+            <label for="maschio" style="color: blue;">maschio</label>
+            <input type="radio" name="sesso" id="maschio" value="Maschio">
+
+            <label for="femmina" style="color: rgb(255, 101, 126);">femmina</label>
+            <input type="radio" name="sesso" id="femmina" value="Femmina">
+
+            <label for="altro">altro</label>
+            <input type="radio" name="sesso" id="altro" value="Altro">
+        </div>
+
+        <br>
+
+        <div>
+
+            <label for="pagamento">Pagamento: </label>
+
+            <select name="payment" id="payment">        <!--sele<ione a più scelte-->
+                <option value="visa">Visa</option>
+                <option value="mastercard">Master Card</option>
+                <option value="BTC">Bitcoin</option>
+                <option value="contanti">Contanti</option>
+            </select>
+
+        </div>
+
+        <br>
+
+        <div>
+            <label for="dati">Acconsenti a farti rubare tutti i dati??? </label>
+            <input type="checkbox" name="dati" id="dati">
         </div>
 
         <br>
@@ -233,6 +278,12 @@
             <input type="reset" style="color: red; background-color: black;">
             <input type="submit" style="color: green; background-color: black;">
         </div>
+
+        <hr>
+        
+        <a href="/page3_css.html" target="_self" title="pag3_css">
+            <h2><b>Pagina 3 CSS</b></h2>
+        </a>
 
     </form>
 
