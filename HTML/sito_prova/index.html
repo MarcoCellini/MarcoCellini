@@ -170,13 +170,71 @@
 
     <p id="test">Hello</p>
 
+</div>
     <script>
         function doSomething(){
-            document.getElementsById("test").innerHTML = "Adioss";
+            document.getElementsById("test").innerHTML = "Adiosssssssssssssssssssss";
         }
     </script>
 
-</div>
+    <hr>
+
+    <!--Forms-->
+
+    <h1 align="center">
+        <b>Casella di inserimento</b>
+    </h1>
+
+    <form action="action_page.php" method="post">
+
+        <div>
+            <label for="nome">Nome: </label>             <!--casella dove inserire info-->
+            <input type="text" id="nome" name="nome" placeholder="inserire il nome" required>  <!--con 'required' ti avvisa di compilare quel campo-->
+        </div>
+
+        <br>
+
+        <div>
+            <label for="cognome">Cognome: </label>
+            <input type="text" id="cognome" name="cognome" placeholder="inserire il cognome" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" id="pass" name="pass" placeholder="inserire la password" required maxlength="16">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" placeholder="email@email.com">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="tel">Telefono: </label>
+            <input type="tel" name="tel" id="tel" placeholder="123 456 23 54">
+        </div>
+
+        <br>
+
+        <div>
+            <label for="compleanno">Compleanno: </label>
+            <input type="date" name="compleanno" id="compleanno">
+        </div>
+
+        <br>
+
+        <div>
+            <input type="reset" style="color: red; background-color: black;">
+            <input type="submit" style="color: green; background-color: black;">
+        </div>
+
+    </form>
 
 </body>
 </html>
