@@ -18,5 +18,18 @@ h1 {
 }
 
 .anagrafica {
-  margin-left: 50px;
+  margin-left: 25px;
+}
+
+.vl {
+  border-left: 6px solid black;
+  height: 830px;
+  position: absolute;
+  left: 50%;
+  margin-left: -30px;
+  top: 220px;
+}
+
+.box {
+  margin-left: 350px;
 }

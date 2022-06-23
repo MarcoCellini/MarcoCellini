@@ -1,12 +1,5 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Radio from '@mui/material/Radio';
@@ -28,6 +21,15 @@ export default function Anagrafica() {
   const [local, setLocal] = React.useState('');
   const [provincia, setProvincia] = React.useState(''); 
   const [fineValidita, setFine] = React.useState('');
+
+  const [Denominazione, setDeno] = React.useState('');
+  const [indirizzo2, setIndirizzo2] = React.useState('');
+  const [nCivico2, setNcivico2] = React.useState('');
+  const [interno2, setInterno2] = React.useState('');
+  const [CAP2, setCAP2] = React.useState(''); 
+  const [local2, setLocal2] = React.useState('');
+  const [provincia2, setProvincia2] = React.useState('');
+  const [fineValidita2, setFine2] = React.useState('');
 
   const changeRsociale = (event) => {
     setRsociale(event.target.value);
@@ -60,18 +62,49 @@ export default function Anagrafica() {
     setFine(event.target.value);
   };
     
+
+  const changeDenominazione = (event) => {
+    setDeno(event.target.value);
+  };
+  const changeIndirizzo2 = (event) => {
+    setIndirizzo2(event.target.value);
+  };
+  const changeNcivico2 = (event) => {
+    setNcivico2(event.target.value);
+  };
+  const changeInterno2 = (event) => {
+    setInterno2(event.target.value);
+  };
+  const changeCAP2 = (event) => {
+    setCAP2(event.target.value);
+  };
+  const changeLocal2 = (event) => {
+    setLocal2(event.target.value);
+  };
+  const changeProvincia2 = (event) => {
+    setProvincia2(event.target.value);
+  };
+  const changeFine2 = (event) => {
+    setFine2(event.target.value);
+  };
+
   return (
-  <div align="left" class="anagrafica">
+  <div align="left">
     
     <div align="center">
         <h1>
-          Registazione
+          Registrazione
         </h1>
-      </div>
+    </div>
 
-    <Box sx={{ flexGrow: 1 }}>
-      <div align="left">
-        <Stack direction="row" spacing={12}>
+      {/*  Sezione aziende  */}
+
+  <div align="left" class="anagrafica">
+
+  <div class="box"><h2>Azienda</h2></div>
+
+      <Box sx={{ flexGrow: 1 }}>
+        <Stack direction="row" spacing={10}>
           <TextField
             required
             id="outlined-required"
@@ -151,13 +184,13 @@ export default function Anagrafica() {
               value={CAP}
               onChange={changeCAP}
               sx={{width: '90px' }}
-            /><ht /><ht /><ht /><ht /><ht />
+            /><ht /><ht /><ht /><ht />
             <Stack>
               <Button variant="contained" color="primary">Nuova azienda</Button>
             </Stack>
           </Stack>
           <br />
-          <Stack direction="row" spacing={62.5}>
+          <Stack direction="row" spacing={57}>
           <TextField
               required
               id="outlined-required"
@@ -170,14 +203,14 @@ export default function Anagrafica() {
             </Stack>
           </Stack>
           <br />
-        <Stack direction="row" spacing={19.5}>
+        <Stack direction="row" spacing={17.7}>
           <TextField
               required
               id="outlined-required"
               label="Provincia"
               value={provincia}
               onChange={changeProvincia}
-              sx={{width: '120px' }}
+              sx={{width: '105px' }}
             />
 
           <FormControl >
@@ -197,7 +230,7 @@ export default function Anagrafica() {
             </Stack>
         </Stack>
           <br />
-          <Stack direction="row" spacing={62.5}>
+          <Stack direction="row" spacing={57}>
             <TextField
                 required
                 id="outlined-required"
@@ -210,7 +243,7 @@ export default function Anagrafica() {
             </Stack>
           </Stack>
           <br />
-          <Stack direction="row" spacing={64.5}>
+          <Stack direction="row" spacing={59}>
             <TextField
             id="outlined-multiline-static"
             label="Note"
@@ -221,8 +254,120 @@ export default function Anagrafica() {
               <Button variant="contained" color="primary">Annulla</Button>
             </Stack>
           </Stack>
-      </div>
-    </Box>
+        </Box>
+    </div>
+
+      {/*  Sezione denominazioni  */}
+
+  <div class="vl">
+    <div align="left" class="anagrafica">
+
+        <div align="center"><h2>Denominazione</h2></div>
+
+      <Box sx={{ flexGrow: 1 }}>
+        <Stack direction="row" spacing={10}>
+          <TextField
+            required
+            id="outlined-required"
+            label="Denominazione"
+            value={Denominazione}
+            onChange={changeDenominazione}
+          />
+        </Stack>
+          <br />
+          <TextField
+            required
+            id="outlined-required"
+            label="Indirizzo"
+            value={indirizzo2}
+            onChange={changeIndirizzo2}
+          />
+          <br /><br />
+          <Stack direction="row" spacing={5}>
+            <TextField
+              required
+              id="outlined-required"
+              label="Numero civico"
+              value={nCivico2}
+              onChange={changeNcivico2}
+            />
+            
+            <TextField
+              required
+              id="outlined-required"
+              label="Interno"
+              value={interno2}
+              onChange={changeInterno2}
+              sx={{width: '90px' }}
+            />
+            <TextField
+              required
+              id="outlined-required"
+              label="CAP"
+              value={CAP2}
+              onChange={changeCAP2}
+              sx={{width: '90px' }}
+            /><ht /><ht /><ht /><ht />
+            <Stack>
+              <Button variant="contained" color="primary">Nuova denominazioni</Button>
+            </Stack>
+          </Stack>
+          <br />
+          <Stack direction="row" spacing={57}>
+          <TextField
+              required
+              id="outlined-required"
+              label="Località"
+              value={local2}
+              onChange={changeLocal2}
+            />
+            <Stack>
+              <Button variant="contained" color="warning">Modifica denominazioni</Button>
+            </Stack>
+          </Stack>
+          <br />
+        <Stack direction="row" spacing={71.5}>
+          <TextField
+              required
+              id="outlined-required"
+              label="Provincia"
+              value={provincia2}
+              onChange={changeProvincia2}
+              sx={{width: '105px' }}
+            />
+          <Stack>
+              <Button variant="contained" color="error">Rimuovi denominazioni</Button>
+            </Stack>
+        </Stack>
+          <br />
+          <Stack direction="row" spacing={57}>
+            <TextField
+                required
+                id="outlined-required"
+                label="Data fine validità"
+                value={fineValidita2}
+                onChange={changeFine2}
+              />
+            <Stack>
+              <Button variant="contained" color="primary">Aggiorna</Button>
+            </Stack>
+          </Stack>
+          <br />
+          <Stack direction="row" spacing={59}>
+            <TextField
+            id="outlined-multiline-static"
+            label="Note"
+            multiline
+            rows={4}
+          />
+            <Stack>
+              <Button variant="contained" color="primary">Annulla</Button>
+            </Stack>
+          </Stack>
+        </Box>
+    </div>
+  </div>
+      
   </div>
   );
 }

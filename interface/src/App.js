@@ -8,7 +8,7 @@ import Profile from './pages/Profile.js';
 import Register from './pages/Register.js';
 import Header from './components/Header.js';
 import Anagrafica from './pages/anagrafica';
-import Altro from './pages/Altro';
+import AnagraficaC from './pages/AnagraficaC';
 import Azienda from './pages/Azienda';
 import Attivita from './pages/Attivita';
 import Operatori from './pages/Operatori'
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/anagrafica/altro" element={<Altro />} />
+          <Route path="/anagrafica/anagraficaC" element={<AnagraficaC />} />
           <Route path="/login" element={<Login />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/myaccount" element={<Myaccount />} />

@@ -102,6 +102,18 @@ export default function MenuAppBar() {
 
   const clickLeftMenu = event => {
     setAnchorEl2(event.currentTarget);
+    setOpenAnagrafica(false);
+    setOpenOrdiniF(false);
+    setOpenOrdiniC(false);
+    setOpenLotti(false);
+    setOpenMov(false);
+    setOpenProd(false);
+    setOpenList(false);
+    setOpenInventario(false);
+    setOpenAbilitazioni(false);
+    setOpenTabS(false);
+    setOpenTabR(false);
+    setOpenMagF(false);
   };
 
   /* routePaths are defined in App.js */
@@ -146,16 +158,12 @@ export default function MenuAppBar() {
                 </ListItem>
                 <Collapse in={openAnagrafica} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                <ListItem button onClick={() => redirectRoute("/Anagrafica/Altro")}>
-                      <ListItemText primary="Altro" />
+                <ListItem button onClick={() => redirectRoute("/Anagrafica/AnagraficaC")}>
+                      <ListItemText primary="Anagrafiche clienti" />
                     </ListItem>     
                   </List>
                 </Collapse>
 
-                <hr />
-                <ListItem button  onClick={() => redirectRoute("/Anagrafica")}>
-                  <ListItemText primary="Anagrafica" />
-                </ListItem>
                 <hr />
 
                 <ListItem button onClick={clickOrdiniF}>
