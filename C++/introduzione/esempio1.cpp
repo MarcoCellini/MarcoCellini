@@ -24,9 +24,14 @@ class Cerchio {
 int main() {
     Cerchio c1;
 
-    c1.set_r(3);
+    //c1.set_r(3);
+    int r;
 
-    cout << "Area: " << c1.calcola_A() << endl << "Perimetro: " << c1.calcola_P() << endl;
+    cout << "Inserisci il raggio: ";        // fase ci acquisizione valore raggio
+    cin >> r;
+    c1.set_r(r);
+
+    cout << "Area: " << c1.calcola_A() << endl << "Perimetro: " << c1.calcola_P() << endl;      // output
 
     system("PAUSE");
 
