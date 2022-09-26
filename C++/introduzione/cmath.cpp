@@ -10,7 +10,7 @@ class quadrato {
     public:
         quadrato(float num) {l = num;}
 
-        float Area() {return(l * l);}
+        float Area() {return(pow(l, 2));}
 
         float Perimetro() {return(l * 4);}
 
