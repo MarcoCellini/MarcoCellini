@@ -7,6 +7,8 @@ class Libro {
         string Titolo;
         string Autore;
         string Anno;
+
+        Libro() {}
 };
 
 int main() {

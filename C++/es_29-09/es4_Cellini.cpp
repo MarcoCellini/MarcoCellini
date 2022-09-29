@@ -6,6 +6,8 @@ class Frazione {
     public:
         int Numeratore;
         int Denominatore;
+
+        Frazione() {}
 };
 
 int main() {

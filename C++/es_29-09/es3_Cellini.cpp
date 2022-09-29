@@ -7,6 +7,8 @@ class Impiegato {
         string Nome;
         string Cognome;
         string Reparto;
+
+        Impiegato() {}
 };
 
 int main() {
