@@ -16,11 +16,19 @@ class Libro {
         Libro() {}
 };
 
+char choose() {
+    char v;
+    cout << "\n\nInserire [t] per cercare il libro partendo dal Titolo\nInserire [+] per aggiungere un libro alla biblioteca\nInserire [a] per cercare tutti i libri di uno specifico autore\n..................";
+    cin >> v;
+
+    return(v);
+}
+
 int main() {
     Libro l[N];
     
     int n;
-    cout << "\nQuanti libri di voglio inserire:\t";
+    cout << "\nQuanti libri voglio inserire:\t";
     cin >> n; 
 
     for (int i = 0; i < n; i++) {
@@ -36,12 +44,10 @@ int main() {
         cin >> l[i].Autore;
     }
 
-    char v;
-    cout << "\n\nInserire [t] per cercare il libro partendo dal Titolo\nInserire [+] per aggiungere un libro alla biblioteca\nInserire [a] per cercare tutti i libri di uno specifico autore\n..................";
-    cin >> v;
-
     string autore;
     string titolo;
+    
+    char v = choose();
 
     switch (v)
     {
