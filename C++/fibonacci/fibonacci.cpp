@@ -30,4 +30,5 @@ int main() {
         n.print();
     }
     
+    return 0;
 }
