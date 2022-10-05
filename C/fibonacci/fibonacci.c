@@ -7,7 +7,7 @@ struct N {
 
 void print() {
     double tot = n.n1 + n.n2;
-    printf("%lf\n", tot);
+    printf("%.0lf\n", tot);
 
     if(n.n1 > n.n2) {
         n.n2 = tot;
@@ -21,7 +21,7 @@ int main() {
     n.n1 = 0;
     n.n2 = 1;
 
-    printf("%lf\n", n.n2);
+    printf("%.0lf\n", n.n2);
     while (1)
     {
         print();
