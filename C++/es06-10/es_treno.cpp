@@ -1,6 +1,7 @@
 #include <iostream>
 
 #define n_vagoni 3
+#define n_fermate 2
 
 using namespace std;
 
@@ -36,32 +37,67 @@ int main() {
     cout << "\n\nIl treno inizia la sua corsa vouto.\n";
 
     int n = 0;
-    for (int i = 0; i < 2; i++) {
+    for (int i = 0; i < n_fermate; i++) {
         cout << "\n\nIl treno raggiunge la " << i+1 << "^ fermata.\n";
-        if (i = 0) {
+        if (i == 0) {
             cout << "\nTutti i posti sono liberi.";
             cout << "\nInserire il numero di persone che SALGONO sul treno per ogni vagone:\n";
             for (int x = 0; x < n_vagoni; x++) {
                 cout << "Vagone " << x+1 << ":\t";
                 cin >> n;
-                v[i].posti_liberi -= n;
+                if (n > t.postixvagone) {
+                    cout << n - t.postixvagone << " persone no posso salire su questo vagone.\n";
+                    v[x].posti_liberi = 0;
+                }
+                else {
+                    v[x].posti_liberi = v[x].posti_liberi - n;
+                }
             }
-
         }
         else {
             cout << "\nInserire il numero di persone che SALGONO sul treno per ogni vagone:\n";
             for (int x = 0; x < n_vagoni; x++) {
-                cout << "Vagone " << x+1 << ":\t";
-                cin >> n;
-                v[i].posti_liberi -= n;
+                if (v[x].posti_liberi <= 0) {
+                    cout << "Vagone " << x+1 << " pieno.\n";
+                }
+                else {
+                    cout << "Ci sono abbastanza posti liberi.\n";
+                    cout << "Vagone " << x+1 << ":\t";
+                    cin >> n;
+                    if (n > t.postixvagone) {
+                        cout << n -t.postixvagone << " persone non posso salire su questo vagone.";
+                        v[x].posti_liberi = 0;
+                    }
+                    else {
+                        v[x].posti_liberi = v[x].posti_liberi - n;
+                    }
+                }
             }
-            cout << "\nInserire il numero di persone che SCENDONO sul treno per ogni vagone:\n";
-            for (int x = 0; x < n_vagoni; x++) {
-                cout << "Vagone " << x+1 << ":\t";
-                v[i].posti_liberi += n;
+
+            cout << "\nInserire il numero di persone che SCENDONO dal treno per ogni vagone:\n";
+            for (int y = 0; y < n_vagoni; y++) {
+                cout << "Vagone " << y+1 << ":\t";
+                cin >> n;
+                if (n > t.postixvagone) {
+                    cout << "\nTutte le persone sono scese dal treno.";
+                }
+                else {
+                    v[y].posti_liberi = v[y].posti_liberi + n;
+                }
+                
             }
         }
     }
+
+    for (int i = 0; i < n_vagoni; i++) {
+        if (v[i].posti_liberi <= 0) {
+            cout << "\nIl vagone " << i+1 << " e' pieno.";
+        }
+        else {
+           cout << "\nNel vagone " << i+1 << " ci sono " << v[i].posti_liberi << " posti liberi";
+        }
+    }
+    
 
     return 0;
 }
