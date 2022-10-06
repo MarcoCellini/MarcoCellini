@@ -7,6 +7,8 @@ sfr.load_encoding_images("images")
 
 # Load Camera
 cap = cv2.VideoCapture(0)
+cap.set(3, 1280)
+cap.set(4, 720)
 
 cellini = ["eta' = 17", "classe = 4 INF"]
 licciardino = ["eta' = 18", "classe = 4 INF"]
