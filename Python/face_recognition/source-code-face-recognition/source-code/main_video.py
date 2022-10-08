@@ -13,6 +13,7 @@ cap.set(4, 720)
 cellini = ["eta' = 17", "classe = 4 INF"]
 licciardino = ["eta' = 18", "classe = 4 INF"]
 prof = ["Docente indirizzo informatico"]
+rizzolo = ["eta' = 17", "classe = 4 INF"]
 
 while True:
     ret, frame = cap.read()
@@ -35,6 +36,10 @@ while True:
         if name == "prof_Mancuso" :
             cv2.putText(frame, prof[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
             cv2.putText(frame, prof[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Rizzolo_Lorenzo" :
+            cv2.putText(frame, rizzolo[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, rizzolo[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
 
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
 
