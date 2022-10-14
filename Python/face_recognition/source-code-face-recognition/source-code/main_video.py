@@ -17,6 +17,8 @@ rizzolo = ["eta' = 17", "classe = 4 INF"]
 vallosio = ["eta' = 17", "classe = 3 INF", "soprannome = Nick"]
 canale = ["eta' = 17", "classe = 4 INF", "soprannome = John"]
 linus = ["Inventore del kernel Linux"]
+gioele = ["eta' = 17", "classe = 4 INF"]
+ape = ["eta' = 18", "classe = 4 INF"]
 
 while True:
     ret, frame = cap.read()
@@ -55,6 +57,14 @@ while True:
 
         if name == "Linus_Torvalds" :
             cv2.putText(frame, linus[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Gioele_Mari" :
+            cv2.putText(frame, gioele[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, gioele[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Apetroaie_Antonio" :
+            cv2.putText(frame, ape[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, ape[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
 
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
 
