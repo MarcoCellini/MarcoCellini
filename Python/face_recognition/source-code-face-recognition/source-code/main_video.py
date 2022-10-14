@@ -14,6 +14,9 @@ cellini = ["eta' = 17", "classe = 4 INF"]
 licciardino = ["eta' = 18", "classe = 4 INF"]
 prof = ["Docente indirizzo informatico"]
 rizzolo = ["eta' = 17", "classe = 4 INF"]
+vallosio = ["eta' = 17", "classe = 3 INF", "soprannome = Nick"]
+canale = ["eta' = 17", "classe = 4 INF", "soprannome = John"]
+linus = ["Inventore del kernel Linux"]
 
 while True:
     ret, frame = cap.read()
@@ -35,11 +38,23 @@ while True:
 
         if name == "prof_Mancuso" :
             cv2.putText(frame, prof[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
-            cv2.putText(frame, prof[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
 
         if name == "Rizzolo_Lorenzo" :
             cv2.putText(frame, rizzolo[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
             cv2.putText(frame, rizzolo[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Canale_Andrea" :
+            cv2.putText(frame, canale[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, canale[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, canale[2],(10, 90), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Vallosio_Gariele" :
+            cv2.putText(frame, vallosio[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, vallosio[1],(10, 60), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+            cv2.putText(frame, vallosio[2],(10, 90), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
+
+        if name == "Linus_Torvalds" :
+            cv2.putText(frame, linus[0],(10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, (0, 0, 0), 2)
 
         cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 200), 4)
 
