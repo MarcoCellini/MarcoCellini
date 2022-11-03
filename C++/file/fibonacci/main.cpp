@@ -36,6 +36,13 @@ class Fib {
         void clean() {
             remove("sequenza-di-Fib/sequenza-fibonacci.txt");
         }
+
+        void control(int x) {
+            if (x < 3 && x > 100) {
+                cout << "\nValore invalido.";
+                exit(1);
+            }
+        }
 };
 
 Fib f;
@@ -44,6 +51,8 @@ int main() {
     int valore;
     cout << "\nInserire il numero di numeri da visualizzare nel file:\t";
     cin >> valore;
+
+    f.control(valore);
 
     f.clean();
 
