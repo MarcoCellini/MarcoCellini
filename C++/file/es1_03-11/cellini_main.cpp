@@ -5,6 +5,10 @@ using namespace std;
 
 fstream report;
     
+int myAtoi(char n, char n2) {
+    return (((int(n) - 48) * 10) + (int(n2) - 48));
+}
+
 void work() {
     report.open("report.txt", ios::in);
 
@@ -18,51 +22,51 @@ void work() {
 
         if (riga[2] == '0' && riga[3] == '1') {
             cout << "\nGennaio ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '2') {
             cout << "\nFebbraio ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '3') {
             cout << "\nMarzo ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '4') {
             cout << "\nAprile ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '5') {
             cout << "\nMaggio ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '6') {
             cout << "\nGiugno ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '7') {
             cout << "\nLuglio ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '8') {
             cout << "\nAgosto ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '0' && riga[3] == '9') {
             cout << "\nSettembre ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '1' && riga[3] == '0') {
             cout << "\nOttobre ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '1' && riga[3] == '1') {
             cout << "\nNovembre ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
         else if (riga[2] == '1' && riga[3] == '2') {
             cout << "\nDicembre ";
-            valoreMese = ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48);
+            valoreMese = /* ((int(riga[2]) - 48) * 10) + (int(riga[3]) - 48); */ myAtoi(riga[2], riga[3]);
         }
 
         cout << riga[0] << riga[1] << " " << riga[4] << riga[5] << riga[6] << riga[7] << " \nPezzi prodotti:\t" << riga[9] << riga[10] << endl;
