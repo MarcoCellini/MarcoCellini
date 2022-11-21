@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    int *puntatore, n = 5;         // memorizzo l'indirizzo dov'e' presente il numero
+    int *puntatore = NULL, n = 5;         // assegno l'indirizzo inizialmente sempre NULL
 
     puntatore = &n;     // assegno il valore int alla cella di mem puntatore
 
