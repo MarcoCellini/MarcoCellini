@@ -42,23 +42,23 @@ void fill() {
         cin >> ok;
         if (ok == "Si") {
             d[i].evento = 1;
-            elenco << ok << " " << endl;
+            elenco << ok << " ";
             partecipanti << d[i].nome << " " << d[i].cognome << endl;
         }
         else {
             d[i].evento = 0;
-            elenco << ok << " " << endl;
+            elenco << ok << " ";
         }
         cout << "Partecipi alla cena [Si-No]:\t";
         cin >> ok;
         if (ok == "Si") {
             d[i].cena= 1;
-            elenco << ok << " "<< endl;
+            elenco << ok << endl;
             cena << d[i].nome << " " << d[i].cognome << endl;
         }
         else {
             d[i].cena = 0;
-            elenco << ok << " " << endl;
+            elenco << ok << endl;
         }
     }
 
