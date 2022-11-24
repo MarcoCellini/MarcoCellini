@@ -28,24 +28,30 @@ void work() {
             switch (line[i]) {
             case 'i':
                 line[i] = '1';
+                change = 1;
             break;
 
             case 'I':
                 line[i] = '1';
+                change = 1;
             break;
             
             case 'o':
                 line[i] = '0';
+                change = 1;
             break;
 
             case 'O':
                 line[i] = '0';
+                change = 1;
             break;
             }
         }
 
         out << line << endl;
     }
+
+    change == 1 ? cout << "\nIl file e' stato modificato.\n" : cout << "\nIl file non ha subito modifiche\n";
 
     in.close();
     out.close();
