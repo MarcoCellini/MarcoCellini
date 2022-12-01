@@ -2,7 +2,7 @@
 
 using namespace std;
 
-char found_char(char carattere, char frase[], int lunghezza) {
+char * found_char(char carattere, char frase[], int lunghezza) {
     char *puntatore;
     for (int i = 0; i <  lunghezza; i++) {
         if (frase[i] == carattere) {
@@ -10,9 +10,7 @@ char found_char(char carattere, char frase[], int lunghezza) {
             return puntatore;
         }
     }
-    
-
-    return 0;
+    return NULL;
 }
 
 int main() {
@@ -23,7 +21,9 @@ int main() {
     cout << "\nInserire il carattere da cercare nella frase:\t";
     cin >> car;
 
-    found_char(car, s, l);
+    char *p = found_char(car, s, l);
+
+    cout << "\nPuntatore al carattere:\t" << &p << endl;
 
     return 0;
 }
