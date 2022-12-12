@@ -9,7 +9,7 @@ int main() {
     vet.push_back(7);
     vet.push_back(8);
 
-    vet.insert(vet.begin() + 3, 100);
+    vet.insert(vet.begin() + 2, 100);
 
     vet.pop_back();
     vet.pop_back();
