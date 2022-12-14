@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -48,6 +49,15 @@ int main() {
     for (int i = 0; i < vcopy.size(); i++) {
         cout << vcopy.at(i) << endl;
     }
+
+    vector <int>::iterator x = find(vet1.begin(), vet1.end(), 0);       // iteratore alla cella del valore da trovare    (#include <algorithm>)
+    cout << "\nIl valore 0 e' alla locazione:\t" << distance(vet1.begin(), x) << endl;      // distance calcola la distanza dell'iteratore all'inizio
+   
+    // MATRICE
+
+    vector <vector <int> > mat(3, vector <int> (2, 0));
+
+    
 
     return 0;
 }
