@@ -31,5 +31,17 @@ int main() {
     cout << vet1.at(2) << endl;         // stamapa la cella 2 del vettore
     // oppute vet1[2]    
 
+    vector <string> arr1;
+
+    arr1.push_back("ciao");
+    arr1.push_back("sei");
+    arr1.push_back("...");
+
+    vector <string> arr2(arr1);     // crea il vettore uguale all'altro
+
+    for (int i = 0; i < arr2.size(); i++) {
+        cout << arr2.at(i) << endl;
+    }
+
     return 0;
 }
