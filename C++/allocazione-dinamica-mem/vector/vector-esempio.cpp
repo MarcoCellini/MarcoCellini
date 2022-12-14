@@ -43,5 +43,11 @@ int main() {
         cout << arr2.at(i) << endl;
     }
 
+    vector <string> vcopy(arr2.begin(), arr2.begin() + 2);          // copia i primi due valori del vettore
+
+    for (int i = 0; i < vcopy.size(); i++) {
+        cout << vcopy.at(i) << endl;
+    }
+
     return 0;
 }
