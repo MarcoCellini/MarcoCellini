@@ -12,10 +12,8 @@ void print(list <int>::iterator iter, list <int> lista) {
 bool primi(int n) {         // controlla se il numero e' primo
     if (n <= 1) {return false;}
     if (n <= 3) {return true;}
-    if (n % 2 == 0 || n % 3 == 0) {return false;}
-
-    for (int i = 5; i * i <= n; i += 6) {
-        if (n % i == 0 || n % (i + 2) == 0) {
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0) {
             return false;
         }
     }
@@ -27,7 +25,7 @@ int main() {
     list<int>::iterator it;
 
     for (it = n.begin(); it != n.end(); ++it) {
-        if(*it > 10 && *it < 100 && primi(*it)) {
+        if(*it > 10 && *it < 100 && !primi(*it)) {
             copy.push_back(*it);
         }
     }
