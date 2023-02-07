@@ -6,6 +6,6 @@ let circonferenza;
 
 raggio = Number(window.prompt("inserire il raggio del cerchio"));
 
-circonferenza = raggio * 2 * PI;
+circonferenza = raggio * 2 * PI6;
 
 console.log("circonferenza = ", circonferenza);
