@@ -32,7 +32,7 @@ char pop(struct Pila *Pila) {
     char temp = Pila->top->carattere;
     Pila->top = tempNodo->next;
     Pila->size--;
-    free(tempNodo);
+    delete(tempNodo);
 
     return temp;
 }
