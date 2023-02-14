@@ -44,19 +44,13 @@ void push_front(struct Lista *l, int newValue) {
 
 void push_back(struct Lista *l, int newValue) {
     struct Numero *tempNumero = l->head;
-    struct Numero *last;
-    
-    last->numero = newValue;
-    //last->next = NULL;
-    
+    struct Numero *last = new Numero();
+
     while (tempNumero->next != NULL) {
-        if ((tempNumero->next)->next == NULL) {
-            break;
-        } else {
-            tempNumero = tempNumero->next;
-        }
+        tempNumero = tempNumero->next;
     }
 
+    tempNumero->numero = newValue;
     tempNumero->next = last;
     last->next = NULL;
 }
@@ -81,6 +75,7 @@ void pop_back(struct Lista *l) {
     }
 
     remove = tempNumero->next;
+    tempNumero->numero = 0;
     tempNumero->next = NULL;
     delete(remove);
 }
@@ -109,10 +104,12 @@ int main() {
     cout << endl << endl;
     print(&lista);
 
-    push_back(&lista, 69);
+    
 
     cout << endl << endl;
+   
+    push_back(&lista, 69);
     print(&lista);
-
+    
     return 0;
 }
