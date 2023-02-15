@@ -80,6 +80,36 @@ void pop_back(struct Lista *l) {
     delete(remove);
 }
 
+void ins(struct Lista *l, int position, int newValue) {
+    struct Numero *tempNumero = l->head;
+    struct Numero *nuovo = new Numero();
+
+    int cont = 0;
+    while (tempNumero->next != NULL && position-1 != cont) {
+        tempNumero = tempNumero->next;
+        cont++;
+    }
+
+    nuovo->numero = newValue;
+    nuovo->next = tempNumero->next;
+    tempNumero->next = nuovo;
+}
+
+void remove(struct Lista *l, int position) {
+    struct Numero *tempNumero = l->head;
+    struct Numero *remove;
+
+    int cont = 0;
+    while (tempNumero->next != NULL && position-1 != cont) {
+        tempNumero = tempNumero->next;
+        cont++;
+    }
+
+    remove = tempNumero->next;
+    tempNumero->next = (tempNumero->next)->next;
+    delete(remove);
+}
+
 int main() {
     Lista lista;            // Nuova lista
 
@@ -105,11 +135,19 @@ int main() {
     print(&lista);
 
     
-
     cout << endl << endl;
    
     push_back(&lista, 69);
     print(&lista);
     
+
+    cout << endl << endl;
+    ins(&lista, 5, 77);
+    print(&lista);
+
+    cout << endl << endl;
+    remove(&lista, 2);
+    print(&lista);
+
     return 0;
 }
