@@ -43,6 +43,40 @@ Lista fill(struct Lista *l, string op) {
     return *l;
 }
 
+string pop_front(struct Lista *l) {
+    struct Numero *tempNumero;
+    tempNumero = l->head;
+    string value = l->head->valore;
+    l->head = tempNumero->next;
+    delete(tempNumero);
+    return value;
+}
+
+int convert(struct Lista *l) {
+    struct Numero *n = l->head;
+
+    int v[2], cont = 0;
+    while (n->next != NULL) {
+        if (n->valore == "+") {
+            v[0] = v[0] + v[1];
+            cont = 1;
+        } else if (n->valore == "-") {
+            v[0] = v[0] - v[1];
+            cont = 1;
+        } else if (n->valore == "*") {
+            v[0] = v[0] * v[1];
+            cont = 1;
+        } else if (n->valore == "/") {
+            v[0] = v[0] / v[1];
+            cont = 1;
+        } else {
+            v[cont++] = stoi(n->valore);
+        }
+        n = n->next;
+    }
+    return v[0];
+}
+
 int main() {
     struct Lista lista;
 
@@ -52,7 +86,7 @@ int main() {
 
     lista = fill(&lista, operazione);
 
-    print(&lista);
+    cout << "\nIl risultato della seguente operazine e':\n" << operazione << " =\t" << convert(&lista);
 
     return 0;
 }
