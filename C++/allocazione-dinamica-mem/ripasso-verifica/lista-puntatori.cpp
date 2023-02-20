@@ -110,6 +110,34 @@ void remove(struct Lista *l, int position) {
     delete(remove);
 }
 
+void sort(struct Lista *l) {
+    struct Numero *x = l->head;
+
+    int size = 0;
+    while (x->next != NULL) {
+        size++;
+        x = x->next;
+    }
+    x = l->head;
+    
+    cout << "\nsize:\t" << size << endl;
+
+    int appoggio;
+    for (int i = 0; i < size - 1; i++){
+        for (int j = 0; j < size - i - 1; j++) {
+            if (x->numero > (x->next)->numero && (x->next)->next != NULL) {
+                appoggio = x->numero;
+                x->numero = (x->next)->numero;
+                (x->next)->numero = appoggio;
+            }
+            if (x->next != NULL) {
+                x = x->next;
+                break;
+            }
+        }
+    }
+}
+
 int main() {
     Lista lista;            // Nuova lista
 
@@ -147,6 +175,10 @@ int main() {
 
     cout << endl << endl;
     remove(&lista, 2);
+    print(&lista);
+
+    cout << endl << endl;
+    sort(&lista);
     print(&lista);
 
     return 0;
