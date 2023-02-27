@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rubrica>
+  <contatto>
+    <nome>andrea</nome>
+    <cognome>canale</cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>456789234</numero>
+  </contatto>
+  <contatto>
+    <nome>lorenzo</nome>
+    <cognome>rizzolo</cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>1234569043</numero>
+  </contatto>
+  <contatto>
+    <nome>alberto</nome>
+    <cognome>mastroianni</cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>7859239054</numero>
+  </contatto>
+  <contatto>
+    <nome>gino</nome>
+    <cognome>viono</cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>1238954937</numero>
+  </contatto>
+  <contatto>
+    <nome>
+    </nome>
+    <cognome>
+    </cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>7849239032</numero>
+  </contatto>
+  <contatto>
+    <nome>
+    </nome>
+    <cognome>
+    </cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>7842399843</numero>
+  </contatto>
+  <contatto>
+    <nome>marco</nome>
+    <cognome>tranaso</cognome>
+    <nascita>01/01/0001 00:00:00</nascita>
+    <numero>6783248954</numero>
+  </contatto>
+</rubrica>
