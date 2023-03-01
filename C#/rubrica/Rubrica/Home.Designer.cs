@@ -28,16 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListView listView1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.modifica = new System.Windows.Forms.Button();
             this.elimina = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
-            this.Nome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Cognome = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Telefono = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            listView1 = new System.Windows.Forms.ListView();
+            this.button1 = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,6 +43,7 @@
             this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.elimina);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
+            this.flowLayoutPanel1.Controls.Add(this.button1);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -84,27 +81,15 @@
             this.aggiungi.UseVisualStyleBackColor = false;
             this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
             // 
-            // listView1
+            // button1
             // 
-            listView1.BackColor = System.Drawing.Color.White;
-            listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Nome,
-            this.Cognome,
-            this.Telefono});
-            listView1.HideSelection = false;
-            listView1.Location = new System.Drawing.Point(210, 11);
-            listView1.Name = "listView1";
-            listView1.Size = new System.Drawing.Size(575, 381);
-            listView1.TabIndex = 2;
-            listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // Cognome
-            // 
-            this.Cognome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Telefono
-            // 
-            this.Telefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.button1.BackColor = System.Drawing.Color.Aqua;
+            this.button1.Location = new System.Drawing.Point(3, 195);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 58);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Visualizza Rubrica";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Home
             // 
@@ -112,7 +97,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(listView1);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -130,9 +114,7 @@
         private System.Windows.Forms.Button modifica;
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
-        private System.Windows.Forms.ColumnHeader Nome;
-        private System.Windows.Forms.ColumnHeader Cognome;
-        private System.Windows.Forms.ColumnHeader Telefono;
+        private System.Windows.Forms.Button button1;
     }
 }
 
