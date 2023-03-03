@@ -10,3 +10,8 @@ C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\ob
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\obj\Debug\Rubrica.pdb
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\obj\Debug\Rubrica.Home.resources
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\obj\Debug\Rubrica.Aggiuni.resources
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\bin\Debug\FileWatcher.dll
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\bin\Debug\Griglia.dll
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\bin\Debug\FileWatcher.pdb
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\bin\Debug\Griglia.pdb
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica\Rubrica\obj\Debug\Rubrica.csproj.CopyComplete

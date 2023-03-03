@@ -31,8 +31,8 @@ namespace Rubrica
         {
             public string Nome;
             public string Cognome;
-            public DateTime Nascita;
             public ulong Numero;
+            public string Email;
 
 
             public XmlNode genera_contatto(XmlDocument doc)
@@ -40,20 +40,21 @@ namespace Rubrica
                 XmlNode contatto = doc.CreateElement("contatto");   // <contatto>
                 XmlNode nome = doc.CreateElement("nome");   //<nome>
                 XmlNode cognome = doc.CreateElement("cognome"); // <cognome>
-                XmlNode nascita = doc.CreateElement("nascita"); // <nascita>
                 XmlNode numero = doc.CreateElement("numero");   // <numero>
+                XmlNode email = doc.CreateElement("email");   // <email>
+                
                 nome.InnerText = Nome;  // Pippo
                 cognome.InnerText = Cognome;    // Pluto
-                nascita.InnerText = Nascita.ToString();
                 numero.InnerText = Numero.ToString();
+                email.InnerText = Email;
+                
 
                 contatto.AppendChild(nome); // aggingo nome a contatto
                 contatto.AppendChild(cognome);
-                contatto.AppendChild(nascita);
                 contatto.AppendChild(numero);
+                contatto.AppendChild(email);
 
                 return contatto;
-
             }
 
         }
@@ -72,28 +73,60 @@ namespace Rubrica
                 string nome = name.Text;    // Riempiamo gli attrbuti
                 string cognome = surname.Text;
                 string num = phone.Text;
+                string mail = email.Text;
 
+                var result = Regex.IsMatch(mail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                //Regex nm_regex = new Regex();
                 Regex num_regex = new Regex("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
 
-                if (num_regex.IsMatch(num))
+                if (!result)
                 {
-                    contatto.Numero = Convert.ToUInt64(num);
-                } else
-                {
-                    MessageBox.Show("ERRORE numero invalido");
+                    MessageBox.Show("ERRORE email non valida");
                     return;
                 }
-
-                if (nome.Length > 0 && cognome.Length > 0)
+                MessageBox.Show("va bene");
+                /* else if (!Regex.Match(cognome, "^[A-Z][a-zA-Z]*$").Success)
+                {
+                    MessageBox.Show("ERRORE cognome utente non valido");
+                    return;
+                } else if (!num_regex.IsMatch(num))
+                {
+                    MessageBox.Show("ERRORE telefono invalido");
+                    return;
+                } else if (!Regex.Match(mail, "^\\S+@\\S+\\.\\S+$").Success)
+                {
+                    MessageBox.Show("ERRORE email non valida");
+                    return;
+                } else
                 {
                     contatto.Nome = nome;
                     contatto.Cognome = cognome;
-                }
-                else
+                    contatto.Numero = Convert.ToUInt64(num);
+                    contatto.Email = mail;
+                }*/
+
+
+
+                /*if (nome.Length > 0)
+                {
+                    //contatto.Nome = nome;
+                    //contatto.Cognome = cognome;
+                } else
                 {
                     MessageBox.Show("ERRORE utente non valido");
                     return;
                 }
+
+                if (num_regex.IsMatch(num))
+                {
+                    contatto.Numero = Convert.ToUInt64(num);
+                } else 
+                {
+                    MessageBox.Show("ERRORE telefono invalido");
+                    return;
+                }*/
+
+
 
                 if (!File.Exists("rubrica.xml"))
                 {

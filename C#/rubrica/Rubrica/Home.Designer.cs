@@ -33,18 +33,17 @@
             this.modifica = new System.Windows.Forms.Button();
             this.elimina = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.rubrica = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rubrica)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.elimina);
+            this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
-            this.flowLayoutPanel1.Controls.Add(this.button1);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
@@ -53,7 +52,7 @@
             // modifica
             // 
             this.modifica.BackColor = System.Drawing.Color.Orange;
-            this.modifica.Location = new System.Drawing.Point(3, 3);
+            this.modifica.Location = new System.Drawing.Point(3, 67);
             this.modifica.Name = "modifica";
             this.modifica.Size = new System.Drawing.Size(144, 58);
             this.modifica.TabIndex = 1;
@@ -63,10 +62,10 @@
             // elimina
             // 
             this.elimina.BackColor = System.Drawing.Color.Red;
-            this.elimina.Location = new System.Drawing.Point(3, 67);
+            this.elimina.Location = new System.Drawing.Point(3, 3);
             this.elimina.Name = "elimina";
             this.elimina.Size = new System.Drawing.Size(144, 58);
-            this.elimina.TabIndex = 2;
+            this.elimina.TabIndex = 0;
             this.elimina.Text = "Rimuovi Utente";
             this.elimina.UseVisualStyleBackColor = false;
             // 
@@ -76,20 +75,20 @@
             this.aggiungi.Location = new System.Drawing.Point(3, 131);
             this.aggiungi.Name = "aggiungi";
             this.aggiungi.Size = new System.Drawing.Size(144, 58);
-            this.aggiungi.TabIndex = 3;
+            this.aggiungi.TabIndex = 2;
             this.aggiungi.Text = "Aggiungi Utente";
             this.aggiungi.UseVisualStyleBackColor = false;
             this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
             // 
-            // button1
+            // rubrica
             // 
-            this.button1.BackColor = System.Drawing.Color.Aqua;
-            this.button1.Location = new System.Drawing.Point(3, 195);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 58);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Visualizza Rubrica";
-            this.button1.UseVisualStyleBackColor = false;
+            this.rubrica.BackgroundColor = System.Drawing.Color.Khaki;
+            this.rubrica.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.rubrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rubrica.Location = new System.Drawing.Point(206, 12);
+            this.rubrica.Name = "rubrica";
+            this.rubrica.Size = new System.Drawing.Size(582, 426);
+            this.rubrica.TabIndex = 2;
             // 
             // Home
             // 
@@ -97,6 +96,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rubrica);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -105,6 +105,7 @@
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rubrica)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,7 +115,7 @@
         private System.Windows.Forms.Button modifica;
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView rubrica;
     }
 }
 
