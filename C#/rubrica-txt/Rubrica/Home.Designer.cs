@@ -30,12 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.modifica = new System.Windows.Forms.Button();
             this.elimina = new System.Windows.Forms.Button();
+            this.modifica = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
-            this.rubrica = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rubrica)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -49,16 +47,6 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
-            // modifica
-            // 
-            this.modifica.BackColor = System.Drawing.Color.Orange;
-            this.modifica.Location = new System.Drawing.Point(3, 67);
-            this.modifica.Name = "modifica";
-            this.modifica.Size = new System.Drawing.Size(144, 58);
-            this.modifica.TabIndex = 1;
-            this.modifica.Text = "Modifica Rubrica";
-            this.modifica.UseVisualStyleBackColor = false;
-            // 
             // elimina
             // 
             this.elimina.BackColor = System.Drawing.Color.Red;
@@ -68,6 +56,16 @@
             this.elimina.TabIndex = 0;
             this.elimina.Text = "Rimuovi Utente";
             this.elimina.UseVisualStyleBackColor = false;
+            // 
+            // modifica
+            // 
+            this.modifica.BackColor = System.Drawing.Color.Orange;
+            this.modifica.Location = new System.Drawing.Point(3, 67);
+            this.modifica.Name = "modifica";
+            this.modifica.Size = new System.Drawing.Size(144, 58);
+            this.modifica.TabIndex = 1;
+            this.modifica.Text = "Modifica Rubrica";
+            this.modifica.UseVisualStyleBackColor = false;
             // 
             // aggiungi
             // 
@@ -80,23 +78,12 @@
             this.aggiungi.UseVisualStyleBackColor = false;
             this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
             // 
-            // rubrica
-            // 
-            this.rubrica.BackgroundColor = System.Drawing.Color.Khaki;
-            this.rubrica.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rubrica.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rubrica.Location = new System.Drawing.Point(206, 12);
-            this.rubrica.Name = "rubrica";
-            this.rubrica.Size = new System.Drawing.Size(582, 426);
-            this.rubrica.TabIndex = 2;
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.rubrica);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -105,7 +92,6 @@
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.rubrica)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -115,7 +101,6 @@
         private System.Windows.Forms.Button modifica;
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
-        private System.Windows.Forms.DataGridView rubrica;
     }
 }
 

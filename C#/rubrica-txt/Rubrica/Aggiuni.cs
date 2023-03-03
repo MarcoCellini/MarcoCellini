@@ -28,44 +28,12 @@ namespace Rubrica
             public string Cognome;
             public ulong Numero;
             public string Email;
-
-
-            /*public XmlNode genera_contatto(XmlDocument doc)
-            {
-                XmlNode contatto = doc.CreateElement("contatto");   // <contatto>
-                XmlNode nome = doc.CreateElement("nome");   //<nome>
-                XmlNode cognome = doc.CreateElement("cognome"); // <cognome>
-                XmlNode numero = doc.CreateElement("numero");   // <numero>
-                XmlNode email = doc.CreateElement("email");   // <email>
-                
-                nome.InnerText = Nome;  // Pippo
-                cognome.InnerText = Cognome;    // Pluto
-                numero.InnerText = Numero.ToString();
-                email.InnerText = Email;
-                
-
-                contatto.AppendChild(nome); // aggingo nome a contatto
-                contatto.AppendChild(cognome);
-                contatto.AppendChild(numero);
-                contatto.AppendChild(email);
-
-                return contatto;
-            }*/
-
         }
 
         private void invio_Click(object sender, EventArgs e)
         {
             try
-            {/*
-                XmlDocument doc = new XmlDocument();
-                XmlNode docNode = doc.CreateXmlDeclaration("1.0", "UTF-8", null);   // Crea XML
-                doc.AppendChild(docNode);*/
-
-                // Write file using StreamWriter
-                
-
-
+            {
                 Contatto contatto = new Contatto(); // Crea classe contatto
 
                 string nome = name.Text;    // Riempiamo gli attrbuti
@@ -73,58 +41,32 @@ namespace Rubrica
                 string num = phone.Text;
                 string mail = email.Text;
 
-                var result = Regex.IsMatch(mail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-                //Regex nm_regex = new Regex();
+                var result_nome = Regex.IsMatch(nome, @"^[a-z -']+$");
+                var result_cognome = Regex.IsMatch(nome, @"^[a-z -']+$");
+                var result_mail = Regex.IsMatch(mail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
                 Regex num_regex = new Regex("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
 
-                if (!result)
+                if (!result_nome)
                 {
-                    MessageBox.Show("ERRORE email non valida");
+                    MessageBox.Show("ERRORE nome non valido");
+                    return;
+                } else if (!result_cognome)
+                {
+                    MessageBox.Show("ERRORE cognome non valido");
                     return;
                 }
-                MessageBox.Show("va bene");
-
-                /* else if (!Regex.Match(cognome, "^[A-Z][a-zA-Z]*$").Success)
+                else if (!result_mail)
                 {
-                    MessageBox.Show("ERRORE cognome utente non valido");
+                    MessageBox.Show("ERRORE email non valida");
                     return;
                 } else if (!num_regex.IsMatch(num))
                 {
                     MessageBox.Show("ERRORE telefono invalido");
                     return;
-                } else if (!Regex.Match(mail, "^\\S+@\\S+\\.\\S+$").Success)
-                {
-                    MessageBox.Show("ERRORE email non valida");
-                    return;
                 } else
                 {
-                    contatto.Nome = nome;
-                    contatto.Cognome = cognome;
                     contatto.Numero = Convert.ToUInt64(num);
-                    contatto.Email = mail;
-                }*/
-
-
-
-                /*if (nome.Length > 0)
-                {
-                    //contatto.Nome = nome;
-                    //contatto.Cognome = cognome;
-                } else
-                {
-                    MessageBox.Show("ERRORE utente non valido");
-                    return;
                 }
-
-                if (num_regex.IsMatch(num))
-                {
-                    contatto.Numero = Convert.ToUInt64(num);
-                } else 
-                {
-                    MessageBox.Show("ERRORE telefono invalido");
-                    return;
-                }*/
-
 
 
                 if (!File.Exists("rubrica.txt"))
