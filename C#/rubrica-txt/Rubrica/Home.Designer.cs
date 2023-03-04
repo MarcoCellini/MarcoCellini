@@ -33,6 +33,7 @@
             this.elimina = new System.Windows.Forms.Button();
             this.modifica = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
+            this.visualizza = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             this.flowLayoutPanel1.Controls.Add(this.elimina);
             this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
+            this.flowLayoutPanel1.Controls.Add(this.visualizza);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
@@ -78,6 +80,16 @@
             this.aggiungi.UseVisualStyleBackColor = false;
             this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
             // 
+            // visualizza
+            // 
+            this.visualizza.Location = new System.Drawing.Point(3, 195);
+            this.visualizza.Name = "visualizza";
+            this.visualizza.Size = new System.Drawing.Size(75, 23);
+            this.visualizza.TabIndex = 2;
+            this.visualizza.Text = "Visualizza";
+            this.visualizza.UseVisualStyleBackColor = true;
+            this.visualizza.Click += new System.EventHandler(this.visualizza_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,6 +113,7 @@
         private System.Windows.Forms.Button modifica;
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
+        private System.Windows.Forms.Button visualizza;
     }
 }
 

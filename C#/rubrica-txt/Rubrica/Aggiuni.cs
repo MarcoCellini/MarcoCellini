@@ -40,47 +40,57 @@ namespace Rubrica
                 string cognome = surname.Text;
                 string num = phone.Text;
                 string mail = email.Text;
+                string nato = nascita.Text;
+                string casa = indirizzo.Text;
 
-                var result_nome = Regex.IsMatch(nome, @"^[a-z -']+$");
+                var result_nome = Regex.IsMatch(nome, "^[A-Za-zÀ-ÖØ-öø-ÿ ']+$");
                 var result_cognome = Regex.IsMatch(nome, @"^[a-z -']+$");
                 var result_mail = Regex.IsMatch(mail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+                var result_casa = Regex.IsMatch(casa, "^(\\d{1,}) [a-zA-Z0-9\\s]+(\\,)? [a-zA-Z]+(\\,)? [A-Z]{2} [0-9]{5,6}$");
                 Regex num_regex = new Regex("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
 
-                if (!result_nome)
+                if (!result_nome || nome == "")
                 {
                     MessageBox.Show("ERRORE nome non valido");
                     return;
-                } else if (!result_cognome)
+                }
+                else if (!result_cognome || cognome == "")
                 {
                     MessageBox.Show("ERRORE cognome non valido");
+                    return;
+                }else if (!num_regex.IsMatch(num))
+                {
+                    MessageBox.Show("ERRORE telefono invalido");
                     return;
                 }
                 else if (!result_mail)
                 {
                     MessageBox.Show("ERRORE email non valida");
                     return;
-                } else if (!num_regex.IsMatch(num))
+                }
+                
+                else if (!result_casa)
                 {
-                    MessageBox.Show("ERRORE telefono invalido");
+                    MessageBox.Show("ERRORE indirizzo invalido\nDeve essere così:\nnumero civico via, città, provincia CAP");
                     return;
-                } else
+                }
+                else
                 {
                     contatto.Numero = Convert.ToUInt64(num);
                 }
-
 
                 if (!File.Exists("rubrica.txt"))
                 {
                     using (StreamWriter sw = File.CreateText("./rubrica.txt"))
                     {
-                        sw.WriteLine(nome + "_" + cognome + "_" + num + "_" + mail);
+                        sw.WriteLine(nome + "~" + cognome + "~" + num + "~" + mail + "~" + nato + "~" + casa);
                     }
                 }
                 else 
                 {
                     using (StreamWriter sw = File.AppendText("./rubrica.txt"))
                     {
-                        sw.WriteLine(nome + "_" + cognome + "_" + num + "_" + mail);
+                        sw.WriteLine(nome + "~" + cognome + "~" + num + "~" + mail + "~" + nato + "~" + casa + "\n");
                     }
                 }
 
