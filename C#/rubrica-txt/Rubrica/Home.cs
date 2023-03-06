@@ -33,5 +33,10 @@ namespace Rubrica
             }
             MessageBox.Show(text);
         }
+
+        private void modifica_Click(object sender, EventArgs e)
+        {
+            new Modifica().Show();
+        }
     }
 }

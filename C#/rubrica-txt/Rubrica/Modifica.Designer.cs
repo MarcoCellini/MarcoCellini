@@ -1,6 +1,6 @@
 ﻿namespace Rubrica
 {
-    partial class Aggiuni
+    partial class Modifica
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Aggiuni));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Modifica));
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.nome = new System.Windows.Forms.Label();
             this.name = new System.Windows.Forms.TextBox();
@@ -38,16 +38,26 @@
             this.phone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.email = new System.Windows.Forms.TextBox();
-            this.invio = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.nascita = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.indirizzo = new System.Windows.Forms.TextBox();
+            this.invio = new System.Windows.Forms.Button();
             this.indietro = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.nameSearch = new System.Windows.Forms.TextBox();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.surnameSearch = new System.Windows.Forms.TextBox();
+            this.cerca = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanel1
@@ -59,11 +69,11 @@
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.phone);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(213, 106);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(202, 252);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(185, 142);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanel1.TabIndex = 7;
             // 
             // nome
             // 
@@ -137,20 +147,6 @@
             this.email.Size = new System.Drawing.Size(168, 20);
             this.email.TabIndex = 3;
             // 
-            // invio
-            // 
-            this.invio.BackColor = System.Drawing.Color.LawnGreen;
-            this.invio.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.invio.FlatAppearance.BorderSize = 209;
-            this.invio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.invio.Location = new System.Drawing.Point(373, 256);
-            this.invio.Name = "invio";
-            this.invio.Size = new System.Drawing.Size(69, 33);
-            this.invio.TabIndex = 6;
-            this.invio.Text = "Invio";
-            this.invio.UseVisualStyleBackColor = false;
-            this.invio.Click += new System.EventHandler(this.invio_Click);
-            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Controls.Add(this.label2);
@@ -160,11 +156,11 @@
             this.flowLayoutPanel2.Controls.Add(this.label4);
             this.flowLayoutPanel2.Controls.Add(this.indirizzo);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(406, 106);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(395, 252);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(185, 142);
-            this.flowLayoutPanel2.TabIndex = 2;
+            this.flowLayoutPanel2.TabIndex = 8;
             // 
             // label3
             // 
@@ -204,6 +200,17 @@
             this.indirizzo.Size = new System.Drawing.Size(168, 20);
             this.indirizzo.TabIndex = 5;
             // 
+            // invio
+            // 
+            this.invio.BackColor = System.Drawing.Color.DarkOrange;
+            this.invio.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.invio.Location = new System.Drawing.Point(362, 402);
+            this.invio.Name = "invio";
+            this.invio.Size = new System.Drawing.Size(69, 33);
+            this.invio.TabIndex = 9;
+            this.invio.Text = "Modifica";
+            this.invio.UseVisualStyleBackColor = false;
+            // 
             // indietro
             // 
             this.indietro.BackColor = System.Drawing.Color.Transparent;
@@ -214,40 +221,123 @@
             this.indietro.Margin = new System.Windows.Forms.Padding(0);
             this.indietro.Name = "indietro";
             this.indietro.Size = new System.Drawing.Size(46, 41);
-            this.indietro.TabIndex = 7;
+            this.indietro.TabIndex = 10;
             this.indietro.TabStop = false;
             this.indietro.UseVisualStyleBackColor = false;
             this.indietro.Click += new System.EventHandler(this.indietro_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(268, 189);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(238, 37);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Modifica Utente";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(271, 50);
+            this.label6.Location = new System.Drawing.Point(259, 9);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(245, 37);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Aggiungi Utente";
+            this.label6.Size = new System.Drawing.Size(258, 37);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Seleziona Utente";
             // 
-            // Aggiuni
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Controls.Add(this.label7);
+            this.flowLayoutPanel3.Controls.Add(this.nameSearch);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(195, 49);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(192, 58);
+            this.flowLayoutPanel3.TabIndex = 13;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 0);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 7;
+            this.label7.Text = "Nome";
+            // 
+            // nameSearch
+            // 
+            this.nameSearch.Location = new System.Drawing.Point(4, 18);
+            this.nameSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.nameSearch.Name = "nameSearch";
+            this.nameSearch.Size = new System.Drawing.Size(168, 20);
+            this.nameSearch.TabIndex = 5;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Controls.Add(this.label10);
+            this.flowLayoutPanel4.Controls.Add(this.surnameSearch);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(393, 49);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(192, 58);
+            this.flowLayoutPanel4.TabIndex = 14;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(4, 0);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 13);
+            this.label10.TabIndex = 8;
+            this.label10.Text = "Cognome";
+            // 
+            // surnameSearch
+            // 
+            this.surnameSearch.Location = new System.Drawing.Point(4, 18);
+            this.surnameSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.surnameSearch.Name = "surnameSearch";
+            this.surnameSearch.Size = new System.Drawing.Size(168, 20);
+            this.surnameSearch.TabIndex = 6;
+            // 
+            // cerca
+            // 
+            this.cerca.BackColor = System.Drawing.Color.SkyBlue;
+            this.cerca.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.cerca.Location = new System.Drawing.Point(362, 113);
+            this.cerca.Name = "cerca";
+            this.cerca.Size = new System.Drawing.Size(69, 33);
+            this.cerca.TabIndex = 15;
+            this.cerca.Text = "Cerca";
+            this.cerca.UseVisualStyleBackColor = false;
+            this.cerca.Click += new System.EventHandler(this.cerca_Click);
+            // 
+            // Modifica
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.cerca);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.indietro);
-            this.Controls.Add(this.flowLayoutPanel2);
+            this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanel2);
             this.Controls.Add(this.invio);
-            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Aggiuni";
-            this.Text = "Aggiuni";
+            this.Name = "Modifica";
+            this.Text = "Modifica";
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,20 +347,28 @@
 
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label nome;
-        private System.Windows.Forms.TextBox phone;
-        private System.Windows.Forms.Label cognome;
-        private System.Windows.Forms.TextBox surname;
-        private System.Windows.Forms.Button invio;
         private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.Label cognome;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox phone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox email;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.DateTimePicker nascita;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox indirizzo;
-        private System.Windows.Forms.DateTimePicker nascita;
+        private System.Windows.Forms.Button invio;
         private System.Windows.Forms.Button indietro;
+        private System.Windows.Forms.TextBox surname;
+        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox nameSearch;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox surnameSearch;
+        private System.Windows.Forms.Button cerca;
     }
 }

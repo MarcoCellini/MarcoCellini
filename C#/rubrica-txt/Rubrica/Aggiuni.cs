@@ -101,5 +101,10 @@ namespace Rubrica
                 MessageBox.Show("Errore 104");
             }   
         }
+
+        private void indietro_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
