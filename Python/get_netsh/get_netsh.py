@@ -30,5 +30,10 @@ if len(profile_names) != 0:
                 wifi_profile["password"] = password[1]
                 wifi_list.append(wifi_profile) 
 
+
 for x in range(len(wifi_list)):
-    print(wifi_list[x]) 
+    print(wifi_list[x])
+
+with open("myfile.txt", 'a') as f: 
+    for value in wifi_list: 
+        f.write(str(value) + "\n")
