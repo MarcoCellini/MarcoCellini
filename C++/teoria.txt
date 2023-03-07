@@ -13,6 +13,6 @@ OGGETTO:
 METODI:
     i metodi non sono altro che le funzioni che possono modificare il valore degli attributi.
 
-    –- costruttori/distruttori che servono per creare/distruggere l’oggetto in memoria.
+    – costruttori/distruttori che servono per creare/distruggere l’oggetto in memoria.
 
-    –- modificatori (getter/setter) che servono per a potere leggere/scrivere negli attributi privati.
+    – modificatori (getter/setter) che servono per a potere leggere/scrivere negli attributi privati.
