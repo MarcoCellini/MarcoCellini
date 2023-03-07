@@ -34,6 +34,7 @@ if len(profile_names) != 0:
 for x in range(len(wifi_list)):
     print(wifi_list[x])
 
-with open("myfile.txt", 'a') as f: 
+with open("wifi_psw.txt", 'a') as f: 
     for value in wifi_list: 
         f.write(str(value) + "\n")
+    f.write("\n\t\tScansione\n")
