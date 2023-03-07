@@ -33,7 +33,6 @@
             this.elimina = new System.Windows.Forms.Button();
             this.modifica = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
-            this.visualizza = new System.Windows.Forms.Button();
             this.tabella = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +51,6 @@
             this.flowLayoutPanel1.Controls.Add(this.elimina);
             this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
-            this.flowLayoutPanel1.Controls.Add(this.visualizza);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
@@ -90,16 +88,6 @@
             this.aggiungi.UseVisualStyleBackColor = false;
             this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
             // 
-            // visualizza
-            // 
-            this.visualizza.Location = new System.Drawing.Point(3, 195);
-            this.visualizza.Name = "visualizza";
-            this.visualizza.Size = new System.Drawing.Size(75, 23);
-            this.visualizza.TabIndex = 2;
-            this.visualizza.Text = "Visualizza";
-            this.visualizza.UseVisualStyleBackColor = true;
-            this.visualizza.Click += new System.EventHandler(this.visualizza_Click);
-            // 
             // tabella
             // 
             this.tabella.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -114,7 +102,7 @@
             this.tabella.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabella.Location = new System.Drawing.Point(206, 12);
             this.tabella.Name = "tabella";
-            this.tabella.Size = new System.Drawing.Size(764, 426);
+            this.tabella.Size = new System.Drawing.Size(900, 450);
             this.tabella.TabIndex = 2;
             // 
             // id
@@ -123,6 +111,7 @@
             this.id.Name = "id";
             this.id.ReadOnly = true;
             this.id.ToolTipText = "Identificativo utente";
+            this.id.Width = 30;
             // 
             // nome
             // 
@@ -144,6 +133,7 @@
             this.telefono.Name = "telefono";
             this.telefono.ReadOnly = true;
             this.telefono.ToolTipText = "Numero di telefono";
+            this.telefono.Width = 120;
             // 
             // email
             // 
@@ -151,6 +141,7 @@
             this.email.Name = "email";
             this.email.ReadOnly = true;
             this.email.ToolTipText = "Email utente";
+            this.email.Width = 150;
             // 
             // nascita
             // 
@@ -158,6 +149,7 @@
             this.nascita.Name = "nascita";
             this.nascita.ReadOnly = true;
             this.nascita.ToolTipText = "Data di nascita utente";
+            this.nascita.Width = 150;
             // 
             // indirizzo
             // 
@@ -165,13 +157,14 @@
             this.indirizzo.Name = "indirizzo";
             this.indirizzo.ReadOnly = true;
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
+            this.indirizzo.Width = 200;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(982, 450);
+            this.ClientSize = new System.Drawing.Size(1021, 450);
             this.Controls.Add(this.tabella);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -191,7 +184,6 @@
         private System.Windows.Forms.Button modifica;
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
-        private System.Windows.Forms.Button visualizza;
         private System.Windows.Forms.DataGridView tabella;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;

@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Xml.Linq;
-using System.Xml;
 using System.ComponentModel.Design;
 using System.Text.RegularExpressions;
 
@@ -28,6 +26,8 @@ namespace Rubrica
             public string Cognome;
             public ulong Numero;
             public string Email;
+            public string Nascita;
+            public string Indirizzo;
         }
 
         private void invio_Click(object sender, EventArgs e)
@@ -76,21 +76,26 @@ namespace Rubrica
                 }
                 else
                 {
+                    contatto.Nome = nome;
+                    contatto.Cognome = cognome;
                     contatto.Numero = Convert.ToUInt64(num);
+                    contatto.Email = mail;
+                    contatto.Nascita = nato;
+                    contatto.Indirizzo = casa;
                 }
 
                 if (!File.Exists("rubrica.txt"))
                 {
                     using (StreamWriter sw = File.CreateText("./rubrica.txt"))
                     {
-                        sw.WriteLine(nome + "~" + cognome + "~" + num + "~" + mail + "~" + nato + "~" + casa);
+                        sw.WriteLine(contatto.Nome + "~" + contatto.Cognome + "~" + contatto.Numero + "~" + contatto.Email + "~" + contatto.Nascita + "~" + contatto.Indirizzo);
                     }
                 }
                 else 
                 {
                     using (StreamWriter sw = File.AppendText("./rubrica.txt"))
                     {
-                        sw.WriteLine(nome + "~" + cognome + "~" + num + "~" + mail + "~" + nato + "~" + casa + "\n");
+                        sw.WriteLine(contatto.Nome + "~" + contatto.Cognome + "~" + contatto.Numero + "~" + contatto.Email + "~" + contatto.Nascita + "~" + contatto.Indirizzo);
                     }
                 }
 
@@ -104,7 +109,7 @@ namespace Rubrica
 
         private void indietro_Click(object sender, EventArgs e)
         {
-            Close();
+            this.Close();
         }
     }
 }
