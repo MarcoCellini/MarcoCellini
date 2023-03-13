@@ -34,6 +34,7 @@
             this.modifica = new System.Windows.Forms.Button();
             this.aggiungi = new System.Windows.Forms.Button();
             this.tabella = new System.Windows.Forms.DataGridView();
+            this.apri = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cognome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +52,7 @@
             this.flowLayoutPanel1.Controls.Add(this.elimina);
             this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
+            this.flowLayoutPanel1.Controls.Add(this.apri);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
@@ -102,8 +104,19 @@
             this.tabella.GridColor = System.Drawing.SystemColors.ActiveBorder;
             this.tabella.Location = new System.Drawing.Point(206, 12);
             this.tabella.Name = "tabella";
-            this.tabella.Size = new System.Drawing.Size(900, 450);
+            this.tabella.Size = new System.Drawing.Size(994, 450);
             this.tabella.TabIndex = 2;
+            // 
+            // apri
+            // 
+            this.apri.BackColor = System.Drawing.Color.Aqua;
+            this.apri.Location = new System.Drawing.Point(3, 195);
+            this.apri.Name = "apri";
+            this.apri.Size = new System.Drawing.Size(144, 58);
+            this.apri.TabIndex = 3;
+            this.apri.Text = "Apri Rubrica";
+            this.apri.UseVisualStyleBackColor = false;
+            this.apri.Click += new System.EventHandler(this.apri_Click);
             // 
             // id
             // 
@@ -157,14 +170,14 @@
             this.indirizzo.Name = "indirizzo";
             this.indirizzo.ReadOnly = true;
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
-            this.indirizzo.Width = 200;
+            this.indirizzo.Width = 300;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(1021, 450);
+            this.ClientSize = new System.Drawing.Size(1291, 450);
             this.Controls.Add(this.tabella);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -185,6 +198,7 @@
         private System.Windows.Forms.Button elimina;
         private System.Windows.Forms.Button aggiungi;
         private System.Windows.Forms.DataGridView tabella;
+        private System.Windows.Forms.Button apri;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn cognome;

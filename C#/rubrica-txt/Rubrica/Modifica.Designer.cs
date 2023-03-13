@@ -91,7 +91,7 @@
             this.name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.name.Name = "name";
             this.name.Size = new System.Drawing.Size(168, 20);
-            this.name.TabIndex = 0;
+            this.name.TabIndex = 3;
             // 
             // cognome
             // 
@@ -109,7 +109,7 @@
             this.surname.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.surname.Name = "surname";
             this.surname.Size = new System.Drawing.Size(168, 20);
-            this.surname.TabIndex = 1;
+            this.surname.TabIndex = 4;
             // 
             // label1
             // 
@@ -127,7 +127,7 @@
             this.phone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.phone.Name = "phone";
             this.phone.Size = new System.Drawing.Size(168, 20);
-            this.phone.TabIndex = 2;
+            this.phone.TabIndex = 5;
             // 
             // label2
             // 
@@ -145,7 +145,7 @@
             this.email.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.email.Name = "email";
             this.email.Size = new System.Drawing.Size(168, 20);
-            this.email.TabIndex = 3;
+            this.email.TabIndex = 6;
             // 
             // flowLayoutPanel2
             // 
@@ -179,7 +179,7 @@
             this.nascita.MinDate = new System.DateTime(1923, 1, 1, 0, 0, 0, 0);
             this.nascita.Name = "nascita";
             this.nascita.Size = new System.Drawing.Size(169, 20);
-            this.nascita.TabIndex = 4;
+            this.nascita.TabIndex = 7;
             this.nascita.Value = new System.DateTime(2023, 3, 4, 0, 0, 0, 0);
             // 
             // label4
@@ -198,7 +198,7 @@
             this.indirizzo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.indirizzo.Name = "indirizzo";
             this.indirizzo.Size = new System.Drawing.Size(168, 20);
-            this.indirizzo.TabIndex = 5;
+            this.indirizzo.TabIndex = 8;
             // 
             // invio
             // 
@@ -210,6 +210,7 @@
             this.invio.TabIndex = 9;
             this.invio.Text = "Modifica";
             this.invio.UseVisualStyleBackColor = false;
+            this.invio.Click += new System.EventHandler(this.invio_Click);
             // 
             // indietro
             // 
@@ -271,7 +272,7 @@
             this.nameSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.nameSearch.Name = "nameSearch";
             this.nameSearch.Size = new System.Drawing.Size(168, 20);
-            this.nameSearch.TabIndex = 5;
+            this.nameSearch.TabIndex = 0;
             // 
             // flowLayoutPanel4
             // 
@@ -298,7 +299,7 @@
             this.surnameSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.surnameSearch.Name = "surnameSearch";
             this.surnameSearch.Size = new System.Drawing.Size(168, 20);
-            this.surnameSearch.TabIndex = 6;
+            this.surnameSearch.TabIndex = 1;
             // 
             // cerca
             // 
@@ -307,7 +308,7 @@
             this.cerca.Location = new System.Drawing.Point(362, 113);
             this.cerca.Name = "cerca";
             this.cerca.Size = new System.Drawing.Size(69, 33);
-            this.cerca.TabIndex = 15;
+            this.cerca.TabIndex = 2;
             this.cerca.Text = "Cerca";
             this.cerca.UseVisualStyleBackColor = false;
             this.cerca.Click += new System.EventHandler(this.cerca_Click);

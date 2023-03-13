@@ -15,9 +15,11 @@ namespace Rubrica
 {
     public partial class Aggiuni : Form
     {
-        public Aggiuni()
+        public Aggiuni(string path)
         {
             InitializeComponent();
+            filePath = path;
+            MessageBox.Show(filePath);
         }
 
         private class Contatto
@@ -30,10 +32,12 @@ namespace Rubrica
             public string Indirizzo;
         }
 
+        public string filePath = string.Empty;
+
         private void invio_Click(object sender, EventArgs e)
         {
-            try
-            {
+           // try
+            //{
                 Contatto contatto = new Contatto(); // Crea classe contatto
 
                 string nome = name.Text;    // Riempiamo gli attrbuti
@@ -44,9 +48,9 @@ namespace Rubrica
                 string casa = indirizzo.Text;
 
                 var result_nome = Regex.IsMatch(nome, "^[A-Za-zÀ-ÖØ-öø-ÿ ']+$");
-                var result_cognome = Regex.IsMatch(nome, @"^[a-z -']+$");
+                var result_cognome = Regex.IsMatch(cognome, "^[A-Za-zÀ-ÖØ-öø-ÿ ']+$");
                 var result_mail = Regex.IsMatch(mail, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
-                var result_casa = Regex.IsMatch(casa, "^(\\d{1,}) [a-zA-Z0-9\\s]+(\\,)? [a-zA-Z]+(\\,)? [A-Z]{2} [0-9]{5,6}$");
+                var result_casa = Regex.IsMatch(casa, "^(\\d{1,3}) [a-zA-Z0-9\\s]+(\\,)? [a-zA-Z]+(\\,)? [A-Z]{2} [0-9]{5}$");
                 Regex num_regex = new Regex("^\\s*(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\s*$");
 
                 if (!result_nome || nome == "")
@@ -84,27 +88,27 @@ namespace Rubrica
                     contatto.Indirizzo = casa;
                 }
 
-                if (!File.Exists("rubrica.txt"))
+                if (!File.Exists(filePath))
                 {
                     using (StreamWriter sw = File.CreateText("./rubrica.txt"))
                     {
-                        sw.WriteLine(contatto.Nome + "~" + contatto.Cognome + "~" + contatto.Numero + "~" + contatto.Email + "~" + contatto.Nascita + "~" + contatto.Indirizzo);
+                        sw.WriteLine(contatto.Nome + "," + contatto.Cognome + "," + contatto.Numero + "," + contatto.Email + "," + contatto.Nascita + "," + contatto.Indirizzo);
                     }
                 }
                 else 
                 {
-                    using (StreamWriter sw = File.AppendText("./rubrica.txt"))
+                    using (StreamWriter sw = File.AppendText(filePath))
                     {
-                        sw.WriteLine(contatto.Nome + "~" + contatto.Cognome + "~" + contatto.Numero + "~" + contatto.Email + "~" + contatto.Nascita + "~" + contatto.Indirizzo);
+                        sw.WriteLine(contatto.Nome + "," + contatto.Cognome + "," + contatto.Numero + "," + contatto.Email + "," + contatto.Nascita + "," + contatto.Indirizzo);
                     }
                 }
 
                 MessageBox.Show("Utente salvato correttamente");
                 this.Close();
-            } catch
+            /*} catch
             {
                 MessageBox.Show("Errore 104");
-            }   
+            } */  
         }
 
         private void indietro_Click(object sender, EventArgs e)

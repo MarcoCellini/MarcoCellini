@@ -65,19 +65,51 @@ namespace Rubrica
             }
         }
 
+        public string filePath = string.Empty;
+
         public Home()
         {
             InitializeComponent();
+        }
 
+        private void aggiungi_Click(object sender, EventArgs e)
+        {
+            new Aggiuni(filePath).Show();
+        }
+
+        private void modifica_Click(object sender, EventArgs e)
+        {
+            new Modifica().Show();
+        }
+
+        private void apri_Click(object sender, EventArgs e)
+        {
             string text;
-            using (var sw = new StreamReader("./rubrica.txt", Encoding.UTF8))
+            //var filePath = string.Empty;
+
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "./";
+                openFileDialog.Filter = "csv files (*.csv)|*.csv|All files (*.*)|*.*";
+                openFileDialog.FilterIndex = 2;
+                openFileDialog.RestoreDirectory = true;
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openFileDialog.FileName;
+                }
+                openFileDialog.Dispose();
+            }
+            
+            tabella.Rows.Clear();
+
+            using (var sw = new StreamReader(filePath, Encoding.UTF8))
             {
                 text = sw.ReadToEnd();
             }
 
             string[] utenti = text.Split('\n');
 
-            //Contatto contatto = new Contatto();
             List<Contatto> contatti = new List<Contatto>();
             string[] info;
             foreach (var i in utenti)
@@ -86,7 +118,7 @@ namespace Rubrica
                 {
                     break;
                 }
-                info = i.Split('~');
+                info = i.Split(',');
                 contatti.Add(new Contatto(info[0], info[1], Convert.ToUInt64(info[2]), info[3], info[4], info[5]));
             }
 
@@ -94,20 +126,10 @@ namespace Rubrica
             foreach (var x in contatti)
             {
                 var id = Convert.ToString(cont);
-                string[] riga = new string[] { id, x.nome, x.cognome, Convert.ToString(x.numero), x.email, x.nascita, x.indirizzo};
+                string[] riga = new string[] { id, x.nome, x.cognome, Convert.ToString(x.numero), x.email, x.nascita, x.indirizzo };
                 tabella.Rows.Add(riga);
                 cont++;
             }
-        }
-
-        private void aggiungi_Click(object sender, EventArgs e)
-        {
-            new Aggiuni().Show();
-        }
-
-        private void modifica_Click(object sender, EventArgs e)
-        {
-            new Modifica().Show();
         }
     }
 }
