@@ -1,16 +1,16 @@
 ﻿namespace Rubrica
 {
-    partial class Home
+    partial class Elimina
     {
         /// <summary>
-        /// Variabile di progettazione necessaria.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Pulire le risorse in uso.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">ha valore true se le risorse gestite devono essere eliminate, false in caso contrario.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,20 +20,16 @@
             base.Dispose(disposing);
         }
 
-        #region Codice generato da Progettazione Windows Form
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Metodo necessario per il supporto della finestra di progettazione. Non modificare
-        /// il contenuto del metodo con l'editor di codice.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.elimina = new System.Windows.Forms.Button();
-            this.modifica = new System.Windows.Forms.Button();
-            this.aggiungi = new System.Windows.Forms.Button();
-            this.apri = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Elimina));
+            this.indietro = new System.Windows.Forms.Button();
             this.tabella = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,65 +38,24 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.indirizzo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.remove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabella)).BeginInit();
             this.SuspendLayout();
             // 
-            // flowLayoutPanel1
+            // indietro
             // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel1.Controls.Add(this.elimina);
-            this.flowLayoutPanel1.Controls.Add(this.modifica);
-            this.flowLayoutPanel1.Controls.Add(this.aggiungi);
-            this.flowLayoutPanel1.Controls.Add(this.apri);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
-            this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // elimina
-            // 
-            this.elimina.BackColor = System.Drawing.Color.Red;
-            this.elimina.Location = new System.Drawing.Point(3, 3);
-            this.elimina.Name = "elimina";
-            this.elimina.Size = new System.Drawing.Size(144, 58);
-            this.elimina.TabIndex = 0;
-            this.elimina.Text = "Rimuovi Utente";
-            this.elimina.UseVisualStyleBackColor = false;
-            this.elimina.Click += new System.EventHandler(this.elimina_Click);
-            // 
-            // modifica
-            // 
-            this.modifica.BackColor = System.Drawing.Color.Orange;
-            this.modifica.Location = new System.Drawing.Point(3, 67);
-            this.modifica.Name = "modifica";
-            this.modifica.Size = new System.Drawing.Size(144, 58);
-            this.modifica.TabIndex = 1;
-            this.modifica.Text = "Modifica Rubrica";
-            this.modifica.UseVisualStyleBackColor = false;
-            this.modifica.Click += new System.EventHandler(this.modifica_Click);
-            // 
-            // aggiungi
-            // 
-            this.aggiungi.BackColor = System.Drawing.Color.LawnGreen;
-            this.aggiungi.Location = new System.Drawing.Point(3, 131);
-            this.aggiungi.Name = "aggiungi";
-            this.aggiungi.Size = new System.Drawing.Size(144, 58);
-            this.aggiungi.TabIndex = 2;
-            this.aggiungi.Text = "Aggiungi Utente";
-            this.aggiungi.UseVisualStyleBackColor = false;
-            this.aggiungi.Click += new System.EventHandler(this.aggiungi_Click);
-            // 
-            // apri
-            // 
-            this.apri.BackColor = System.Drawing.Color.Aqua;
-            this.apri.Location = new System.Drawing.Point(3, 195);
-            this.apri.Name = "apri";
-            this.apri.Size = new System.Drawing.Size(144, 58);
-            this.apri.TabIndex = 3;
-            this.apri.Text = "Apri Rubrica";
-            this.apri.UseVisualStyleBackColor = false;
-            this.apri.Click += new System.EventHandler(this.apri_Click);
+            this.indietro.BackColor = System.Drawing.Color.Transparent;
+            this.indietro.FlatAppearance.BorderSize = 0;
+            this.indietro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.indietro.Image = global::Rubrica.Properties.Resources._1904658_arrow_arrow_left_change_direction_left_next_undo_122508;
+            this.indietro.Location = new System.Drawing.Point(9, 9);
+            this.indietro.Margin = new System.Windows.Forms.Padding(0);
+            this.indietro.Name = "indietro";
+            this.indietro.Size = new System.Drawing.Size(46, 41);
+            this.indietro.TabIndex = 11;
+            this.indietro.TabStop = false;
+            this.indietro.UseVisualStyleBackColor = false;
+            this.indietro.Click += new System.EventHandler(this.indietro_Click);
             // 
             // tabella
             // 
@@ -114,10 +69,10 @@
             this.nascita,
             this.indirizzo});
             this.tabella.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.tabella.Location = new System.Drawing.Point(206, 12);
+            this.tabella.Location = new System.Drawing.Point(58, 9);
             this.tabella.Name = "tabella";
-            this.tabella.Size = new System.Drawing.Size(994, 450);
-            this.tabella.TabIndex = 2;
+            this.tabella.Size = new System.Drawing.Size(978, 399);
+            this.tabella.TabIndex = 12;
             // 
             // id
             // 
@@ -173,33 +128,37 @@
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
             this.indirizzo.Width = 300;
             // 
-            // Home
+            // remove
+            // 
+            this.remove.Location = new System.Drawing.Point(58, 414);
+            this.remove.Name = "remove";
+            this.remove.Size = new System.Drawing.Size(91, 21);
+            this.remove.TabIndex = 13;
+            this.remove.Text = "Rimuovi";
+            this.remove.UseVisualStyleBackColor = true;
+            this.remove.Click += new System.EventHandler(this.remove_Click);
+            // 
+            // Elimina
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Khaki;
-            this.ClientSize = new System.Drawing.Size(1291, 450);
+            this.ClientSize = new System.Drawing.Size(1040, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.remove);
             this.Controls.Add(this.tabella);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Controls.Add(this.indietro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Home";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Home";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.Name = "Elimina";
+            this.Text = "Elimina";
             ((System.ComponentModel.ISupportInitialize)(this.tabella)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button modifica;
-        private System.Windows.Forms.Button elimina;
-        private System.Windows.Forms.Button aggiungi;
+
+        private System.Windows.Forms.Button indietro;
         private System.Windows.Forms.DataGridView tabella;
-        private System.Windows.Forms.Button apri;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nome;
         private System.Windows.Forms.DataGridViewTextBoxColumn cognome;
@@ -207,6 +166,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nascita;
         private System.Windows.Forms.DataGridViewTextBoxColumn indirizzo;
+        private System.Windows.Forms.Button remove;
     }
 }
-

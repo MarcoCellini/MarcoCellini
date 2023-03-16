@@ -79,14 +79,12 @@ namespace Rubrica
 
         private void modifica_Click(object sender, EventArgs e)
         {
-            new Modifica().Show();
+            new Modifica(filePath).Show();
         }
 
         private void apri_Click(object sender, EventArgs e)
         {
             string text;
-            //var filePath = string.Empty;
-
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.InitialDirectory = "./";
@@ -103,33 +101,46 @@ namespace Rubrica
             
             tabella.Rows.Clear();
 
-            using (var sw = new StreamReader(filePath, Encoding.UTF8))
+            try
             {
-                text = sw.ReadToEnd();
-            }
-
-            string[] utenti = text.Split('\n');
-
-            List<Contatto> contatti = new List<Contatto>();
-            string[] info;
-            foreach (var i in utenti)
-            {
-                if (i == "")
+                using (var sw = new StreamReader(filePath, Encoding.UTF8))
                 {
-                    break;
+                    text = sw.ReadToEnd();
                 }
-                info = i.Split(',');
-                contatti.Add(new Contatto(info[0], info[1], Convert.ToUInt64(info[2]), info[3], info[4], info[5]));
+
+                string[] utenti = text.Split('\n');
+
+                List<Contatto> contatti = new List<Contatto>();
+                string[] info;
+                foreach (var i in utenti)
+                {
+                    if (i == "")
+                    {
+                        break;
+                    }
+                    info = i.Split(',');
+                    contatti.Add(new Contatto(info[0], info[1], Convert.ToUInt64(info[2]), info[3], info[4], info[5]));
+                }
+
+                var cont = 0;
+                foreach (var x in contatti)
+                {
+                    var id = Convert.ToString(cont);
+                    string[] riga = new string[] { id, x.nome, x.cognome, Convert.ToString(x.numero), x.email, x.nascita, x.indirizzo };
+                    tabella.Rows.Add(riga);
+                    cont++;
+                }
+            } catch
+            {
+                MessageBox.Show("Nessun file selezionato");
             }
 
-            var cont = 0;
-            foreach (var x in contatti)
-            {
-                var id = Convert.ToString(cont);
-                string[] riga = new string[] { id, x.nome, x.cognome, Convert.ToString(x.numero), x.email, x.nascita, x.indirizzo };
-                tabella.Rows.Add(riga);
-                cont++;
-            }
+            
+        }
+
+        private void elimina_Click(object sender, EventArgs e)
+        {
+            new Elimina(filePath).Show();
         }
     }
 }

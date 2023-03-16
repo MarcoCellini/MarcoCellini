@@ -15,11 +15,11 @@ namespace Rubrica
 {
     public partial class Aggiuni : Form
     {
+        public string filePath = string.Empty;
         public Aggiuni(string path)
         {
             InitializeComponent();
             filePath = path;
-            MessageBox.Show(filePath);
         }
 
         private class Contatto
@@ -32,12 +32,10 @@ namespace Rubrica
             public string Indirizzo;
         }
 
-        public string filePath = string.Empty;
-
         private void invio_Click(object sender, EventArgs e)
         {
-           // try
-            //{
+           try
+           {
                 Contatto contatto = new Contatto(); // Crea classe contatto
 
                 string nome = name.Text;    // Riempiamo gli attrbuti
@@ -90,7 +88,7 @@ namespace Rubrica
 
                 if (!File.Exists(filePath))
                 {
-                    using (StreamWriter sw = File.CreateText("./rubrica.txt"))
+                    using (StreamWriter sw = File.CreateText("./rubrica.csv"))
                     {
                         sw.WriteLine(contatto.Nome + "," + contatto.Cognome + "," + contatto.Numero + "," + contatto.Email + "," + contatto.Nascita + "," + contatto.Indirizzo);
                     }
@@ -105,10 +103,10 @@ namespace Rubrica
 
                 MessageBox.Show("Utente salvato correttamente");
                 this.Close();
-            /*} catch
+            } catch
             {
                 MessageBox.Show("Errore 104");
-            } */  
+            }
         }
 
         private void indietro_Click(object sender, EventArgs e)

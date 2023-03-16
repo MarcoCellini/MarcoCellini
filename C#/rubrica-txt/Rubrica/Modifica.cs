@@ -64,9 +64,12 @@ namespace Rubrica
                 set { Indirizzo = value; }
             }
         }
-        public Modifica()
+
+        public string filePath = string.Empty;
+        public Modifica(string path)
         {
             InitializeComponent();
+            filePath = path;
         }
 
         private void indietro_Click(object sender, EventArgs e)

@@ -52,6 +52,12 @@
     <Compile Include="Aggiuni.Designer.cs">
       <DependentUpon>Aggiuni.cs</DependentUpon>
     </Compile>
+    <Compile Include="Elimina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Elimina.Designer.cs">
+      <DependentUpon>Elimina.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Aggiuni.resx">
       <DependentUpon>Aggiuni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Elimina.resx">
+      <DependentUpon>Elimina.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
