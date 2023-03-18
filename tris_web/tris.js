@@ -1,17 +1,98 @@
 var type = true;
 
 var gioco = [
-                [0, 0, 0],
-                [0, 0, 0],
-                [0, 0, 0]
-            ];
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0]
+];
 
-var vittorie = [
-                [0, 1, 2],
-                [3, 4, 5],
-                [6, 7, 8],
-                [0, 3, 6],
-            ];
+function dx(r, c, n) {
+    try {
+        if (gioco[r][c + 1] === n)
+            return true;
+    } catch {
+        return false;
+    }
+    return false;
+}
+
+function dw(r, c, n) {
+    try {
+        if (gioco[r + 1][c] === n)
+            return true;
+    } catch {
+        return false;
+    }
+    return false;
+}
+
+function dn(r, c, n) {
+    try {
+        if (gioco[r + 1][c + 1] === n)
+            return true;
+    } catch {
+        return false;
+    }
+    return false;
+}
+
+function dp(r, c, n) {
+    try {
+        if (gioco[r + 1][c - 1] === n)
+            return true;
+    } catch {
+        return false;
+    }
+    return false;
+}
+
+function victory(value) {
+    if (value < 0) {
+        window.alert("Ha vinto il giocatore 1 [X]");
+    } else if (value > 0) {
+        window.alert("Ha vinto il giocatore 2 [O]");
+    }
+}
+
+function is_win(value) {
+    for (var i = 0; i < gioco.length; i++) {
+        for (var j = 0; j < gioco.length; j++) {
+            if (gioco[i][j] === value) {
+                if (dx(i, j, value)) {
+                    console.log("andiamo a destra");
+                    if (dx(i, j + 1, value)) {
+                        console.log("win");
+                        victory(value);
+                    }
+                }
+
+                if (dw(i, j, value)) {
+                    console.log("andiamo giu");
+                    if (dw(i + 1, j, value)) {
+                        console.log("win");
+                        victory(value);
+                    }
+                }
+
+                if (dn(i, j, value)) {
+                    console.log("andiamo diag neg");
+                    if (dn(i + 1, j + 1, value)) {
+                        console.log("win");
+                        victory(value);
+                    }
+                }
+
+                if (dp(i, j, value)) {
+                    console.log("andiamo diag pos");
+                    if (dp(i + 1, j - 1, value)) {
+                        console.log("win");
+                        victory(value);
+                    }
+                }
+            }
+        }
+    }
+}
 
 function x(ID) {
     if (type) {
@@ -19,10 +100,11 @@ function x(ID) {
         gioco[ID[1]][ID[2]] = -1;
         type = false;
     } else {
-        document.getElementById(ID).innerHTML = "O";    
+        document.getElementById(ID).innerHTML = "O";
         gioco[ID[1]][ID[2]] = 1;
         type = true;
     }
-
     console.log(gioco);
+    is_win(-1);
+    is_win(1);
 }
