@@ -142,5 +142,10 @@ namespace Rubrica
         {
             new Elimina(filePath).Show();
         }
+
+        private void find_Click(object sender, EventArgs e)
+        {
+            new Cerca(filePath).Show();
+        }
     }
 }

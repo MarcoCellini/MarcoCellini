@@ -1,9 +1,15 @@
-var type = true;
+let type = true;
 
-var gioco = [
+let gioco = [
     [0, 0, 0],
     [0, 0, 0],
     [0, 0, 0]
+];
+
+let status = [
+    [false, false, false],
+    [false, false, false],
+    [false, false, false]
 ];
 
 function dx(r, c, n) {
@@ -55,8 +61,8 @@ function victory(value) {
 }
 
 function is_win(value) {
-    for (var i = 0; i < gioco.length; i++) {
-        for (var j = 0; j < gioco.length; j++) {
+    for (let i = 0; i < gioco.length; i++) {
+        for (let j = 0; j < gioco.length; j++) {
             if (gioco[i][j] === value) {
                 if (dx(i, j, value)) {
                     console.log("andiamo a destra");
@@ -95,13 +101,15 @@ function is_win(value) {
 }
 
 function x(ID) {
-    if (type) {
+    if (type && status[ID[1]][ID[2]] == false) {
         document.getElementById(ID).innerHTML = "X";
         gioco[ID[1]][ID[2]] = -1;
+        status[ID[1]][ID[2]] = true;
         type = false;
-    } else {
+    } else if (status[ID[1]][ID[2]] == false) {
         document.getElementById(ID).innerHTML = "O";
         gioco[ID[1]][ID[2]] = 1;
+        status[ID[1]][ID[2]] = true;
         type = true;
     }
     console.log(gioco);

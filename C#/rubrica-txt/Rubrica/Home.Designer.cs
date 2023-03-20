@@ -42,6 +42,7 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.indirizzo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.find = new System.Windows.Forms.Button();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabella)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +54,7 @@
             this.flowLayoutPanel1.Controls.Add(this.modifica);
             this.flowLayoutPanel1.Controls.Add(this.aggiungi);
             this.flowLayoutPanel1.Controls.Add(this.apri);
+            this.flowLayoutPanel1.Controls.Add(this.find);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(200, 450);
@@ -173,6 +175,17 @@
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
             this.indirizzo.Width = 300;
             // 
+            // find
+            // 
+            this.find.BackColor = System.Drawing.Color.Crimson;
+            this.find.Location = new System.Drawing.Point(3, 259);
+            this.find.Name = "find";
+            this.find.Size = new System.Drawing.Size(144, 58);
+            this.find.TabIndex = 4;
+            this.find.Text = "Cerca";
+            this.find.UseVisualStyleBackColor = false;
+            this.find.Click += new System.EventHandler(this.find_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -207,6 +220,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nascita;
         private System.Windows.Forms.DataGridViewTextBoxColumn indirizzo;
+        private System.Windows.Forms.Button find;
     }
 }
 

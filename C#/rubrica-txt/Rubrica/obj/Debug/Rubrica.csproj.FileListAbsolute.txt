@@ -29,3 +29,4 @@ C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica-txt\Rubric
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica-txt\Rubrica\bin\Debug\Rubrica.pdb
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica-txt\Rubrica\obj\Debug\Rubrica.Modifica.resources
 C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica-txt\Rubrica\obj\Debug\Rubrica.Elimina.resources
+C:\Users\marco\Documents\Marco\GitHub_privato\MarcoCellini\C#\rubrica-txt\Rubrica\obj\Debug\Rubrica.Cerca.resources

@@ -113,5 +113,10 @@ namespace Rubrica
         {
             this.Close();
         }
+
+        private void Aggiuni_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
