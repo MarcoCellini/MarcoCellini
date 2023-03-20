@@ -38,13 +38,13 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.indirizzo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
+            this.find = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabella)).BeginInit();
             this.SuspendLayout();
             // 
@@ -134,13 +134,6 @@
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
             this.indirizzo.Width = 300;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(102, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(23, 20);
-            this.textBox1.TabIndex = 18;
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(131, 12);
@@ -183,18 +176,28 @@
             this.textBox7.Size = new System.Drawing.Size(282, 20);
             this.textBox7.TabIndex = 24;
             // 
+            // find
+            // 
+            this.find.BackColor = System.Drawing.Color.GreenYellow;
+            this.find.Location = new System.Drawing.Point(57, 10);
+            this.find.Name = "find";
+            this.find.Size = new System.Drawing.Size(59, 23);
+            this.find.TabIndex = 25;
+            this.find.Text = "Cerca";
+            this.find.UseVisualStyleBackColor = false;
+            // 
             // Cerca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 450);
+            this.Controls.Add(this.find);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.tabella);
             this.Controls.Add(this.indietro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -216,12 +219,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nascita;
         private System.Windows.Forms.DataGridViewTextBoxColumn indirizzo;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button find;
     }
 }
