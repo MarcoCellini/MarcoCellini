@@ -93,7 +93,7 @@ function control() {
         for (let c = 0; c < status.length; c++) {
             if (!status[r][c])
                 return false;
-        }   
+        }
     }
     return true;
 }
@@ -134,20 +134,22 @@ function is_win(value, busy) {
 }
 
 function x(ID) {
-    cont += 1;
-    if (type && status[ID[1]][ID[2]] == false) {
-        document.getElementById(ID).innerHTML = "X";
-        gioco[ID[1]][ID[2]] = -1;
-        status[ID[1]][ID[2]] = true;
-        type = false;
-    } else if (status[ID[1]][ID[2]] == false) {
-        document.getElementById(ID).innerHTML = "O";
-        gioco[ID[1]][ID[2]] = 1;
-        status[ID[1]][ID[2]] = true;
-        type = true;
+    if (!win) {
+	    cont += 1;
+        if (type && status[ID[1]][ID[2]] == false) {
+            document.getElementById(ID).innerHTML = "X";
+            gioco[ID[1]][ID[2]] = -1;
+            status[ID[1]][ID[2]] = true;
+            type = false;
+        } else if (status[ID[1]][ID[2]] == false) {
+            document.getElementById(ID).innerHTML = "O";
+            gioco[ID[1]][ID[2]] = 1;
+            status[ID[1]][ID[2]] = true;
+            type = true;
+        }
+        is_win(-1, cont);
+        is_win(1, cont);
     }
-    is_win(-1, cont);
-    is_win(1, cont);
 }
 
 function restart() {

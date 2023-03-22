@@ -194,21 +194,29 @@ function fill_matrix(ID) {
 }
 
 function x(ID) {
-    cont += 1;
-    console.log(cont);
-    if (!bot) {
-        bot = !bot;
-        console.log("io");
-        fill_matrix(ID);
-    } else {
-        bot = !bot;
-        console.log("bot");
-        random_choose();
+    if (!win) {
+        cont += 1;
+        if (!bot) {
+            bot = !bot;
+            console.log("io");
+            fill_matrix(ID);
+        } else {
+            bot = !bot;
+            console.log("bot");
+            random_choose();
+        }
+        
+        render();
+        is_win(-1, cont);
+        is_win(1, cont);
     }
-    
-    render();
-    is_win(-1, cont);
-    is_win(1, cont);
+}
+
+function n_isvalid(r, c){
+    if (!status[r][c])
+        return true;
+    else
+        return false;
 }
 
 function random_choose() {
@@ -220,6 +228,8 @@ function random_choose() {
         r = 2, c = value - 6;
     else
         r = 1, c = value - 3;
-
-    fill_matrix("n" + r + c, true);
+    if (n_isvalid(r, c))
+        fill_matrix("n" + r + c, true);
+    else
+        random_choose();
 }
