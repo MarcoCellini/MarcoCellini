@@ -194,25 +194,33 @@ function fill_matrix(ID) {
 }
 
 function x(ID) {
-    if (!win) {
-        cont += 1;
-        if (!bot) {
+    if (!win && n_isvalid(ID[1], ID[2])) {
+        cont += 2;
+        /*if (!bot) {
             bot = !bot;
             console.log("io");
-            fill_matrix(ID);
+            
         } else {
             bot = !bot;
             console.log("bot");
             random_choose();
-        }
-        
+        }*/
+
+        fill_matrix(ID);
         render();
         is_win(-1, cont);
         is_win(1, cont);
+
+        if (!win) {
+            random_choose();
+            render();
+            is_win(-1, cont);
+            is_win(1, cont);
+        }
     }
 }
 
-function n_isvalid(r, c){
+function n_isvalid(r, c) {
     if (!status[r][c])
         return true;
     else
