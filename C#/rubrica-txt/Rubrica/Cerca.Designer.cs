@@ -38,12 +38,12 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nascita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.indirizzo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.name = new System.Windows.Forms.TextBox();
+            this.surname = new System.Windows.Forms.TextBox();
+            this.phone = new System.Windows.Forms.TextBox();
+            this.mail = new System.Windows.Forms.TextBox();
+            this.nato = new System.Windows.Forms.TextBox();
+            this.address = new System.Windows.Forms.TextBox();
             this.find = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tabella)).BeginInit();
             this.SuspendLayout();
@@ -134,47 +134,47 @@
             this.indirizzo.ToolTipText = "Indirizzo di casa dell\'utente";
             this.indirizzo.Width = 300;
             // 
-            // textBox2
+            // name
             // 
-            this.textBox2.Location = new System.Drawing.Point(131, 12);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(96, 20);
-            this.textBox2.TabIndex = 19;
+            this.name.Location = new System.Drawing.Point(130, 12);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(96, 20);
+            this.name.TabIndex = 19;
             // 
-            // textBox3
+            // surname
             // 
-            this.textBox3.Location = new System.Drawing.Point(233, 12);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(89, 20);
-            this.textBox3.TabIndex = 20;
+            this.surname.Location = new System.Drawing.Point(233, 12);
+            this.surname.Name = "surname";
+            this.surname.Size = new System.Drawing.Size(89, 20);
+            this.surname.TabIndex = 20;
             // 
-            // textBox4
+            // phone
             // 
-            this.textBox4.Location = new System.Drawing.Point(337, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(105, 20);
-            this.textBox4.TabIndex = 21;
+            this.phone.Location = new System.Drawing.Point(337, 12);
+            this.phone.Name = "phone";
+            this.phone.Size = new System.Drawing.Size(105, 20);
+            this.phone.TabIndex = 21;
             // 
-            // textBox5
+            // mail
             // 
-            this.textBox5.Location = new System.Drawing.Point(457, 12);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(128, 20);
-            this.textBox5.TabIndex = 22;
+            this.mail.Location = new System.Drawing.Point(457, 12);
+            this.mail.Name = "mail";
+            this.mail.Size = new System.Drawing.Size(128, 20);
+            this.mail.TabIndex = 22;
             // 
-            // textBox6
+            // nato
             // 
-            this.textBox6.Location = new System.Drawing.Point(603, 12);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(128, 20);
-            this.textBox6.TabIndex = 23;
+            this.nato.Location = new System.Drawing.Point(603, 12);
+            this.nato.Name = "nato";
+            this.nato.Size = new System.Drawing.Size(128, 20);
+            this.nato.TabIndex = 23;
             // 
-            // textBox7
+            // address
             // 
-            this.textBox7.Location = new System.Drawing.Point(755, 12);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(282, 20);
-            this.textBox7.TabIndex = 24;
+            this.address.Location = new System.Drawing.Point(755, 12);
+            this.address.Name = "address";
+            this.address.Size = new System.Drawing.Size(282, 20);
+            this.address.TabIndex = 24;
             // 
             // find
             // 
@@ -185,6 +185,7 @@
             this.find.TabIndex = 25;
             this.find.Text = "Cerca";
             this.find.UseVisualStyleBackColor = false;
+            this.find.Click += new System.EventHandler(this.find_Click);
             // 
             // Cerca
             // 
@@ -192,12 +193,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1071, 450);
             this.Controls.Add(this.find);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.address);
+            this.Controls.Add(this.nato);
+            this.Controls.Add(this.mail);
+            this.Controls.Add(this.phone);
+            this.Controls.Add(this.surname);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.tabella);
             this.Controls.Add(this.indietro);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -219,12 +220,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn email;
         private System.Windows.Forms.DataGridViewTextBoxColumn nascita;
         private System.Windows.Forms.DataGridViewTextBoxColumn indirizzo;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.TextBox surname;
+        private System.Windows.Forms.TextBox phone;
+        private System.Windows.Forms.TextBox mail;
+        private System.Windows.Forms.TextBox nato;
+        private System.Windows.Forms.TextBox address;
         private System.Windows.Forms.Button find;
     }
 }
