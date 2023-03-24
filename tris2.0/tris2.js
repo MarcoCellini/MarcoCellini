@@ -1,8 +1,8 @@
-let type = true, cont = 0, win = false, bot = false;
+let type = true, cont = 0, win = false, bot = false, mosse_bot = 0;
 
 let gioco = [
-    [0, 0, 0],
-    [0, 0, 0],
+    [-1, 0, -1],
+    [0, 1, 0],
     [0, 0, 0]
 ];
 
@@ -193,25 +193,30 @@ function fill_matrix(ID) {
     }
 }
 
+function centre_empty() {
+    if (!status[1][1])
+        return true;
+    return false;
+}
+
 function x(ID) {
     if (!win && n_isvalid(ID[1], ID[2])) {
-        cont += 2;
-        /*if (!bot) {
-            bot = !bot;
-            console.log("io");
-            
-        } else {
-            bot = !bot;
-            console.log("bot");
-            random_choose();
-        }*/
-
+        cont++;
         fill_matrix(ID);
         render();
         is_win(-1, cont);
         is_win(1, cont);
 
-        if (!win) {
+        if (mosse_bot == 0) {
+            cont++;
+            mosse_bot++;
+            if (centre_empty())
+                fill_matrix("m11");
+            else
+                fill_matrix("t00");
+            render();
+        } else if (!win) {
+            cont++;
             random_choose();
             render();
             is_win(-1, cont);
@@ -241,3 +246,99 @@ function random_choose() {
     else
         random_choose();
 }
+
+function x(ID) {
+    if (!win && n_isvalid(ID[1], ID[2])) {
+        cont++;
+        fill_matrix(ID);
+        render();
+        is_win(-1, cont);
+        is_win(1, cont);
+
+        if (mosse_bot == 0) {
+            cont++;
+            mosse_bot++;
+            if (centre_empty())
+                fill_matrix("m11");
+            else
+                fill_matrix("t00");
+            render();
+        } else if (!win) {
+            cont++;
+            random_choose();
+            render();
+            is_win(-1, cont);
+            is_win(1, cont);
+        }
+    }
+}
+
+function n_isvalid(r, c) {
+    if (!status[r][c])
+        return true;
+    else
+        return false;
+}
+
+function random_choose() {
+    let value = Math.floor(Math.random() * 9), r, c;
+
+    if (value < 3)
+        r = 0, c = value;
+    else if (value > 5)
+        r = 2, c = value - 6;
+    else
+        r = 1, c = value - 3;
+    if (n_isvalid(r, c))
+        fill_matrix("n" + r + c, true);
+    else
+        random_choose();
+}
+
+function ctrl_row(value) {
+    let tot = 0, coor = [], c;
+    for (let r = 0; r < gioco.length; r++) {
+        for (c = 0; c < gioco.length; c++) {
+            tot += gioco[r][c];
+        }
+        if (tot == value) {
+            coor.push(r); 
+            coor.push(c);
+            return coor;
+        }
+        else
+            tot = 0;
+    }
+    return null;
+}
+
+function ctrl_col(value) {
+    let tot = 0, coor = [], r;
+    for (let c = 0; c < gioco.length; c++) {
+        for (r = 0; r < gioco.length; r++) {
+            tot += gioco[r][c];
+        }
+        if (tot == value) {
+            coor.push(r);
+            coor.push(c);
+            return coor;
+        }
+        else
+            tot = 0;
+    }
+    return null;
+}
+
+function vantaggio() {
+    let row = ctrl_row(-1 * 2)
+
+    console.log(row);
+}
+
+function defense() {
+    if (vantaggio()) {
+
+    }
+}
+
+vantaggio();
