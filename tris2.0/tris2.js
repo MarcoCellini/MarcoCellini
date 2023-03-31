@@ -1,8 +1,8 @@
 let type = true, cont = 0, win = false, bot = false, mosse_bot = 0;
 
 let gioco = [
-    [-1, 0, -1],
-    [0, 1, 0],
+    [0, 0, 0],
+    [0, 0, 0],
     [0, 0, 0]
 ];
 
@@ -182,11 +182,11 @@ function render() {
 }
 
 function fill_matrix(ID) {
-    if (type && status[ID[1]][ID[2]] == false) {
+    if (type && !status[ID[1]][ID[2]]) {
         gioco[ID[1]][ID[2]] = -1;
         status[ID[1]][ID[2]] = true;
         type = false;
-    } else if (status[ID[1]][ID[2]] == false) {
+    } else if (!status[ID[1]][ID[2]]) {
         gioco[ID[1]][ID[2]] = 1;
         status[ID[1]][ID[2]] = true;
         type = true;
@@ -199,32 +199,6 @@ function centre_empty() {
     return false;
 }
 
-function x(ID) {
-    if (!win && n_isvalid(ID[1], ID[2])) {
-        cont++;
-        fill_matrix(ID);
-        render();
-        is_win(-1, cont);
-        is_win(1, cont);
-
-        if (mosse_bot == 0) {
-            cont++;
-            mosse_bot++;
-            if (centre_empty())
-                fill_matrix("m11");
-            else
-                fill_matrix("t00");
-            render();
-        } else if (!win) {
-            cont++;
-            random_choose();
-            render();
-            is_win(-1, cont);
-            is_win(1, cont);
-        }
-    }
-}
-
 function n_isvalid(r, c) {
     if (!status[r][c])
         return true;
@@ -234,7 +208,6 @@ function n_isvalid(r, c) {
 
 function random_choose() {
     let value = Math.floor(Math.random() * 9), r, c;
-
     if (value < 3)
         r = 0, c = value;
     else if (value > 5)
@@ -263,7 +236,14 @@ function x(ID) {
             else
                 fill_matrix("t00");
             render();
-        } else if (!win) {
+        } else if (!win && vantaggio() != null) {
+            cont++;
+            let coor = vantaggio();
+            fill_matrix("x" + coor[0] + coor[1]);
+            render();
+            is_win(-1, cont);
+            is_win(1, cont);
+        } else if (!win && vantaggio() == null) {
             cont++;
             random_choose();
             render();
@@ -302,9 +282,13 @@ function ctrl_row(value) {
             tot += gioco[r][c];
         }
         if (tot == value) {
-            coor.push(r); 
-            coor.push(c);
-            return coor;
+            for (let i = 0; i < 3; i++) {
+                if (!status[r][i]) {
+                    coor.push(r);
+                    coor.push(i);
+                    return coor;
+                }
+            }
         }
         else
             tot = 0;
@@ -319,8 +303,13 @@ function ctrl_col(value) {
             tot += gioco[r][c];
         }
         if (tot == value) {
-            coor.push(r);
-            coor.push(c);
+            for (let i = 0; i < 3; i++) {
+                if (!status[i][c]) {
+                    coor.push(i);
+                    coor.push(c);
+                    return coor;
+                }
+            }
             return coor;
         }
         else
@@ -329,16 +318,42 @@ function ctrl_col(value) {
     return null;
 }
 
+function ctrl_dn(value) {
+    let tot = 0, coor = [];
+    for (let c = 0; c < gioco.length; c++)
+        tot += gioco[c][c];
+
+    if (tot == value) {
+        for (let c = 0; c < gioco.length; c++)
+            if (!status[c][c]) {
+                coor.push(c), coor.push(c);
+                return coor;
+            }
+    } else 
+        return null;
+}
+
+function ctrl_dp(value) {
+    let tot = 0, coor = [], c = gioco.length - 1;
+    for (let r = 0; r < gioco.length; r++)
+        tot += gioco[r][c--];
+    
+    if (tot == value) {
+        c = gioco.length - 1;
+        for (let r = 0; r < gioco.length; r++)
+            if (!status[r][c--]) {
+                coor.push(r), coor.push(c+1);
+                return coor;
+            }
+    } else 
+        return null;
+}
+
 function vantaggio() {
-    let row = ctrl_row(-1 * 2)
-
-    console.log(row);
+    let row = null;
+    row == null ? row = ctrl_row(-1 * 2) : null;
+    row == null ? row = ctrl_col(-1 * 2) : null;
+    row == null ? row = ctrl_dn(-1 * 2) : null;
+    row == null ? row = ctrl_dp(-1 * 2) : null;
+    return row;
 }
-
-function defense() {
-    if (vantaggio()) {
-
-    }
-}
-
-vantaggio();
