@@ -236,14 +236,22 @@ function x(ID) {
             else
                 fill_matrix("t00");
             render();
-        } else if (!win && vantaggio() != null) {
+        } else if (!win && vantaggio(-1) != null) {
             cont++;
-            let coor = vantaggio();
+            let coor = vantaggio(-1);
             fill_matrix("x" + coor[0] + coor[1]);
             render();
             is_win(-1, cont);
             is_win(1, cont);
-        } else if (!win && vantaggio() == null) {
+        } else if (!win && vantaggio(1) != null) {
+            console.log("vantaggio CPU");
+            cont++;
+            let coor = vantaggio(1);
+            fill_matrix("x" + coor[0] + coor[1]);
+            render();
+            is_win(-1, cont);
+            is_win(1, cont);
+        } else {
             cont++;
             random_choose();
             render();
@@ -349,11 +357,11 @@ function ctrl_dp(value) {
         return null;
 }
 
-function vantaggio() {
+function vantaggio(value) {
     let row = null;
-    row == null ? row = ctrl_row(-1 * 2) : null;
-    row == null ? row = ctrl_col(-1 * 2) : null;
-    row == null ? row = ctrl_dn(-1 * 2) : null;
-    row == null ? row = ctrl_dp(-1 * 2) : null;
+    row == null ? row = ctrl_row(value * 2) : null;
+    row == null ? row = ctrl_col(value * 2) : null;
+    row == null ? row = ctrl_dn(value * 2) : null;
+    row == null ? row = ctrl_dp(value * 2) : null;
     return row;
 }
