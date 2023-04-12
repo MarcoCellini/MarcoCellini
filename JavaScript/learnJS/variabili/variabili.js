@@ -4,7 +4,9 @@
         - assegnarla (con l'operatore = )
 */
 
-let age;
+let age;				// i let sono validi SOLO all'interno dello scope dove sono definite   -->> USARE SEMPRE QUESTE
+
+var a = 10;		// le var non hanno uno scope (sono sempre globali ovunque vengono dichiarate)
 
 console.log(age);       // restituirà non definito perché la variabile e vuota
 
