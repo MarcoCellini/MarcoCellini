@@ -24,33 +24,31 @@ namespace prenotazioni
             }
         }
 
+        string filePath = null;
+
         public Form1()
         {
             InitializeComponent();
-            
             DateTime today = DateTime.Today;
             data.MinDate = today;
             var day = (int)today.DayOfWeek;
             data.MaxDate = today.AddDays((7 - day - 1));
         }
 
-        private string get_path()
+        private void get_path()
         {
-            while (true)
-                using (OpenFileDialog openFileDialog = new OpenFileDialog())
-                {
-                    openFileDialog.InitialDirectory = "./";
-                    openFileDialog.Filter = "csv files (*.txt)|*.txt|All files (*.*)|*.*";
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.InitialDirectory = "./";
+                openFileDialog.Filter = "text files (*.txt)|*.txt|All files (*.*)|*.*";
 
-                    if (openFileDialog.ShowDialog() == DialogResult.OK)
-                    {
-                        return(openFileDialog.FileName);
-                    }
-                    openFileDialog.Dispose();
-                }
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    filePath = openFileDialog.FileName;
+                openFileDialog.Dispose();
+            }
         }
 
-        private List<info> take_hours(string filePath)
+        private List<info> take_hours()
         {
             string text;
             using (var sw = new StreamReader(filePath, Encoding.UTF8))
@@ -64,7 +62,7 @@ namespace prenotazioni
                 if (x == "")
                     break;
                 line = x.Split(';');
-                infos.Add(new info((line[1].Split(' '))[0], (line[1].Split(' '))[1]));
+                infos.Add(new info((line[2].Split(' '))[0], (line[2].Split(' '))[1]));
             }
 
             return infos;
@@ -72,17 +70,35 @@ namespace prenotazioni
 
         private bool control(string giorno)
         {
-            string filePath = get_path();
-            List<info> infos = take_hours(filePath);
-
-            foreach (var x in infos)
-                if ((x.data + " " + x.ora) == giorno)
-                    MessageBox.Show("Orario gia prenotato");
-            
+            List<info> infos = take_hours();
+            if (filePath != null)
+            {
+                foreach (var x in infos)
+                    if ((x.data + " " + x.ora) == giorno)
+                        return false;
+            } else
+                MessageBox.Show("error");
             return true;
         }
+
+        private void add_file(string text)
+        {
+            MessageBox.Show(filePath);
+            if (filePath == null)
+                using (StreamWriter sw = File.CreateText("./prenotazioni.txt"))
+                {
+                    sw.WriteLine(text);
+                }
+            else
+                using (StreamWriter sw = File.AppendText(filePath))
+                {
+                    sw.WriteLine(text);
+                }
+        }
+
         private void submit_Click(object sender, EventArgs e)
         {
+            get_path();
             var ora = data.Value.Hour;
             var min = data.Value.Minute;
             if (min > 30)
@@ -97,12 +113,13 @@ namespace prenotazioni
             if (ora < 8 || (ora == 8 && min == 0) || ora > 19 || (ora == 19 && min == 30))
                 MessageBox.Show("barbiere chiuso");
             else
-                control(data.Value.Day.ToString() + "/" + data.Value.Month.ToString() + " " + ora + ":" + min);
-        }
-
-        private void data_ValueChanged(object sender, EventArgs e)
-        {
-
+            {
+                if (control(data.Value.Day.ToString() + "/" + data.Value.Month.ToString() + " " + ora + ":" + min))
+                {
+                    add_file(cognome.Text + ';' + telefono.Text + ';' + (data.Value.Day.ToString() + "/" + data.Value.Month.ToString() + " " + ora + ":" + min));
+                    return;
+                }
+            }
         }
     }
 }

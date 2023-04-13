@@ -67,7 +67,6 @@
             this.data.Name = "data";
             this.data.Size = new System.Drawing.Size(141, 29);
             this.data.TabIndex = 3;
-            this.data.ValueChanged += new System.EventHandler(this.data_ValueChanged);
             // 
             // label1
             // 
