@@ -58,14 +58,14 @@
             // 
             // data
             // 
-            this.data.CustomFormat = "dd/MM hh:mm";
+            this.data.CustomFormat = "dddd dd/MM HH:mm";
             this.data.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.data.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.data.Location = new System.Drawing.Point(315, 203);
+            this.data.Location = new System.Drawing.Point(279, 203);
             this.data.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
             this.data.MinDate = new System.DateTime(2023, 1, 1, 0, 0, 0, 0);
             this.data.Name = "data";
-            this.data.Size = new System.Drawing.Size(141, 29);
+            this.data.Size = new System.Drawing.Size(235, 29);
             this.data.TabIndex = 3;
             // 
             // label1
