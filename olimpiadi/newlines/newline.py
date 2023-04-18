@@ -3,7 +3,7 @@ import sys
 # se preferisci leggere e scrivere da file
 # ti basta decommentare le seguenti due righe:
 
-sys.stdin = open('input.txt')
+sys.stdin = open('./newlines_input_1.txt')
 sys.stdout = open('output.txt', 'w')
 
 
@@ -12,11 +12,35 @@ def solve(t):
 
     N = int(input().strip())
     W = list(map(int, input().strip().split()))
+    W.append(-1)
 
-    # aggiungi codice...
-    K1, K2 = 42, 69
+    cont = 0
+    line = []
+    little = []
 
-    print(f"Case #{t}: {K1} {K2}")
+    """ for x in W:
+        if x != -1:
+            cont += x + 1
+        else:
+            cont -= 1
+            line.append(cont)
+            cont = 0 """
+
+    for i in range(0, len(W)):
+        if W[i] != -1:
+            cont += W[i] + 1
+        else:
+            cont -= 1
+            line.append(cont)
+            try:
+                little.append(cont + 1 + W[i + 1])
+            except:
+                break
+            cont = 0
+    k1 = max(line)
+    k2 = min(little) - 1
+
+    print(f"Case #{t}: {k1} {k2}")
 
 
 T = int(input().strip())
