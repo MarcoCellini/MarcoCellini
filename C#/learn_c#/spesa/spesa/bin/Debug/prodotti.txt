@@ -1,0 +1,6 @@
+Bamba;10
+Coca;15
+MariaDB;7
+PHP;2
+LSD;25
+Organi;1000
