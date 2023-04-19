@@ -12,3 +12,5 @@ document.getElementById("bottone").onclick = function() {
 
     document.getElementById("label").innerHTML = "weee " + username2;     // per modificare un tag tramite l'ID
 }
+
+confirm("Vuoi fati rubare tutti i dati?");
