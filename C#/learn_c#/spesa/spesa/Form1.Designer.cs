@@ -38,11 +38,14 @@
             this.erase = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.risultato = new System.Windows.Forms.Label();
+            this.tessera = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.data)).BeginInit();
             this.SuspendLayout();
             // 
             // data
             // 
+            this.data.AllowUserToAddRows = false;
+            this.data.AllowUserToDeleteRows = false;
             this.data.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.data.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seleziona,
@@ -80,10 +83,10 @@
             // invio
             // 
             this.invio.BackColor = System.Drawing.Color.LawnGreen;
-            this.invio.Location = new System.Drawing.Point(82, 340);
+            this.invio.Location = new System.Drawing.Point(84, 381);
             this.invio.Name = "invio";
             this.invio.Size = new System.Drawing.Size(75, 23);
-            this.invio.TabIndex = 1;
+            this.invio.TabIndex = 3;
             this.invio.Text = "Invio";
             this.invio.UseVisualStyleBackColor = false;
             this.invio.Click += new System.EventHandler(this.invio_Click);
@@ -91,7 +94,7 @@
             // erase
             // 
             this.erase.BackColor = System.Drawing.Color.IndianRed;
-            this.erase.Location = new System.Drawing.Point(1, 340);
+            this.erase.Location = new System.Drawing.Point(3, 381);
             this.erase.Name = "erase";
             this.erase.Size = new System.Drawing.Size(75, 23);
             this.erase.TabIndex = 2;
@@ -103,7 +106,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(482, 337);
+            this.label1.Location = new System.Drawing.Point(484, 378);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 24);
             this.label1.TabIndex = 3;
@@ -113,17 +116,29 @@
             // 
             this.risultato.AutoSize = true;
             this.risultato.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.risultato.Location = new System.Drawing.Point(600, 340);
+            this.risultato.Location = new System.Drawing.Point(602, 381);
             this.risultato.Name = "risultato";
             this.risultato.Size = new System.Drawing.Size(35, 24);
             this.risultato.TabIndex = 4;
             this.risultato.Text = "0 €";
+            // 
+            // tessera
+            // 
+            this.tessera.AutoSize = true;
+            this.tessera.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tessera.Location = new System.Drawing.Point(12, 340);
+            this.tessera.Name = "tessera";
+            this.tessera.Size = new System.Drawing.Size(297, 28);
+            this.tessera.TabIndex = 1;
+            this.tessera.Text = "Tessera Fedeltà sconto del 10%";
+            this.tessera.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.tessera);
             this.Controls.Add(this.risultato);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.erase);
@@ -149,6 +164,7 @@
         private System.Windows.Forms.Button erase;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label risultato;
+        private System.Windows.Forms.CheckBox tessera;
     }
 }
 
