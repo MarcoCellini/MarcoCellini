@@ -1,22 +1,22 @@
 from queue import PriorityQueue
 
-class Graph:
-    def __init__(self, num_of_vertices):
-        self.v = num_of_vertices
-        self.edges = [[-1 for i in range(num_of_vertices)] for j in range(num_of_vertices)]
-        self.visited = []
+class Graph:            ## classe grafo [rappresenta la rete]
+    def __init__(self, num_of_vertices):        ## costruttore della classe
+        self.v = num_of_vertices           ## [v] rappresenta il numero di nodi del grafo
+        self.edges = [[-1 for i in range(num_of_vertices)] for j in range(num_of_vertices)]     ## [endges] rappresenta la lista di percorsi tra i nodi sotto forma di matrice inizialmente creata con elementi tutti a '-1'
+        self.visited = []       ## lista dei nodi visitati
 
-    def add_edge(self, u, v, weight):
-        self.edges[u][v] = weight
+    def add_edge(self, u, v, weight):           ## metodo per l'aggiunta del percoso tra due nodi
+        self.edges[u][v] = weight           ## [u] [v] sono i nodi tra cui vi è il collegamento
         self.edges[v][u] = weight
 
 
 
 def dijkstra(graph, start_vertex):
-    D = {v:float('inf') for v in range(graph.v)}
-    D[start_vertex] = 0
+    D = {v:float('inf') for v in range(graph.v)}      ## lista di lunghezza [v] nodi inizializata tutta a infinito
+    D[start_vertex] = 0         ## nodi iniziale impostato a 0
 
-    pq = PriorityQueue()
+    pq = PriorityQueue()        ## coda prioritaria con solo il nodi di partenza alla locazione 0
     pq.put((0, start_vertex))
 
     while not pq.empty():
@@ -35,8 +35,8 @@ def dijkstra(graph, start_vertex):
     return D
     
 
-g = Graph(8)
-g.add_edge(0, 1, 6)
+g = Graph(8)            ## creamo il grafo con 8 vertici/nodi
+g.add_edge(0, 1, 6)         ## aggiungiamo i collegamenti tra i nodi con relativo costo
 g.add_edge(0, 3, 3)
 g.add_edge(0, 4, 5)
 g.add_edge(1, 2, 7)
