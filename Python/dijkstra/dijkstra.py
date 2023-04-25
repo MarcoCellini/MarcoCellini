@@ -20,16 +20,16 @@ def dijkstra(graph, start_vertex):
     pq.put((0, start_vertex))
 
     while not pq.empty():
-        (dist, current_vertex) = pq.get()
-        graph.visited.append(current_vertex)
+        (dist, current_vertex) = pq.get()       ## prendiamo le informazioni dal nodo [distanza e nodo]
+        graph.visited.append(current_vertex)    ## segnamo il nodo come visitato
 
         for neighbor in range(graph.v):
-            if graph.edges[current_vertex][neighbor] != -1:
+            if graph.edges[current_vertex][neighbor] != -1:     ## se tra il nodo corrente e il suo vicino c'è un collegamento allora distanza = costo del percorso
                 distance = graph.edges[current_vertex][neighbor]
-                if neighbor not in graph.visited:
-                    old_cost = D[neighbor]
+                if neighbor not in graph.visited:       ## se il nodo NON è stato visitato
+                    old_cost = D[neighbor]                      ## prendiamo il costo precedente e quello del nuovo percorso
                     new_cost = D[current_vertex] + distance
-                    if new_cost < old_cost:
+                    if new_cost < old_cost:             ## se il percorso nuovo è migliore inseriamo il costo per raggiungere il vicino e cambiamo il costo del nodo nel grafo
                         pq.put((new_cost, neighbor))
                         D[neighbor] = new_cost
     return D
@@ -44,6 +44,7 @@ g.add_edge(2, 4, 7)
 g.add_edge(2, 6, 4)
 g.add_edge(3, 7, 6)
 g.add_edge(4, 5, 9)
+g.add_edge(4, 7, 2)
 g.add_edge(5, 6, 3)
 g.add_edge(5, 7, 1)
 
