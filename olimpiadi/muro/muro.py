@@ -3,7 +3,7 @@ import sys
 # se preferisci leggere e scrivere da file
 # ti basta decommentare le seguenti due righe:
 
-sys.stdin = open('input.txt')
+sys.stdin = open('muro_input_1.txt')
 sys.stdout = open('output.txt', 'w')
 
 
