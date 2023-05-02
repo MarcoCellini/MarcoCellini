@@ -41,6 +41,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.calcola = new System.Windows.Forms.Button();
+            this.clear = new System.Windows.Forms.Button();
+            this.risultato = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cognome
@@ -63,6 +66,8 @@
             // 
             this.nato.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nato.Location = new System.Drawing.Point(269, 202);
+            this.nato.MaxDate = new System.DateTime(2023, 5, 5, 0, 0, 0, 0);
+            this.nato.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.nato.Name = "nato";
             this.nato.Size = new System.Drawing.Size(274, 29);
             this.nato.TabIndex = 2;
@@ -108,7 +113,9 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.Control;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
             this.label1.Location = new System.Drawing.Point(250, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(306, 51);
@@ -165,11 +172,49 @@
             this.label6.TabIndex = 12;
             this.label6.Text = "Città e Provincia";
             // 
+            // calcola
+            // 
+            this.calcola.BackColor = System.Drawing.Color.GreenYellow;
+            this.calcola.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calcola.Location = new System.Drawing.Point(269, 320);
+            this.calcola.Name = "calcola";
+            this.calcola.Size = new System.Drawing.Size(103, 38);
+            this.calcola.TabIndex = 13;
+            this.calcola.Text = "Calcola";
+            this.calcola.UseVisualStyleBackColor = false;
+            this.calcola.Click += new System.EventHandler(this.calcola_Click);
+            // 
+            // clear
+            // 
+            this.clear.BackColor = System.Drawing.Color.Red;
+            this.clear.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clear.Location = new System.Drawing.Point(440, 320);
+            this.clear.Name = "clear";
+            this.clear.Size = new System.Drawing.Size(103, 38);
+            this.clear.TabIndex = 14;
+            this.clear.Text = "Rimuovi";
+            this.clear.UseVisualStyleBackColor = false;
+            this.clear.Click += new System.EventHandler(this.clear_Click);
+            // 
+            // risultato
+            // 
+            this.risultato.AutoSize = true;
+            this.risultato.Font = new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.risultato.ForeColor = System.Drawing.Color.ForestGreen;
+            this.risultato.Location = new System.Drawing.Point(266, 385);
+            this.risultato.MinimumSize = new System.Drawing.Size(275, 0);
+            this.risultato.Name = "risultato";
+            this.risultato.Size = new System.Drawing.Size(275, 29);
+            this.risultato.TabIndex = 15;
+            // 
             // CodF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.risultato);
+            this.Controls.Add(this.clear);
+            this.Controls.Add(this.calcola);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -205,6 +250,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button calcola;
+        private System.Windows.Forms.Button clear;
+        private System.Windows.Forms.Label risultato;
     }
 }
 
