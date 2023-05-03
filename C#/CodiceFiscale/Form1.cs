@@ -52,17 +52,42 @@ namespace CodiceFiscale
 
             public void setNome(TextBox nome)
             {
+                int cont = 1, cons = 0;
                 foreach (char x in nome.Text.ToUpper())
-                {
-                    if (!"AEIOU".Contains(x) && nome3.Length < 3)
-                        nome3 += x.ToString();
-                }
-                if (nome3.Length != 3)
+                    if (!"AEIOU".Contains(x))
+                        cons++;
+                if (cons == 3)
                 {
                     foreach (char x in nome.Text.ToUpper())
                     {
-                        if ("AEIOU".Contains(x) && nome3.Length < 3)
+                        if (!"AEIOU".Contains(x) && nome3.Length < 3)
                             nome3 += x.ToString();
+                    }
+                    if (nome3.Length != 3)
+                    {
+                        foreach (char x in nome.Text.ToUpper())
+                        {
+                            if ("AEIOU".Contains(x) && nome3.Length < 3)
+                                nome3 += x.ToString();
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (char x in nome.Text.ToUpper())
+                    {
+                        if (!"AEIOU".Contains(x) && nome3.Length < 3 && cont != 2)
+                            nome3 += x.ToString();
+                        if (!"AEIOU".Contains(x))
+                            cont++;
+                    }
+                    if (nome3.Length != 3)
+                    {
+                        foreach (char x in nome.Text.ToUpper())
+                        {
+                            if ("AEIOU".Contains(x) && nome3.Length < 3)
+                                nome3 += x.ToString();
+                        }
                     }
                 }
             }
@@ -85,7 +110,7 @@ namespace CodiceFiscale
                     { "dicembre", 'T' },
                 };
                 foreach (KeyValuePair<string, char> m in mesi)
-                    if (m.Key == x)
+                    if (m.Key == x.ToLower())
                     {
                         mese1 = m.Value;
                         break;
@@ -200,9 +225,9 @@ namespace CodiceFiscale
             {
                 MessageBox.Show("Errore provincia non valida");
                 return;
-            } else if (!MA.Checked && !FE.Checked)
+            } else if (!MA.Checked && !FE.Checked || MA.Checked && FE.Checked)
             {
-                MessageBox.Show("Errore selezionare il sesso");
+                MessageBox.Show("Errore genere non valido");
                 return;
             }
 
