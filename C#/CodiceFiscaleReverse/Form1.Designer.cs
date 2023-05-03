@@ -39,7 +39,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.sesso = new System.Windows.Forms.Label();
             this.nome = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.cognome = new System.Windows.Forms.Label();
             this.data = new System.Windows.Forms.Label();
             this.comune = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -157,15 +157,15 @@
             this.nome.Size = new System.Drawing.Size(0, 24);
             this.nome.TabIndex = 10;
             // 
-            // label8
+            // cognome
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label8.Location = new System.Drawing.Point(387, 238);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 24);
-            this.label8.TabIndex = 11;
+            this.cognome.AutoSize = true;
+            this.cognome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cognome.ForeColor = System.Drawing.Color.DarkGreen;
+            this.cognome.Location = new System.Drawing.Point(387, 238);
+            this.cognome.Name = "cognome";
+            this.cognome.Size = new System.Drawing.Size(0, 24);
+            this.cognome.TabIndex = 11;
             // 
             // data
             // 
@@ -194,7 +194,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.comune);
             this.Controls.Add(this.data);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.cognome);
             this.Controls.Add(this.nome);
             this.Controls.Add(this.sesso);
             this.Controls.Add(this.label6);
@@ -226,7 +226,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label sesso;
         private System.Windows.Forms.Label nome;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label cognome;
         private System.Windows.Forms.Label data;
         private System.Windows.Forms.Label comune;
     }
