@@ -56,7 +56,7 @@ namespace CodiceFiscale
                 foreach (char x in nome.Text.ToUpper())
                     if (!"AEIOU".Contains(x))
                         cons++;
-                if (cons == 3)
+                if (cons <= 3)
                 {
                     foreach (char x in nome.Text.ToUpper())
                     {

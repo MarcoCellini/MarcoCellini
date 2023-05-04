@@ -101,12 +101,34 @@ namespace CodiceFiscaleReverse
 
         private void calcola_Click(object sender, EventArgs e)
         {
-            dati persona = new dati(codice.Text.ToUpper());
-            cognome.Text = persona.cognome3;
-            nome.Text = persona.nome3;
-            sesso.Text = persona.sesso;
-            data.Text = persona.giorno2 + "/" + persona.mese1 + "/" + persona.anno2;
-            comune.Text = persona.catasto4;
+            if (codice.Text.Length != 16)
+            {
+                MessageBox.Show("Codice errato!!!");
+                return;
+            }
+            try
+            {
+                dati persona = new dati(codice.Text.ToUpper());
+                cognome.Text = persona.cognome3;
+                nome.Text = persona.nome3;
+                sesso.Text = persona.sesso;
+                data.Text = persona.giorno2 + "/" + persona.mese1 + "/" + persona.anno2;
+                comune.Text = persona.catasto4;
+            }
+            catch
+            {
+                MessageBox.Show("Codice errato!!!");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            codice.Text = "";
+            cognome.Text = "";
+            nome.Text = "";
+            comune.Text = "";
+            sesso.Text = "";
+            data.Text = "";
         }
     }
 }
