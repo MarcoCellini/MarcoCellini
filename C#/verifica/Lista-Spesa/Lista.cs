@@ -59,6 +59,7 @@ namespace Lista_Spesa
         }
 
         private void render() {
+            tabella.Rows.Clear();
             foreach (var x in prodottos)
             {
                 string[] line = new string[] { "false", x.nome, x.prezzo.ToString() + "€", "0", x.qta.ToString() + x.unita_misura };
