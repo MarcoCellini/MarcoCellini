@@ -3,6 +3,7 @@
 #include <utility>
 #include <vector>
 #include <list>
+#include <cmath>
 
 using namespace std;
 
@@ -25,10 +26,22 @@ long long chiedi(long long p) {
     if (aperti.empty())
         return -1;
     aperti.sort();
-    for (long long x : aperti) {
-        if (x >= p) {
-            return x;
-        }
+    int cont = 0;
+    list <int>::iterator iter, pre;
+    for (iter = aperti.begin(); iter != aperti.end(); ++iter) {
+        if (*iter > p) {
+            pre = prev(iter);
+            if (*pre > 10000)
+                return *iter;
+            if (abs(p - *pre) > abs(p - *iter))
+                return *pre;
+            else if (abs(p - *pre) <= abs(p - *iter))
+                return *iter;
+            else
+                return *iter;
+        } else if (*iter == p)
+            return *iter;
+        cont++;
     }
     return -1;
 }
