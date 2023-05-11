@@ -3,28 +3,32 @@
 #include <utility>
 #include <vector>
 #include <list>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-list<int> aperti;
+vector<int> aperti;
 
 void inizia() {
     return;
 }
 
 void apri(long long p) {
+    make_heap(aperti.begin(), aperti.end());
     aperti.push_back(p);
 }
 
 
 void chiudi(long long p) {
-    aperti.remove(p);
+    make_heap(aperti.begin(), aperti.end());
+    remove(aperti.begin(), aperti.end(), p);
 }
 
 long long chiedi(long long p) {
+    make_heap(aperti.begin(), aperti.end());
     if (aperti.empty())
         return -1;
-    aperti.sort();
+    sort(aperti.begin(), aperti.end());
     for (long long x : aperti) {
         if (x >= p) {
             return x;
@@ -49,7 +53,12 @@ int main() {
         cin >> t >> p;
         if (t == 'a') apri(p);
         else if (t == 'c') chiudi(p);
-        else cout << chiedi(p) << endl;
+        else {
+            if(i == Q - 1)
+                cout << chiedi(p);
+            else
+                cout << chiedi(p) << endl;
+        };
     }
 
     return 0;
