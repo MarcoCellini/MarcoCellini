@@ -1,0 +1,11 @@
+ 								DATABASE
+
+E' una o più tabella per la memorizzazione delle info. 
+Ogni ENTRY / RECORD hanno per forza un ID / OPK Ordinary Primary Key. 
+
+QUERY == richiesta al database 
+
+Il rapporto può essere 1:N, M:N ovvero può avere solo un relazione o M relazioni. 
+
+Sistema INFORMATIVO == raccoglie i dati 
+Sistema INFORMATICO == gli organizza in maniera digitale
