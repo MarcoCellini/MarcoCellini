@@ -35,7 +35,7 @@ long long chiedi(long long p) {
 
 
 int main() {
-    freopen("autogrill.input1.txt", "r", stdin);
+    freopen("autogrill.input0.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     
     int Q;
