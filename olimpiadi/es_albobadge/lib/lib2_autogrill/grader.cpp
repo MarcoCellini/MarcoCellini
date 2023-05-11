@@ -51,6 +51,7 @@ int main() {
         long long p;
         char t;
         cin >> t >> p;
+        if(i != Q - 1)
         if (t == 'a') apri(p);
         else if (t == 'c') chiudi(p);
         else {
