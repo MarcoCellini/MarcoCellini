@@ -4,49 +4,79 @@
 #include <string.h>
 
 long long aperti[100000];
+int current_index = 0;
 int real_size = 0;
+int cmpfunc(const void *a, const void *b)
+{
+    return (*(int *)a - *(int *)b);
+}
 
+int get_real_size() {
+    int array_size = sizeof(aperti) / sizeof(long long);
+    int size = 0;
+    for (int i = 0; i < array_size; i++)
+    {
+        if(aperti[i] != 0)
+            size++;
+    }
+    real_size = size;
+    return size;
+}
 void inizia()
 {
     return;
 }
 
-void apri(long long p, int index)
+void apri(long long p)
 {
-    aperti[index] = p;
+    aperti[current_index++] = p;
+    get_real_size();
 }
 
 void chiudi(long long p)
 {
-    int index = -2;
-    for (size_t i = 0; i < real_size; i++)
+    int array_size = sizeof(aperti) / sizeof(long long);
+    int index = -1;
+    for (int i = 0; i < array_size; i++)
     {
-        if (aperti[i] == p)
+        if(aperti[i] == p)
             index = i;
     }
 
-    for (size_t i = 0; i < real_size; i++)
-    {
-        if (i != -2)
-            aperti[i] = aperti[i + 1];
-        else
+            for(int i=index; i<get_real_size()-1; i++)
         {
-            raise(SIGSEGV);
+            aperti[i] = aperti[i + 1];
         }
-    }
+        aperti[real_size] = 0;
+    real_size--;
 }
 
 long long chiedi(long long p)
 {
+    get_real_size();
     if (real_size == 0)
         return -1;
-    for (size_t i = 0; i < real_size; i++)
+    qsort(aperti, real_size, sizeof(long long), cmpfunc);
+    for (size_t i = 0; i < real_size; ++i)
     {
-        if (aperti[i] >= p)
+        if (aperti[i] > p)
         {
-            printf("OK");
-            return aperti[i];
+            if (i == 0)
+            {
+                return aperti[i];
+            }
+            int prev = aperti[i - 1];
+            if (prev > 10000)
+            {
+                return aperti[i];
+            }
+            if (abs(p - prev) > abs(p - aperti[i]))
+                return prev;
+            else
+                return aperti[i];
         }
+        else if (aperti[i] == p)
+            return aperti[i];
     }
 
     return -1;
@@ -55,11 +85,11 @@ long long chiedi(long long p)
 int main()
 {
     FILE *fptr;
-    fptr = fopen("autogrill.input1.txt", "r");
+    fptr = fopen("autogrill.input0.txt", "r");
 
     char buf[10];
     fgets(buf, 10, fptr);
-    real_size = atoi(&buf[0]);
+    int Q = atoi(&buf[0]);
     inizia();
 
     char buffer[100];
@@ -68,23 +98,19 @@ int main()
     FILE *fout;
     fout = fopen("output.txt", "w");
 
-    while (fgets(buffer, 100, fptr))
+    for (size_t i = 0; i < Q; i++)
     {
+        fgets(buffer, 100, fptr);
         char t = buffer[0];
         long long p = atoi(&buffer[2]);
-        if (i != real_size - 1)
-            if (t == 'a')
-                apri(p, i);
-            else if (t == 'c')
-                chiudi(p);
-            else
-            {
-                if (i == real_size - 1)
-                    fprintf(fout, "%i", chiedi(p));
-                else
-                    fprintf(fout, "%i\n", chiedi(p));
-            };
-        i++;
+        if (t == 'a')
+            apri(p);
+        else if (t == 'c')
+            chiudi(p);
+        else
+        {
+            fprintf(fout, "%i\n", chiedi(p));
+        };
     }
 
     return 0;
