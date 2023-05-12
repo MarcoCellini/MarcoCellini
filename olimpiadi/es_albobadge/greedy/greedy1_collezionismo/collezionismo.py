@@ -7,10 +7,13 @@ def solve(t):
     input()
 
     N, K = map(int, input().strip().split())
-
+    # N == statuine
+    # K == scaffali
     C = list(map(int, input().strip().split()))
 
     C.sort()
+
+    
 
     print(f"Case #{t}: {C}")
 
