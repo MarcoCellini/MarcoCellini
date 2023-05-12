@@ -1,14 +1,18 @@
 #include <iostream>
-#include <cassert>
-#include <utility>
 #include <vector>
-#include <list>
-#include <cmath>
 #include <algorithm>    // std::lower_bound, std::upper_bound, std::sort
 
 using namespace std;
 
-list<int> aperti;
+vector<int> aperti;
+
+// std::sort with inlining
+struct compare {
+    // the compiler will automatically inline this
+    bool operator()(const int a, const int b) {
+        return a < b;
+    }
+};
 
 void inizia()
 {
@@ -22,21 +26,20 @@ void apri(long long p)
 
 void chiudi(long long p)
 {
-    aperti.remove(p);
+    remove(aperti.begin(), aperti.end(), p);
 }
 
 long long chiedi(long long p)
 {
     if (aperti.empty())
         return -1;
-    aperti.sort();
-    const auto lb = lower_bound(aperti.begin(), aperti.end(), p);
-    return *lb;
+    sort(aperti.begin(), aperti.end(), compare{});
+    return *(lower_bound(aperti.begin(), aperti.end(), p));
 }
 
 int main()
 {
-    freopen("autogrill.input2.txt", "r", stdin);
+    freopen("autogrill.input1.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 
     int Q;
