@@ -1,34 +1,31 @@
 #include <iostream>
-#include <cassert>
-#include <utility>
-#include <vector>
-#include <list>
-#include <cmath>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-list<int> aperti;
+set<long long> aperti;
+long long k;
+auto iter = aperti.begin();
+auto pre = iter;
 
 void inizia() {
     return;
 }
 
 void apri(long long p) {
-    aperti.push_back(p);
+    aperti.insert(p);
 }
 
 
 void chiudi(long long p) {
-    aperti.remove(p);
+    aperti.erase(p);
 }
 
 long long chiedi(long long p) {
     if (aperti.empty())
         return -1;
-    aperti.sort();
-    int cont = 0;
-    list <int>::iterator iter, pre;
-    for (iter = aperti.begin(); iter != aperti.end(); ++iter) {
+    //aperti.sort();
+    /* for (iter = aperti.begin(); iter != aperti.end(); ++iter) {
         if (*iter > p) {
             pre = prev(iter);
             if (*pre > 10000)
@@ -42,13 +39,26 @@ long long chiedi(long long p) {
         } else if (*iter == p)
             return *iter;
         cont++;
+    } */
+    iter = aperti.lower_bound(p);
+    if (*iter == *aperti.begin())
+        return *iter;
+    pre = iter;
+    pre--;
+    
+    try {
+        if(abs(p-*iter)<=abs(p-*pre))
+            return *iter;
+        else
+            return *pre;
+    } catch (long long p) {
+        return *iter;
     }
-    return -1;
 }
 
 
 int main() {
-    freopen("autogrill.input1.txt", "r", stdin);
+    freopen("autogrill.input2.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
     
     int Q;
