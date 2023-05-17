@@ -49,6 +49,8 @@ basato sull’individuazione e definizione delle entità di interesse e delle as
 Dominio == valori accettabili dal DB -esempio: l'età deve essere compresa tra 0 e 100 anni non di più
 						o i voti sono da 2 a 10.
 
+Le Chiavi Esterne servono per linkare due tabella +/- ereditarietà. 
+
 
 Le TABELLE: 
 	righe --> istanze (record) 
@@ -70,3 +72,13 @@ L'IDENTIFICATIVO DEI RECORD:
 
 GRADO: 
 	numero di colonne in una tabella, numero di attributi. 
+
+
+In caso di dati ridondanti si effettua la NORMALIZZAZIONE: 
+	- riduzione in 1° forma normale [1 Normal Form - 1NF]
+	- riduzione in 2° forma normale [2 Normal Form - 2NF]
+	- riduzione in 3° forma normale [3 Normal Form - 3NF]
+
+Decompone la tabella in più tabelle rispettando:
+	- evitare perdita dei dati (deve garantire la ricostruzione della tabella originale)
+	- conservare le dipendenze 

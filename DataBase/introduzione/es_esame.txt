@@ -7,7 +7,7 @@ ESAME:
 
 
 
-TEMPO: 
+TEMPO: 							(1, N)
 			| data    |
 			-----------
 			| 12/3/22 |
@@ -15,7 +15,7 @@ TEMPO:
 			| 1/9/21  |
 
 
-STUDENTE:
+STUDENTE:						(0, N)
 				| matricola |   nome   |   cognome  | media | crediti |
 				-------------------------------------------------------
 				| 56789     | marco    |	cellini   | 28    | 16 			|
@@ -23,7 +23,7 @@ STUDENTE:
 				| 98724			| gino 		 | 	peluso		| 20 		| 6				|
 
 
-CORSO: 
+CORSO: 							(0, N)
 			| codcorso | 	 nome 	| crediti |
 			---------------------------------
 			| M78234   | paolo		| 7 			|
@@ -31,7 +31,7 @@ CORSO:
 			| D87654	 | pluto 		| 5				|
 
 
-DOCENTE:
+DOCENTE:						(0, N)
 			| coddocente | dipartimento | 	nome 	| cognome |
 			-------------------------------------------------
 			| D5678			 | informatica  | gino 		| pluto		|
