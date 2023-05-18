@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
-#include <list>
+#include <vector>
+#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -14,28 +15,29 @@ int sfangate(int N, int V[]) {
         tot += V[i];
     if (tot > 0)
         return 0;
+    else if(tot == 0)
+        return 1;
     
-    list<int> V2;
+    vector<int> V2;
     for (int i = 0; i < N; i++) {
         if (V[i] < 0)
             V2.push_back(V[i] * -1);
     }
-    V2.sort();
-    V2.reverse();
+
+    sort(V2.begin(), V2.end(), greater<int>());
 
     int pos, truffe = 0;
-    for (auto i : V2) {
+    for (auto k : V2) {
         truffe++;
         tot = 0;
         for (int j = 0; j < N; j++) {
-            if (V[j] == i * -1)
+            if (V[j] == k * -1)
                 pos = j;
         }
         V[pos] = V[pos] * -1;
         for (int i = 0; i < N; i++)
             tot += V[i];
-        printf("%i\t", tot);
-        if (tot > 0)
+        if (tot >= 0)
             return truffe;   
     }
     return 0;
