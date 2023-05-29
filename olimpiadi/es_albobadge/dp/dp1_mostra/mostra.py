@@ -1,27 +1,7 @@
 import sys
 
-sys.stdin = open('mostra_input_5.txt')
+sys.stdin = open('mostra_input_7.txt')
 sys.stdout = open('output.txt', 'w')
-
-matrix = [[-1 for column in range(1010)] for row in range(1010)]
-
-def recursive(visitatori, guide, n_vis, n_guide):
-    if n_guide == 0:
-        return n_vis
-    if n_vis == 0:
-        return 0
-    if (matrix[n_vis][n_guide] == -1):
-        if recursive(visitatori, guide, n_vis, n_guide + 1) > recursive(visitatori, guide, n_vis - 1, n_guide) + 1:
-            tmp = recursive(visitatori, guide, n_vis, n_guide + 1)
-        else:
-            tmp = recursive(visitatori, guide, n_vis - 1, n_guide) + 1
-        if visitatori[n_vis - 1] >= guide[n_guide - 1]:
-            matrix[n_vis][n_guide] = tmp
-        else:
-            if tmp <= recursive(visitatori, guide, n_vis - 1, n_guide - 1) + 2:
-                tmp = recursive(visitatori, guide, n_vis - 1, n_guide - 1) + 2
-            matrix[n_vis][n_guide] = tmp
-    return matrix[n_vis][n_guide]
 
 def solve():
     input()
@@ -31,12 +11,30 @@ def solve():
 
     if M == 0:
         return N
-    elif N == 0:
+    if N == 0:
         return 0
-    else:
-        risultato = recursive(V, G, N, M)
+
+    tot = 0
+    pos = 0
+    for v in range(0, N):
+        if len(G) == pos:
+            tot += 1
+            continue
+        if max(G) <= V[v]:
+            tot += 1
+            continue
+        for g in range(pos, len(G)):
+            if (V[v] < G[g]):
+                tot += 2
+                G[g] = -1
+                pos = g + 1
+                break
+            if g == len(G) - 1 and V[v] > G[g]:
+                tot += 1
+                break
+         
         
-    return risultato
+    return tot
 
 
 T = int(input())
