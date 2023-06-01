@@ -1,9 +1,0 @@
-SELECT * FROM `user_details` WHERE `user_id` % 2 = 0;
-
-SELECT * FROM `user_details` WHERE `gender` LIKE 'Male';
-
-SELECT * FROM `user_details` WHERE `gender` LIKE 'Female';
-
-SELECT * FROM `user_details` WHERE `first_name` LIKE 'maria';
-
-SELECT * FROM `user_details` WHERE `gender` LIKE 'Female' AND `first_name` LIKE 'M%' AND `last_name` LIKE '%a';
