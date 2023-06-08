@@ -1,4 +1,4 @@
-let cont = 0, record = 0;
+let cont = 0, record = 0, click = 0;
 
 function control(probability) {
     if (Math.floor(Math.random() * 100) > probability)
@@ -18,4 +18,24 @@ function plus() {
         }
         x.innerHTML = cont = 0;
     }
+}
+
+function red() {
+    let stile = document.getElementById("plus");
+    stile.style.background = "red";
+}
+
+function blue() {
+    let stile = document.getElementById("plus");
+    stile.style.backgroundColor = "blue";
+}
+
+function green() {
+    let stile = document.getElementById("plus");
+    stile.style.backgroundColor = "green";
+}
+
+function white() {
+    let stile = document.getElementById("plus");
+    stile.style.backgroundColor = "white";
 }
