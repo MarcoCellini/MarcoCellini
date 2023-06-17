@@ -19,6 +19,8 @@ void u_cella(cella *cell, int x, int y, int v)
     cell->v = v;
 }
 
+#define max(a,b) ((a) > (b) ? (a) : (b))
+
 /* int c() {
     for (int i = 0; i < )
 } */
