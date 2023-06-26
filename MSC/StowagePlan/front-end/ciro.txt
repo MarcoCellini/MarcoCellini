@@ -1,0 +1,42 @@
+[
+    {
+        "discharge" : 5,
+        "weight" : 10,
+        "dimension" : 20
+    }, 
+    {
+        "discharge" : 5,
+        "weight" : 11,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 5,
+        "weight" : 9,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 5,
+        "weight" : 8,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 10,
+        "weight" : 1,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 10,
+        "weight" : 2,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 10,
+        "weight" : 3,
+        "dimension" : 20
+    },
+    {
+        "discharge" : 10,
+        "weight" : 4,
+        "dimension" : 20
+    }
+]
