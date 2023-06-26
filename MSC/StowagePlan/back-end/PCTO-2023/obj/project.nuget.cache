@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "h2RysJ82/Fu8eDjdxgkfLbKL0YWo+o3e1BFSimqCQGE9PkNmZTzPwGWwRaPxADOCR4ucXQv/YsSAj5eptfSQfw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\e-samuel.salvatore\\Documents\\pcto-1-summer-2023\\PCTO-2023\\PCTO-2023.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\e-samuel.salvatore\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
