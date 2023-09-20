@@ -1,0 +1,11 @@
+						MODELLI CLASSICI DI DB E TECNICHE DI PROGETTO
+
+	Il DBMS separa i dati dalle applicazioni, il DBMS a le seguenti proprietà:
+		- indipendenza fisica --> ogni operazione può essere eseguita indipendentemente 
+					dall'implementazione fisica
+
+		- indipendenza logica --> la struttura logica non viene influenzata dalle applicazioni
+	
+	Regole e concetti sono generali, indipendentemente dall'applicazione che lo utilizza. 
+	Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0. 
+
