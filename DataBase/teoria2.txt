@@ -9,3 +9,42 @@
 	Regole e concetti sono generali, indipendentemente dall'applicazione che lo utilizza. 
 	Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0. 
 
+	Possibili modelli logici:
+		- gerarchico --> tramite albero - radice è il record principale - relazione padre figlio 1 a N, figlio padre 1 a 1.
+				|
+				|				
+			Svantaggi --> dipendenza tra schema logico e fisico; operazioni non efficenti
+
+		- reticolare --> tramite grafo - non esiste una radice - connessioni tramite record connettori - link con puntatori
+				|
+				|
+			Svantaggi --> alta complessità di gestione; difficile da modificare; +mem. (puntatori)
+
+		- relazionale --> tramite le tabelle (non dublica i dati)
+		- Oggetti --> OOP - dati e comportamento sono inglobati nell'oggeto della classe
+		- XML (eXtensible Markup Language) - formato molto compatibile semplice file formato testo - usato dalla Pubblica Amministrazione
+		- schema-less --> (NoSQL) per superare la rigidità del modello relazionale
+	
+	Vantaggi modello relazionale:
+		- indipendenza dei dati
+		- non legame tra fisico e logico
+		- non usa puntatori per l'inserimento dei dati
+
+	Indipendenza dalla struttura FISICA --> modifiche ai dati non toccano le applicazioni
+	Indipendenza della struttura LOGICA --> possibile modificare la struttura senza variare le applicazioni
+
+	
+	
+Progettazione di DataBase
+
+	1. analisi del problema
+	2. progetto concettuale DB (modello entità-relazione)
+	3. progettazione logica (schema logico)
+	4. progettazione fisica e implementazione
+	5. realizzazione delle applicazioni
+
+SQL è un linguaggio dichiarativo
+	- può define gli schemi delle relazioni DDL (Data Definition Language)
+	- agire su dati DML (Data Manipulation Language)
+	- possibile estrarre info tramite le QL (Query Language)
+
