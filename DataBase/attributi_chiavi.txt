@@ -1,0 +1,39 @@
+				ATTRIBUTI e CHIAVI
+
+Schema di un DB = descrizione della struttura della tabella --> nome tabella + nome colonne
+
+Cardinalità == n di righe
+
+Grado == n colonne
+
+Dominio == valori presenti in una colonna
+
+
+ - ATTRIBUTI
+
+	tipo e dato --> intero, decimale, carattere, stringa ....
+	
+	lunghezza --> quantità di cifre/caratteri per dato
+
+	intervallo --> limiti superiori ed inferiori 
+
+
+Nome Dominio [colonna] devo essere univoci, i record devono essere univoci
+
+L'ordinamento delle righe e delle colonne è irrilevante --> rappresentazione NON posizionale
+									|
+									|
+							manca il concetto di Relazione Matematica
+
+
+ - CHIAVI [Campo Identificativo]
+	
+	Le chiavi sono lo strumento principale attraverso il quale vengono
+	correlati i dati in relazioni diverse nel modello relazionale.
+	
+	Le chiavi devono essere dei valori univoci: ISBN, ID, matricola, Codice Fiscale
+
+	Chiave Artificiale (codice contatore) ID normalmente di tipo intero
+
+	Chiave Esterna FK [foreign key] --> attributi che sono, in un'altra tabella, una chiave primaria
+						e in questa tabella sono chiavi secondarie
