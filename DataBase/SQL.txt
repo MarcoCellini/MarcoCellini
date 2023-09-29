@@ -1,0 +1,19 @@
+			SQL [Structured Query Language]
+
+Linguaggio di interrogazione strutturato 
+
+Può essere suddiviso in 4 sottolinguaggi:
+
+	- DDL [Data Definitin Language]
+	- DML [Data Manipulation Language]
+	- DCL [Data Control Language]
+	- QL [Query Language]
+
+
+ - CREARE una Tabella
+
+	CREATE TABLE nomeTabella (
+		nomeAttr1 tipo [valDefault][vincoli];
+		nomeAttr2 tipo [valDefault][vincoli];
+		...
+	);

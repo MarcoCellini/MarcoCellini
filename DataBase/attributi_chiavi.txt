@@ -25,6 +25,9 @@ L'ordinamento delle righe e delle colonne è irrilevante --> rappresentazione NO
 									|
 							manca il concetto di Relazione Matematica
 
+	Attributi Scalari --> (semplici) che posso avere solo 1 valore nell'istanza (codice fiscale)
+	Attributi multiplo --> possono avere più valori nell'istanza (materie insegnate)
+
 
  - CHIAVI [Campo Identificativo]
 	
@@ -37,3 +40,7 @@ L'ordinamento delle righe e delle colonne è irrilevante --> rappresentazione NO
 
 	Chiave Esterna FK [foreign key] --> attributi che sono, in un'altra tabella, una chiave primaria
 						e in questa tabella sono chiavi secondarie
+
+ I valori NULL vanno evitati perchè provocano problemi --> meglio usare un valore di default (per esempio 0 o "")
+
+	
