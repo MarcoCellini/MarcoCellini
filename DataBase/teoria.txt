@@ -8,6 +8,11 @@ TEORIA DATABASE
 						Gestito dal DBMS [Database Management System]
 			(gestisce  interamente i dati e il modo in cui vengono fisicamente archiviati)
 
+	DBMS caratteristiche fondamentali:
+		- gestire Grandi quantia' di DATI
+		- garantire la condivisione
+		- garantire la persistenza (i dati devono durare nel tempo)
+		- garantire l'affidabilita' delle operazioni [transazioni]
 
 				tipi di DataBase
 				|		|
@@ -74,7 +79,7 @@ TEORIA DATABASE
 	
   - Architettura standard a 3 livelli ANSI/SPARC
 	
-	Schema Esterno --> destrizione di una porzionedel del DB ("viste" parziali)
+	Schema Esterno --> descrizione di una porzione del del DB ("viste" parziali)
 	
 	Schema Logico --> descrizione dell'intero DB nel modello logico adottato dal DBMS
 
