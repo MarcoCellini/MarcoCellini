@@ -6,9 +6,13 @@
 
 		- indipendenza logica --> la struttura logica non viene influenzata dalle applicazioni
 	
+	MODELLO LOGICO:
+		E' l'insieme di costrutti utilizzti per organizzare i dati e descriverne la dinamica. 
+		Caratterizzato da concetti (strutturare/organizzare i dati) e regole (descrivono eventuali vincoli)
+	
 	Regole e concetti sono generali, indipendentemente dall'applicazione che lo utilizza. 
-	Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0. 
-
+		Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0.
+	
 	Possibili modelli logici:
 		- gerarchico --> tramite albero - radice è il record principale - relazione padre figlio 1 a N, figlio padre 1 a 1.
 				|
