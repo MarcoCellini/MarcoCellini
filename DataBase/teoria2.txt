@@ -34,8 +34,8 @@
 		- non legame tra fisico e logico
 		- non usa puntatori per l'inserimento dei dati
 
-	Indipendenza dalla struttura FISICA --> modifiche ai dati non toccano le applicazioni
-	Indipendenza della struttura LOGICA --> possibile modificare la struttura senza variare le applicazioni
+	Indipendenza dalla struttura FISICA --> modifiche alla rappresentazione fisica non portano modifiche alla APP
+	Indipendenza della struttura LOGICA --> possibile modificare la struttura logica senza variare le applicazioni
 
 	
 	
