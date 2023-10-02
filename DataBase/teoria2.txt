@@ -1,14 +1,17 @@
 						MODELLI CLASSICI DI DB E TECNICHE DI PROGETTO
 
 	Il DBMS separa i dati dalle applicazioni, il DBMS a le seguenti proprietà:
-		- indipendenza fisica --> ogni operazione può essere eseguita indipendentemente 
-					dall'implementazione fisica
-
-		- indipendenza logica --> la struttura logica non viene influenzata dalle applicazioni
+		- indipendenza fisica --> si puo' interagire con il modello logico indipendentemente
+						dallo schema fisico. 
+		- indipendenza logica --> si puo' interagire con lo schema esterno indipendentemente dallo schema logico. 
+	
+	MODELLO LOGICO:
+		E' l'insieme di costrutti utilizzti per organizzare i dati e descriverne la dinamica. 
+		Caratterizzato da concetti (strutturare/organizzare i dati) e regole (descrivono eventuali vincoli)
 	
 	Regole e concetti sono generali, indipendentemente dall'applicazione che lo utilizza. 
-	Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0. 
-
+		Possibilità di inserire vincoli sui dati [dato > 0] considera solo quelli >0.
+	
 	Possibili modelli logici:
 		- gerarchico --> tramite albero - radice è il record principale - relazione padre figlio 1 a N, figlio padre 1 a 1.
 				|
@@ -30,8 +33,8 @@
 		- non legame tra fisico e logico
 		- non usa puntatori per l'inserimento dei dati
 
-	Indipendenza dalla struttura FISICA --> modifiche ai dati non toccano le applicazioni
-	Indipendenza della struttura LOGICA --> possibile modificare la struttura senza variare le applicazioni
+	Indipendenza dalla struttura FISICA --> modifiche alla rappresentazione fisica non portano modifiche alla APP
+	Indipendenza della struttura LOGICA --> possibile modificare la struttura logica senza variare le applicazioni
 
 	
 	
