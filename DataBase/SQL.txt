@@ -17,3 +17,60 @@ Può essere suddiviso in 4 sottolinguaggi:
 		nomeAttr2 tipo [valDefault][vincoli];
 		...
 	);
+
+- Numeri interi:
+	TinyInt: 8 bit
+	SmallInt: 16 bit
+	MediumInt: 24 bit
+	Integer: 32 bit
+	BigInt: 64 bit
+
+Può essere anche Unsigned il valore massimo autmenta.
+
+ - Numeri NON interi:
+	Float: 32 bit
+	Double Precision: 64 bit
+	Numeric (m, d): m --> cifre significative, d --> cifre dopo la virgola. 
+	Numeric (m): m --> cifre significative
+	Numeric: sinonimo di Numeric(10)
+	Decimal: come le tre forme citate prima
+
+ - Stringhe e caratteri
+	Char(n): lunghezza fissa di caratteri [se minore riempita con spazi]
+	VarChar(n): lunghezza variabile [n < 65535]
+
+ - Data e Ora
+	Date: formato --> 'AAAA-MM-GG'
+	Time: formato --> 'hh:mm:ss'
+	TimeStamp: formato --> 'AAAAMMGGhhmmss'
+
+ - Stringe di Bit
+	Bit(n): lunghezza fissa n bit
+	Bit Varying(n): lunghezza variabile numero massimo == n bit
+
+ - Boolean:
+	0 vale False
+	1 vale True
+
+ - Altri valori:
+	Null
+	Not Null --> non deve essere nullo
+	Check --> controllo del valore
+	Unique --> il campo deve essere unico
+
+E' preferibile non mettere null come valore di default (può spaccare tutto)
+
+
+ALTER TABLE --> permette di aggiungere un vincolo successivamente alla creazione. 
+
+REFERENCES --> vincolo con una chiave esterna (foreign key)
+
+		colonna_creata REFERENCES tabella_esterna(colonna_esterna)
+
+Per Modificare il DB si usa UPDATE (modificare un record), DELETE (eliminare un record)
+								|
+								|
+							occhio a quando si eliminano le chiavi 
+							preferibile usare un default per evitare problemi
+
+CASCADE --> esegue la medesima operazione (UPDATE/DELETE) sui record connessi. 
