@@ -103,3 +103,6 @@ CASCADE --> esegue la medesima operazione (UPDATE/DELETE) sui record connessi.
 	UPDATE tabella SET attributo = valore/espressione WHERE condizione
 	
  - SELECT	ricerca nel DB 
+
+
+	Si può usare % per lasciare i caratteri dopo % liberi, la stessa cosa con ? ma ogni singolo carattere. 
