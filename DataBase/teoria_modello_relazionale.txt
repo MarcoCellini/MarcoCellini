@@ -12,7 +12,7 @@ Si eseguono operazioni:
 
 Linguaggi d'interrogazione sono utilizzati per interrogare e manipolare dati all'interno di database [SQL].
 
- - algebra relazione --> 5 operazioni per le query
+ - algebra relazione --> linguaggio procedurale a notazione algebrica con 5 operatori per le query
  - calcolo relazionale --> notazione logica per fare delle domande al DB, return == record/righe/tuple
 
 Es.
@@ -45,14 +45,14 @@ Unione/Intersezione/Differenza == operazione binaria (lavora su 2 relazioni)
 
 
 
- - SELEZIONE		σ [sigma]
+ - SELEZIONE		σ [sigma]	--> sottoinsieme di tuple
 
 <nome attributo> <operatore di confronto> <valore costante> -----
 								|
 	σ <condizione selezione> (R)				|
 								|
 								|--> Π titolo, anno (σ autore = "ciro" (libri))
- - PROIEZIONE		Π [pi]					|
+ - PROIEZIONE		Π [pi]	--> sottoinsieme di attributi	|
 								|
 <nome attributo> o <attributo>, <attributo>, ecc...	   -----|
 
@@ -70,47 +70,52 @@ Unione/Intersezione/Differenza == operazione binaria (lavora su 2 relazioni)
 
 	<relazione> U <relaizone>
 
-	Non mette ripetizioni solo dati unici
+	Restituisce tutte le tuple presenti nelle 2 relazioni, non mette ripetizioni solo dati unici. 
 
 
  - INTERSEZIONE		∩
 
 	<relazione> ∩ <relazione>
 
-	mette solo i dati che sono in comune
+	sottoinsieme di tuple presenti in entrambe le relazioni. 
 
 
  - DIFFERENZA		-
 
 	<relazione1> - <relazione2>
 	
-	dati differenti tra i due contenuti nella relazione 1
+	sottoinsieme di tuple della 1 relazione ma che non ci sono nella 2.
 
 	opposto ->> <relazione2> - <relazione2>
-	
-	dati differenti tra i due contenuti nella relazione 2
 
 
  - PRODOTTO CARTESIANO	X	[Cross Join]
 
 	<relazione> X <relazione>
 
+	restituisce n * m tuple. 
+
+	prodotto cartesiano + selezione == Join	
 
 
  - Congiunzione o JOIN	 ⋈
 
 	R ⋈ <condizione di join> S
 
+	combina in un unica tabella le tuple collegate logicamente tramite attributo comune. 
 
- - LEFT Join
+	Equi Join --> può avere delle robe ripetute
+	Natural join --> non ha ripetizioni
+
+ - LEFT Join	[conserva le righe dall tabella di sinistra]
 
 	left = ⋈ <condizione di join> R
 
-	la relazione left rimane invariata viengono aggiunti solo i dati
+	la relazione left rimane invariata vengono aggiunti solo i dati
 	della relazione R [se non presenti per tutti gli ID si mette NULL] 
 
 
-- RIGHT Join
+- RIGHT Join	[conserva le righe della tabella di destra]
 
         right = ⋈ <condizione di join> S
 
@@ -118,8 +123,7 @@ Unione/Intersezione/Differenza == operazione binaria (lavora su 2 relazioni)
         della relazione S [se non presenti per tutti gli ID si mette NULL]
 
 
-
- - FULL Join
+ - FULL Join	[conserva tutte le righe delle 2 relazioni]
 	
 	R = ⋈ = <condizione di join> S
 

@@ -2,6 +2,9 @@
 
 Schema di un DB = descrizione della struttura della tabella --> nome tabella + nome colonne
 
+colonne --> contengono le info sulla tabella
+righe --> riportano le istanze degli oggetti rappresentati in tabella
+
 Cardinalità == n di righe
 
 Grado == n colonne
@@ -9,7 +12,7 @@ Grado == n colonne
 Dominio == valori presenti in una colonna
 
 
- - ATTRIBUTI
+ - ATTRIBUTI specifiche per definire il dominio:
 
 	tipo e dato --> intero, decimale, carattere, stringa ....
 	
@@ -18,7 +21,9 @@ Dominio == valori presenti in una colonna
 	intervallo --> limiti superiori ed inferiori 
 
 
-Nome Dominio [colonna] devo essere univoci, i record devono essere univoci
+	PROPRIETA' DEGLI ATTRIBUTI
+
+Nome Dominio [colonna] devo essere univoci, i record devono essere univoci [almeno per un attributo]
 
 L'ordinamento delle righe e delle colonne è irrilevante --> rappresentazione NON posizionale
 									|
@@ -36,11 +41,38 @@ L'ordinamento delle righe e delle colonne è irrilevante --> rappresentazione NO
 	
 	Le chiavi devono essere dei valori univoci: ISBN, ID, matricola, Codice Fiscale
 
-	Chiave Artificiale (codice contatore) ID normalmente di tipo intero
+	Chiave Artificiale (codice contatore) ID normalmente di tipo intero [autoincrement]
+	
+	Chiave Primaria/Candidata --> indicata con grassetto/sottolineato/(pk)
 
-	Chiave Esterna FK [foreign key] --> attributi che sono, in un'altra tabella, una chiave primaria
+	Chiave Esterna fk [foreign key] --> attributi che sono, in un'altra tabella, una chiave primaria
 						e in questa tabella sono chiavi secondarie
 
- I valori NULL vanno evitati perchè provocano problemi --> meglio usare un valore di default (per esempio 0 o "")
+	Le chiavi sono lo strumento principale attraverso il quale vengono correlati i dati in relazioni
+	diverse nel modello relazionale. 
+
+I valori NULL vanno evitati perchè provocano problemi --> meglio usare un valore di default (per esempio 0 o "")
+
+Obbligo del valore della chiave primaria. 
 
 	
+Naming degli attributi:
+
+	- artificiale == numero progressivo					pk --> ID_<nomeTabella>	fk --> Id_<nomeTabella>
+	- non artificiale == univoco ma esistente [targa, CF, matricola]	pk --> <nomeChiave>	fk --> <nomeChiabe>_<nomeTabella>
+	- sigla == abbreviazione di qualcosa [CAP, IMU, ...]			pk --> <Sigla>	fk --> <Sigla>_<nomeTabella>
+
+
+Classificazione degli attributi:
+	
+	- identificatori --> chiavi [candidate interne o esterne]
+	- descrittori --> descrivono una caratteristica di un'entità (non per forza unica)
+
+	- scalari --> (semplici) possono avere solo 1 valore nell'istanza
+	- multipli --> (multivalore) possono avere n-valori nell'istanza
+
+	-unico / generico
+	- semplice (atomico) / composto
+	- opzionale / obbligatorio
+	- constante / dinamico
+	- calcolato / esplicito
