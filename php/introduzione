@@ -2,6 +2,9 @@
 
 linguaggio prettamente lato server
 
+start server to debug:
+	php -S localhost:2000/file_path
+
 inizio :	<?php
 fine :		?>
 
@@ -14,6 +17,9 @@ si commenta con //
 è un linguaggio non tipizzato, dichiarazione variabili:
 	
 	$a = 19;
+
+per ottenere tutte le info della variabile si può fare:
+	var_dump($a);
 
 costante:
 	define('pi', 3.14);
@@ -39,3 +45,37 @@ possono essere non omogenei --> [1, "ciao", [1, 2, 3,]];
 per aggiungere un elemento:
 	$x[] = 3;				// oppure
 	array_push($x, 3);
+
+stampare tutto l'array in un colpo solo senza loops
+	echo "print_r($a)";
+
+CONCATENAZIONE DI STRINGE
+per concatenare le strine si usa il punto al posto del +:
+	echo $var1."ciro"."$var2";
+
+
+DATE and DATETIME
+
+per inserire data o ora o entrambe
+
+	date(d-m-Y);			// per stampare la data il '-' in mezzo può essere sostituito a piacere
+	date(H-i-s);			// per stampare l'orario
+	date(d-m-Y - H-i-s);			// per stampare entrambi
+
+OPERATORI MATEMATICI
+come tutti i linguaggi +-*/% sono uguali
+ci sono anche le opzioni:
+	++
+	--
+	+=
+	*=
+	/=
+	.=			--> per contatenare le stringe
+
+OPERATORI DI CONFRONTO
+anche qui sono uguali agli altri 
+	> >= < <= == !=
+
+OPERATORI LOGICI
+come negli altri linguaggi
+	&& || !=
