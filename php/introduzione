@@ -42,7 +42,7 @@ associativo --> $a = ["ciro" => "napoletano", "abdull" => "terrorista"];
 
 possono essere non omogenei --> [1, "ciao", [1, 2, 3,]];
 
-per aggiungere un elemento:
+per aggiungere un elemento in coda:
 	$x[] = 3;				// oppure
 	array_push($x, 3);
 
@@ -79,3 +79,11 @@ anche qui sono uguali agli altri
 OPERATORI LOGICI
 come negli altri linguaggi
 	&& || !=
+
+
+CASTING
+si fa come in c
+ $c = (int)(a / b);
+
+verifichiamo la tipologia della variabile con is_int(), is_bool(), is_float(), is_string()
+oppure con var_dump()
