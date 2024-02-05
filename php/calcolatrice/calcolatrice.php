@@ -8,27 +8,43 @@
 </head>
 
 <?php
-    switch ($_POST['click']) {
-        case '+':
-        case '-':
-        case '*':
-        case '/':
-            $type_of_operation = $_POST['click'];
-            $n1 = $_POST['label'];
-            $value = $_POST['label'].$_POST['click'];
-            error_log("n1 = ".$n1);
-            error_log("operatore = ".$type_of_operation);
-            break;
-        case '=':
-            switch ($type_of_operation) {
-                case '+':
-                    //$value = 
-            }
-            break;
-        default:
-            $value = $_POST['label'].$_POST['click'];
-            break;
-    }
+session_start();
+switch ($_POST['click']) {
+    case '+':
+    case '-':
+    case '*':
+    case '/':
+        $_SESSION['type_of_operation'] = $_POST['click'];
+        $_SESSION['n1'] = $_POST['label'];
+        $value = $_POST['label'] . $_POST['click'];
+        break;
+    case '=':
+        $_SESSION['n2'] = substr($_POST['label'], strlen($_SESSION['n1']) + 1);
+        switch ($_SESSION['type_of_operation']) {
+            case '+':
+                $value = $_SESSION['n1'] + $_SESSION['n2'];
+                break;
+            case '-':
+                $value = $_SESSION['n1'] - $_SESSION['n2'];
+                break;
+            case '*':
+                $value = $_SESSION['n1'] * $_SESSION['n2'];
+                break;
+            case '/':
+                $value = $_SESSION['n1'] / $_SESSION['n2'];
+                break;
+        }
+        break;
+    case 'C':
+        $value = '';
+        $_SESSION['n1'] = 0;
+        $_SESSION['n2'] = 0;
+        $_SESSION['type_of_operation'] = '';
+        break;
+    default:
+        $value = $_POST['label'] . $_POST['click'];
+        break;
+}
 ?>
 
 <body>
