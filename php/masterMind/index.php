@@ -41,6 +41,29 @@
             width: 32px;
             height: 32px;
         }
+
+        .example {
+            width: 20px;
+            height: 20px;
+            border-radius: 100%;
+            margin-right: 30px;
+        }
+
+        .legend {
+            width: 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            row-gap: 20px;
+        }
+
+        .legend .text {
+            width: 300px;
+        }
+
+        .win {
+            font-size: 32px;
+            color: red;
+        }
     </style>
 
     <script>
@@ -57,38 +80,91 @@
 <?php
 session_start();
 
+function generate_psw()
+{
+    $psw = "";
+    while (strlen($psw) < 4) {
+        $x = (string) rand(0, 7);
+        if (str_contains($psw, $x))
+            continue;
+        else
+            $psw .= $x;
+    }
+    return $psw;
+}
+
+function feedback($sequence)
+{
+    error_log("try " . $sequence . "\tcorrect " . $_SESSION['psw']);
+    $correct_pos = 0;
+    $correct_color = 0;
+    for ($i = 0; $i < 4; $i++) {
+        $sequence[$i] === $_SESSION['psw'][$i] ?
+            $correct_pos++ :
+            (str_contains($_SESSION['psw'], $sequence[$i]) ?
+                $correct_color++ : null);
+    }
+    return [$correct_pos, $correct_color];
+}
+
 $colors = ['red', 'green', 'blue', 'purple', 'yellow', 'orange', 'gray', 'black'];
+
+!isset($_SESSION['psw']) ? $_SESSION['psw'] = generate_psw() : null;
+
+error_log("password = " . $_SESSION['psw']);
 
 if (isset($_POST['clear'])) {
     $_SESSION['grid'] = "";
     $_SESSION['attemps'] = 0;
+    $_SESSION['psw'] = generate_psw();
+    $_SESSION['win'] = false;
 }
 
-for ($i = 0; $i < 4; $i++)
-    $try .= $_POST[$i];
 
-if (strlen($try) == 4 && $_SESSION['attemps'] < 10) {
-    $_SESSION['attemps']++;
-    $_SESSION['grid'] = '
+if (!$_SESSION['win']) {
+    for ($i = 0; $i < 4; $i++)
+        $try .= $_POST[$i];
+    if (strlen($try) == 4 && $_SESSION['attemps'] < 10) {
+        $correct = feedback($try);
+        if ($correct[0] == 4) {
+            $_SESSION['win'] = true;
+            $_SESSION['attemps'] = 10;
+        }
+        $_SESSION['attemps']++;
+        $colors = '
     <div class="row">
-        <div class="cell" style="background-color:'.$colors[$try[0]].'"></div>
-        <div class="cell" style="background-color:'.$colors[$try[1]].'"></div>
-        <div class="cell" style="background-color:'.$colors[$try[2]].'"></div>
-        <div class="cell" style="background-color:'.$colors[$try[3]].'"></div>
-        <div class="feedback">
-            <div class="pin"></div>
-            <div class="pin"></div>
-            <div class="pin"></div>
-            <div class="pin"></div>
-        </div>
-    </div>'.$_SESSION['grid'];
+    <div class="cell" style="background-color:' . $colors[$try[0]] . '"></div>
+    <div class="cell" style="background-color:' . $colors[$try[1]] . '"></div>
+    <div class="cell" style="background-color:' . $colors[$try[2]] . '"></div>
+    <div class="cell" style="background-color:' . $colors[$try[3]] . '"></div>
+    <div class="feedback">';
+
+        for ($i = 0; $i < $correct[0]; $i++)
+            $colors .= '<div class="pin" style="background-color: green"></div>';
+        for ($i = 0; $i < $correct[1]; $i++)
+            $colors .= '<div class="pin" style="background-color: red"></div>';
+        for ($i = 0; $i < 4 - ($correct[0] + $correct[1]); $i++)
+            $colors .= '<div class="pin"></div>';
+
+        $colors .= '</div></div>';
+        $_SESSION['grid'] = $colors . $_SESSION['grid'];
+    }
 }
-
-$value = "red";
-
 ?>
 
 <body>
+    <h1>Master Mind</h1>
+
+    <?php
+    if ($_SESSION['win'])
+        echo '<p class="win">COMPLIMENTI HAI VINTO!!!<p>';
+    else
+        echo '<p>Tentativi rimansti: ' . (10 - $_SESSION['attemps']) . '</p>';
+    ?>
+
+    <!-- <p>Tentativi rimanenti :
+        <?php echo 10 - $_SESSION['attemps'] ?>
+    </p> -->
 
     <div class="grid">
         <?php
@@ -113,10 +189,19 @@ $value = "red";
             </select>'
                 ?>
             <input type="submit" value="Check">
-    </form>
-    <form method="post">
-        <input type="submit" name="clear" value="New Game">
-    </form>
-</body>
+        </form>
+        <form method="post">
+            <input type="submit" name="clear" value="New Game">
+        </form>
 
-</html>
+        <h2>Legenda:</h2>
+        <div class="legend">
+            <div class="example" style="background-color: green">&nbsp;</div>
+            <div class="text">Colore corretto nella posizione CORRETTA</div>
+            <div class="example" style="background-color: red">&nbsp;</div>
+            <div class="text">Colore corretto nella posizione SBAGLIATA</div>
+        </div>
+        <p>N.B. non ci possono doppioni nei colori</p>
+    </body>
+
+    </html>
