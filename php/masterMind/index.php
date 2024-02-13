@@ -95,15 +95,16 @@ function generate_psw()
 
 function feedback($sequence)
 {
-    error_log("try " . $sequence . "\tcorrect " . $_SESSION['psw']);
     $correct_pos = 0;
     $correct_color = 0;
     for ($i = 0; $i < 4; $i++) {
-        $sequence[$i] === $_SESSION['psw'][$i] ?
-            $correct_pos++ :
-            (str_contains($_SESSION['psw'], $sequence[$i]) ?
-                $correct_color++ : null);
+        if ($sequence[$i] === $_SESSION['psw'][$i])
+            $correct_pos++;
+        elseif (str_contains($sequence, $_SESSION['psw'][$i]))
+            $correct_color++;
     }
+    error_log("try " . $sequence . "\tcorrect " . $_SESSION['psw']);
+    error_log("cor: ".$correct_pos."\tmis ".$correct_color);
     return [$correct_pos, $correct_color];
 }
 
