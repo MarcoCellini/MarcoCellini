@@ -1,0 +1,95 @@
+RETI NEURALI CONVOLUZIONALI	[Convolutional Neural Network]
+
+AI --> [Artificial Intelligence] creare dei PC in grado di effettuare previsioni e decisioni
+
+Maching Learning --> apprendimento automatico [branca dell'AI] dato una serie di esempio sarà
+l'algoritmo a risolvere e capire i problemi non il programmato che dirà come risolverli
+
+Computer Vision --> comprende le informazioni visive come immagini/video (utilizza maching learning)
+
+Object Recognition --> sotto classe computer vision riconosce gli oggetti e li identifica
+
+Un primo approccio che si ebbene in questo campo fu la prototipazione di una cervello umano digitale. 
+Applicando una trasformazione lineare [media pesata] dei valori di ingresso e una funzione di attivazione
+non lineare che ci restituisce un solo output. 
+
+Nel 1958 il primo neurone, Perceptron, (inventato da Frank Rosenblatt) usava l'approccio appena spiegato
+ottenendo un solo output dato dei numeri trasformati in foto 20x20 [400 pixel]. 
+
+- Strati di ingresso / uscita (input/output layer)
+	input --> l'interfaccia che riceve le info iniziali per processo di apprendimento
+	output --> interfaccia che fornisce il risultato 
+
+Tra gli strati di ingresso e uscita ci sono gli strati nascosti (hidden layers) ogni sottostrato crea dell'output
+che diventa input per lo strato succcessivo. 
+Nella rappresentazione moderna ci sono n output che restituisco una percentuale della probabilità che l'immagine 
+di ingressio sia o meno quello che si vuole riconoscere. 
+
+- Rete Neurale
+Struttura computazionale compasta da neuroni artificiali organizzati in strati che progettata per apprendere 
+attraverso l'addestramento.
+Sono degli oggetti statistici, non hanno verità assoluta. 
+
+- Funzione Sigmoide [funzione di attivazione]
+restituisce valori compresi tra 0 e 1 per la classificazione dell'input [probabilità di una risposta]. 
+
+
+- RETI NEAURALI CONVOLUZIONALI
+un Multi Layer Perceptron ha dei svantaggi:
+	occupa molto spazio
+	non mantiene le relazioni di vicinanza tra i pixel [no informazione spaziale]
+
+Le reti convoluzionali risolvono questi problemi e sono adatte al riconoscimento delle immagini. 
+Sfruttano dei patter, feature per riconoscere determinate cose
+
+Introduce 2 strati in più:
+	strato convuluzionale --> trova modelli nelle img applicando filtri e kernel [CONVOLUZIONE]
+	strato di aggregazione [POOLING] --> semplifica le img
+
+La convulazione era il metodo con cui veniva fatta la visione artificiale classica attraverso delle matrici
+e il confronto di esse. 
+
+Le MATRICI sono molto importanti --> rendono i conti fattibili in parallelo grazie anche all'accelerazione grafica
+attraverso le GPU velocizza l'apprendimento delle AI. 
+
+Filtro --> matrice di numeri che serve per evidenziare delle caratteristiche in una img.
+I filtri vengono appresi durante la fase di ADDESTRAMENTO. 
+
+- ADDESTRAMENTO
+L'addestramento vuole trovare in automatico i filtri per riconoscere le img.
+Apprendimento Automatico == si apprende dagli esempi.
+I dataset SONO FONDAMENTALI
+
+2 tipi di dataset:
+	di addestramento
+	di test --> valutare le prestazioni del modello
+
+Alla fine dell'apprendimento bisogna calcolare le prestazioni facendo una media delle risposte e della loro accuratezza.
+Accuratezza --> percentuale di predizioni corrette su tutti i casi
+Precisione --> numero di predizioni corrette sulla classe positiva [true positive / true positive + false positive]
+Recall (sensitività) --> true positive / true positive + false negative
+
+All'inizio dell'addestramento i filtri non sono tutti 0. Si inizializzano con valori casuali. 
+
+Funzione di costo --> misura che la predizione sia corretta o sbagliata
+Calcolando il logaritmo negativo della risposta del percettore. 
+se la classe vera è asegnata alta probabilita il costo è basso:
+	log(1) = 0
+se invece la classe vera è assegnat aalla bassa probabilità di costo:
+	-log(0) = Infinty
+
+La funzione di costo si chiama Binary Cross Entropy [BCE]. 
+Il risultato delle CNN non dipende solo dall'img man anche dal valore dei filtri della CNN. 
+
+Metodo più visto per l'addestramento è il Back Propagation, con questo algoritmo i pesi vengono aggiustati
+per rispettare il costo. [gradiente --> direzione e quantità di aggiustamento] 
+
+La differenziazione automatica si esegue con la compilazione del grafo computazionele della rete neurale
+
+- STRATI di POOLING
+Applicare dei filtri non solo trasforma img ma la riduce anche --> applica una media pesato alla img di ingresso
+
+MAX Pooling --> prende una sezione di pixel e prende il valore +alto in quella sezione e viene passato quello
+allo strato succesivo [si riduce le info tra uno strato e l'altro]. 
+Riduce/annula il problema dell'OVERFITTING [AI funziona solo con il dataset e non con il resto]
+Oppure con il DROP OUT si eliminano dei neuroni per evitare l'overfitting. 
