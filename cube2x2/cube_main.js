@@ -13,4 +13,4 @@ import * as move from './move_cube.js';
 let c = cube.new_cube_solved();
 
 console.log(c);
-console.log(move.sexy_move(c));
+console.log(move.D1(c));

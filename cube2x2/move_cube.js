@@ -31,24 +31,52 @@ export const R1 = (cube) => {
     return rotate_sx(cube.map((e, i) => i < 4 ? [[e[0][0], l[k++]], [e[1][0], l[k++]]] : e), 4);
 };
 
-export const U = (cube) => {
+const rotate_cube_90_degree_dx = (cube) => {
     Array.from(Array(6).keys()).map(e => e !== 2 ? cube = rotate_dx(cube, e) : cube = rotate_sx(cube, e));
-    cube = [cube[0], cube[5], cube[2], cube[4], cube[1], cube[3]];
-    cube = R(cube);
+    return [cube[0], cube[5], cube[2], cube[4], cube[1], cube[3]];
+};
+
+const rotate_cube_90_degree_sx = (cube) => {
     Array.from(Array(6).keys()).map(e => e !== 2 ? cube = rotate_sx(cube, e) : cube = rotate_dx(cube, e));
-    cube = [cube[0], cube[4], cube[2], cube[5], cube[3], cube[1]];
-    return cube;
-}
+    return [cube[0], cube[4], cube[2], cube[5], cube[3], cube[1]];
+};
+
+export const U = (cube) => {
+    cube = rotate_cube_90_degree_dx(cube);
+    cube = R(cube);
+    return rotate_cube_90_degree_sx(cube);
+};
 
 export const U1 = (cube) => {
-    Array.from(Array(6).keys()).map(e => e !== 2 ? cube = rotate_dx(cube, e) : cube = rotate_sx(cube, e));
-    cube = [cube[0], cube[5], cube[2], cube[4], cube[1], cube[3]];
+    cube = rotate_cube_90_degree_dx(cube);
     cube = R1(cube);
-    Array.from(Array(6).keys()).map(e => e !== 2 ? cube = rotate_sx(cube, e) : cube = rotate_dx(cube, e));
-    cube = [cube[0], cube[4], cube[2], cube[5], cube[3], cube[1]];
-    return cube;
-}
+    return rotate_cube_90_degree_sx(cube);
+};
+
+export const L = (cube) => {
+    cube = rotate_cube_90_degree_dx(rotate_cube_90_degree_dx(cube));
+    cube = R(cube);
+    return rotate_cube_90_degree_sx(rotate_cube_90_degree_sx(cube));
+};
+
+export const L1 = (cube) => {
+    cube = rotate_cube_90_degree_dx(rotate_cube_90_degree_dx(cube));
+    cube = R1(cube);
+    return rotate_cube_90_degree_sx(rotate_cube_90_degree_sx(cube));
+};
+
+export const D = (cube) => {
+    cube = rotate_cube_90_degree_dx(cube);
+    cube = L(cube);
+    return rotate_cube_90_degree_sx(cube);
+};
+
+export const D1 = (cube) => {
+    cube = rotate_cube_90_degree_dx(cube);
+    cube = L1(cube);
+    return rotate_cube_90_degree_sx(cube);
+};
 
 export const sexy_move = (c) => {
     return U1(R1(U(R(c))));
-}
+};
