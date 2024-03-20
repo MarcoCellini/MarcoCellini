@@ -3,8 +3,8 @@
     and create others changing the point of view of the cube
 */
 
-const shift_right = (c) => {
-    return [...c.slice(c.length -2), ...c.slice(0, c.length - 2)];
+const shift_right = (c, pos) => {
+    return [...c.slice(c.length - pos), ...c.slice(0, c.length - pos)];
 };
 
 const rotate_dx = (c, f) => {
@@ -13,12 +13,12 @@ const rotate_dx = (c, f) => {
 
 export const R = (cube) => {    
     let k = 0, l = cube.flat().flat().filter((_, i) => i < 16).filter((_, i) => i % 2);
-    l = shift_right(l);
+    l = shift_right(l, 2);
     return rotate_dx(cube.map((e, i) => i < 4 ? [[e[0][0], l[k++]], [e[1][0], l[k++]]] : e), 4);
 };
 
-const shift_left = (c) => {
-    return [...c.slice(2), ...c.slice(0, 2)];
+const shift_left = (c, pos) => {
+    return [...c.slice(pos), ...c.slice(0, pos)];
 };
 
 const rotate_sx = (c, f) => {
@@ -27,7 +27,7 @@ const rotate_sx = (c, f) => {
 
 export const R1 = (cube) => {
     let k = 0, l = cube.flat().flat().filter((_, i) => i < 16).filter((_, i) => i % 2 !== 0);
-    l = shift_left(l);
+    l = shift_left(l, 2);
     return rotate_sx(cube.map((e, i) => i < 4 ? [[e[0][0], l[k++]], [e[1][0], l[k++]]] : e), 4);
 };
 
@@ -79,4 +79,40 @@ export const D1 = (cube) => {
 
 export const sexy_move = (c) => {
     return U1(R1(U(R(c))));
+};
+
+const rotate_cube_90_degree_up = (cube) => {
+    return [...shift_right(cube.slice(0, 4), 1), rotate_dx(cube, 4)[4], rotate_sx(cube, 5)[5]];
+};
+
+const rotate_cube_90_degree_dw = (cube) => {
+    return [...shift_left(cube.slice(0, 4), 1), rotate_sx(cube, 4)[4], rotate_dx(cube, 5)[5]];
+};
+
+export const F = (cube) => {
+    cube = rotate_cube_90_degree_up(cube);
+    cube = U(cube);
+    return rotate_cube_90_degree_dw(cube);
+};
+
+export const F1 = (cube) => {
+    cube = rotate_cube_90_degree_up(cube);
+    cube = U1(cube);
+    return rotate_cube_90_degree_dw(cube);
+};
+
+export const B = (cube) => {
+    cube = rotate_cube_90_degree_up(cube);
+    cube = D(cube);
+    return rotate_cube_90_degree_dw(cube);
+};
+
+export const B1 = (cube) => {
+    cube = rotate_cube_90_degree_up(cube);
+    cube = D1(cube);
+    return rotate_cube_90_degree_dw(cube);
+};
+
+export const test = (c) => {
+    return R1(U(U(R(U1(R1(U(U(R(c)))))))))
 };
